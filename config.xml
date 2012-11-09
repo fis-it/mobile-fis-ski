@@ -9,7 +9,7 @@
        <preference name="target-device" value="universal" />
        <preference name="fullscreen" value="true" />
        <preference name="webviewbounce" value="false" />
-       <preference name="stay-in-webview" value="true" />
+       <preference name="stay-in-webview" value="false" />
        <gap:splash src="splash.png" />
        <access origin="http://fisski.com" subdomains="true" />
        <access origin="http://www.fis-ski.com" />

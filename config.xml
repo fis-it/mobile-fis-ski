@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<widget id="com.fis-ski.mobile-fis-ski" version="1.0.0" versioncode="1">
+    <name>Mobile.fis-ski.com</name>
+    <Description>Official web app of the FIS (International Ski Fedration). Everything about the ski and snowboard World: Worldcup, Continental cup, every race level results, Live timing and live scoring, Calendar, News, Athletes Biographies, Cup standings.</Description>
+    <author href="http://www.fis-ski.com">
+        FIS IT department
+    </author>
+       <preference name="orientation" value="both" />
+       <preference name="target-device" value="universal" />
+       <preference name="fullscreen" value="true" />
+       <preference name="webviewbounce" value="false" />
+       <preference name="stay-in-webview" value="true" />
+       <gap:splash src="splash.png" />
+       <access origin="http://fisski.com" subdomains="true" />
+       <access origin="http://www.fis-ski.com" />
+       <access origin="http://www.fisalpine.com" />
+       <access origin="http://live.fisski.com" />
+</widget>

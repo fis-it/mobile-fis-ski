@@ -15,12 +15,12 @@
        <preference name="webviewbounce" value="false" />
        <preference name="stay-in-webview" value="false" />
        <gap:splash src="splash/splash.png" />
-       <gap:splash src="splash/android/ldpi.png" gap:platform="android" gap:density="ldpi" />
-        <gap:splash src="splash/android/mdpi.png" gap:platform="android" gap:density="mdpi" />
-        <gap:splash src="splash/android/hdpi.png" gap:platform="android" gap:density="hdpi" />
-        <gap:splash src="splash/android/xhdpi.png" gap:platform="android" gap:density="xhdpi" />
+       <gap:splash src="splash/android/portrait/ldpi.png" gap:platform="android" gap:density="ldpi" />
+       <gap:splash src="splash/android/portrait/mdpi.png" gap:platform="android" gap:density="mdpi" />
+       <gap:splash src="splash/android/portrait/hdpi.png" gap:platform="android" gap:density="hdpi" />
+       <gap:splash src="splash/android/portrait/xhdpi.png" gap:platform="android" gap:density="xhdpi" />
        <access />
-        <access origin="http://fisski.com" subdomains="true" />
+       <access origin="http://fisski.com" subdomains="true" />
        <access origin="http://www.fis-ski.com" />
        <access origin="http://www.fisalpine.com" />
        <access origin="http://live.fisski.com" />

@@ -2,8 +2,8 @@
 <widget xmlns = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
         id="com.fis-ski.mobile-fis-ski" 
-        version="1.0.4" 
-        versioncode="4">
+        version="1.0.5" 
+        versioncode="5">
     <name>Mobile.fis-ski.com</name>
     <Description>Official web app of the FIS (International Ski Federation). Everything about the ski and snowboard World: Worldcup, Continental cup, every race level results, Live timing and live scoring, Calendar, News, Athletes Biographies, Cup standings.</Description>
     <author href="http://www.fis-ski.com">

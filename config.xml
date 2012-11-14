@@ -15,10 +15,14 @@
        <preference name="webviewbounce" value="false" />
        <preference name="stay-in-webview" value="true" />
        <gap:splash src="splash/splash.png" />
-       <gap:splash src="splash/android/portrait/ldpi.png" gap:platform="android" gap:density="ldpi" />
-       <gap:splash src="splash/android/portrait/mdpi.png" gap:platform="android" gap:density="mdpi" />
-       <gap:splash src="splash/android/portrait/hdpi.png" gap:platform="android" gap:density="hdpi" />
-       <gap:splash src="splash/android/portrait/xhdpi.png" gap:platform="android" gap:density="xhdpi" />
+       <gap:splash src="splash/android/portrait/ldpi.png" gap:platform="android" gap:density="ldpi"  width="200" height="320" />
+       <gap:splash src="splash/android/portrait/mdpi.png" gap:platform="android" gap:density="mdpi"  width="320" height="480" />
+       <gap:splash src="splash/android/portrait/hdpi.png" gap:platform="android" gap:density="hdpi"  width="480" height="800" />
+       <gap:splash src="splash/android/portrait/xhdpi.png" gap:platform="android" gap:density="xhdpi"  width="720" height="1280" />
+       <gap:splash src="splash/android/landscape/ldpi.png" gap:platform="android" gap:density="ldpi"  width="426" height="320" />
+       <gap:splash src="splash/android/landscape/mdpi.png" gap:platform="android" gap:density="mdpi"  width="470" height="320" />
+       <gap:splash src="splash/android/landscape/hdpi.png" gap:platform="android" gap:density="hdpi"  width="640" height="480" />
+       <gap:splash src="splash/android/landscape/xhdpi.png" gap:platform="android" gap:density="xhdpi"  width="960" height="720" />
        <gap:splash src="splash/ios/Default.png" width="320" height="480" />
        <gap:splash src="splash/ios/Default_at_2x.png" width="640" height="960" />
        <gap:splash src="splash/ios/Default_iphone5.png" width="640" height="1136" />

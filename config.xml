@@ -46,5 +46,6 @@
        <access origin="http://www.fisskijumping.com" />
        <access origin="http://www.fisnordicombined.com" />
        <access origin="http://live.fisski.com" />
-       <preference name="permissions" value="none"/>
+       <preference name="permissions" value="none" />
+       <feature name="http://api.phonegap.com/1.0/network" />
 </widget>

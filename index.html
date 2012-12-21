@@ -17,7 +17,7 @@
     }
 
     function checkConnection() {
-        var networkState = navigator.connection.type;
+        var networkState = navigator.network.connection.type;
 
         var states = {};
         states[Connection.UNKNOWN]  = 'Unknown connection';
@@ -28,7 +28,7 @@
         states[Connection.CELL_4G]  = 'Cell 4G connection';
         states[Connection.NONE]     = 'No network connection';
 
-        alert('Connection type : ' + navigator.connection.type);
+        alert('Connection type : ' + navigator.network.connection.type);
     }
 
     </script>

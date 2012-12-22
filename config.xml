@@ -47,5 +47,5 @@
        <access origin="http://www.fisnordicombined.com" />
        <access origin="http://live.fisski.com" />
        <preference name="permissions" value="none" />
-       <gap:plugin name="NetworkStatus" value="org.apache.cordova.NetworkManager" />
+       <gap:plugin name="NetworkStatus" value="org.apache.cordova.NetworkManager"/>
 </widget>

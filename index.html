@@ -13,11 +13,12 @@
     // Cordova is loaded and it is now safe to make calls Cordova methods
     //
     function onDeviceReady() {
+        $.getScript('phonegap.js', function() { alert('Load was performed.'); })
         checkConnection();
     }
 
     function checkConnection() {
-        var networkState = navigator.network.connection.type;
+        var networkState = navigator.connection.type;
 
         var states = {};
         states[Connection.UNKNOWN]  = 'Unknown connection';
@@ -28,7 +29,8 @@
         states[Connection.CELL_4G]  = 'Cell 4G connection';
         states[Connection.NONE]     = 'No network connection';
 
-        alert('Connection type : ' + navigator.network.connection.type);
+        alert('Connection type: ' + states[networkState]);
+
     }
 
     </script>

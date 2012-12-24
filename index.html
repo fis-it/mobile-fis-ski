@@ -26,6 +26,8 @@ console.log('okkkk');
         var networkState = navigator.connection.type;
 
         printObject(navigator);
+        printObject(navigator.connection);
+        printObject(navigator.connection.type);
         var states = {};
         states[Connection.UNKNOWN]  = 'Unknown connection';
         states[Connection.ETHERNET] = 'Ethernet connection';

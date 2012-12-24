@@ -12,6 +12,7 @@
             function checkConnection() {
                 var networkState = navigator.network.connection.type;
                 if (networkState == 'none'){
+                    alert('Mobile.fis-ski.com need a internet connection, please activate the internet and try again.')
                     navigator.app.exitApp();
                 } else {
                     top.document.location = 'http://m.fisski.com';

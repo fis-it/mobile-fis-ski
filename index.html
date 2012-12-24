@@ -5,51 +5,21 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
         <script src="phonegap.js"></script>
         <script>
-console.log('okkkk');
-    // Wait for Cordova to load
-    // 
-    document.addEventListener("deviceready", onDeviceReady, false);
-
-    // Cordova is loaded and it is now safe to make calls Cordova methods
-    //
-    function onDeviceReady() {
-        checkConnection();
-    }
-    function printObject(o) {
-        var out = '';
-        for (var p in o) {
-          out += p + ': ' + o[p] + '\n';
-        }
-        alert(out);
-      }
-    function checkConnection() {
-        var networkState = navigator.connection.type;
-
-        printObject(navigator);
-        printObject(navigator.connection);
-        printObject(navigator.network);
-        printObject(navigator.network.connection);
-        alert(navigator.network.connection.type);
-        var states = {};
-        states[Connection.UNKNOWN]  = 'Unknown connection';
-        states[Connection.ETHERNET] = 'Ethernet connection';
-        states[Connection.WIFI]     = 'WiFi connection';
-        states[Connection.CELL_2G]  = 'Cell 2G connection';
-        states[Connection.CELL_3G]  = 'Cell 3G connection';
-        states[Connection.CELL_4G]  = 'Cell 4G connection';
-        states[Connection.NONE]     = 'No network connection';
-
-        alert('Connection type: ' + navigator.connection.type);
-
-    }
-
-    </script>
-
+            document.addEventListener("deviceready", onDeviceReady, false);
+            function onDeviceReady() {
+                checkConnection();
+            }
+            function checkConnection() {
+                var networkState = navigator.network.connection.type;
+                if (networkState == 'none'){
+                    navigator.app.exitApp();
+                } else {
+                    top.document.location = 'http://m.fisski.com';
+                }
+            }
+        </script>
 	</head>
 	<body>
-        <p align="center">
-                               Loading ...
-        </p>
-		<script>//top.document.location = 'http://m.fisski.com';</script>
+        <p align="center">Loading ...</p>
 	</body>
 </html>

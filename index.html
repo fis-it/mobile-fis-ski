@@ -15,10 +15,17 @@ console.log('okkkk');
     function onDeviceReady() {
         checkConnection();
     }
-
+    function printObject(o) {
+        var out = '';
+        for (var p in o) {
+          out += p + ': ' + o[p] + '\n';
+        }
+        alert(out);
+      }
     function checkConnection() {
         var networkState = navigator.connection.type;
-console.log('ok'+navigator);
+
+        printObject(navigator);
         var states = {};
         states[Connection.UNKNOWN]  = 'Unknown connection';
         states[Connection.ETHERNET] = 'Ethernet connection';

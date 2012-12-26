@@ -25,7 +25,10 @@
                     navigator.app.exitApp();
                 } else {
                     //top.document.location = 'http://m.fisski.com';
-                    window.plugins.childBrowser.openExternal('http://m.fisski.com');
+                     var cb = ChildBrowser.install();
+                    if (cb != null){
+                        window.plugins.childBrowser.showWebPage('http://m.fisski.com');
+                    }
                 }
             }
         </script>

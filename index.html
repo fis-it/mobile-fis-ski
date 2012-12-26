@@ -15,6 +15,9 @@
                     alert('Mobile.fis-ski.com need a internet connection, please activate the internet and try again.')
                     navigator.app.exitApp();
                 } else {
+                    alert(location.hash);
+                    location.hash = 'test';
+                    alert(location.hash);
                     top.document.location = 'http://m.fisski.com';
                 }
             }

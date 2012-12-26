@@ -13,7 +13,8 @@
   }
   alert(out);
 }
-printObject(window);
+printObject(window.addEventListener);
+document.write(window.addEventListener);
             if (location.hash == '#exit_next_time'){
                 v_question = confirm('Exit mobile.fis-ski.com?');
                 if (v_question){
@@ -33,7 +34,7 @@ printObject(window);
                     navigator.app.exitApp();
                 } else {
                     window.location.href += "#exit_next_time";
-                    top.document.location = 'http://m.fisski.com';
+                    //top.document.location = 'http://m.fisski.com';
                 }
             }
         </script>

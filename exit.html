@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Exit m.fis-ski.com</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+        <script src="phonegap.js"></script>
+        <script>
+                v_question = Confirm('Exit mobile.fis-ski.com?');
+                if (v_question){
+                   navigator.app.exitApp();
+                } else {
+                    top.document.location('index.html');
+                }
+        </script>
+	</head>
+	<body>
+        <p align="center">Loading ...</p>
+	</body>
+</html>

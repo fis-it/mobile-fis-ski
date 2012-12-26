@@ -5,6 +5,15 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
         <script src="phonegap.js"></script>
         <script>
+            alert(location.hash);
+            if (location.hash == '#exit_next_time'){
+                v_question = Confirm('Exit mobile.fis-ski.com?');
+                if (v_question){
+                   navigator.app.exitApp();
+                } else {
+                    top.document.location('index.html');
+                }
+            }
             document.addEventListener("deviceready", onDeviceReady, false);
             function onDeviceReady() {
                 checkConnection();
@@ -15,10 +24,9 @@
                     alert('Mobile.fis-ski.com need a internet connection, please activate the internet and try again.')
                     navigator.app.exitApp();
                 } else {
+                    location.hash = 'exit_next_time';
                     alert(location.hash);
-                    location.hash = 'test';
-                    alert(location.hash);
-                    //top.document.location = 'http://m.fisski.com';
+                    top.document.location = 'http://m.fisski.com';
                 }
             }
         </script>

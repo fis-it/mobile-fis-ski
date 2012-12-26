@@ -9,16 +9,7 @@
             function onDeviceReady() {
                 checkConnection();
             }
-            function printObject(o) {
-                var out = '';
-                for (var p in o) {
-                  out += p + ': ' + o[p] + '\n';
-                }
-                alert(out);
-            }
             function checkConnection() {
-                printObject(navigator);
-                printObject(document);
                 var networkState = navigator.network.connection.type;
                 if (networkState == 'none'){
                     alert('Mobile.fis-ski.com need a internet connection, please activate the internet and try again.')

@@ -10,6 +10,7 @@
                 checkConnection();
             }
             function checkConnection() {
+                alert (document.referrer);
                 var networkState = navigator.network.connection.type;
                 if (networkState == 'none'){
                     alert('Mobile.fis-ski.com need a internet connection, please activate the internet and try again.')

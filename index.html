@@ -5,6 +5,7 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
         <script src="phonegap.js"></script>
         <script>
+            alert(location.hash);
             if (location.hash == '#exit_next_time'){
                 v_question = confirm('Exit mobile.fis-ski.com?');
                 if (v_question){
@@ -23,7 +24,7 @@
                     alert('Mobile.fis-ski.com need a internet connection, please activate the internet and try again.')
                     navigator.app.exitApp();
                 } else {
-                    history.pushState("", "m.fis-ski.com Exit", "index.html#exit_next_time");
+                    history.pushState("", "m.fis-ski.com Exit", "exit.html#exit_next_time");
                     top.document.location = 'http://m.fisski.com';
                 }
             }

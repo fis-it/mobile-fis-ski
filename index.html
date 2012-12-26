@@ -5,16 +5,6 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
         <script src="phonegap.js"></script>
         <script>
-         
-   function printObject(o) {
-  var out = '';
-  for (var p in o) {
-    out += p + ': ' + o[p] + '\n';
-  }
-  document.write(out);
-}
-
-//document.write(window.addEventListener);
             if (location.hash == '#exit_next_time'){
                 v_question = confirm('Exit mobile.fis-ski.com?');
                 if (v_question){
@@ -33,16 +23,12 @@
                     alert('Mobile.fis-ski.com need a internet connection, please activate the internet and try again.')
                     navigator.app.exitApp();
                 } else {
-                    window.location.href += "#exit_next_time";
-                    //top.document.location = 'http://m.fisski.com';
+                    top.document.location = 'http://m.fisski.com';
                 }
             }
         </script>
 	</head>
 	<body>
-        <script>
-            printObject(window);
-        </script>
         <p align="center">Loading ...</p>
 	</body>
 </html>

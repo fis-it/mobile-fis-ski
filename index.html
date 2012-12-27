@@ -6,23 +6,20 @@
         <script src="phonegap.js"></script>
         <script src="childbrowser.js"></script>
         <script>
-            if (location.hash == '#exit_next_time'){
-                v_question = confirm('Exit mobile.fis-ski.com?');
-                if (v_question){
-                   navigator.app.exitApp();
-                } else {
-                    top.document.location('index.html');
-                }
+            if (v_exit){
+                alert('ok');
             }
+            var v_exit;
             document.addEventListener("deviceready", onDeviceReady, false);
             
             function onDeviceReady() {
                 //document.addEventListener("backbutton", onBackbuttonPress, false);
+                v_exit = true;
                 checkConnection();
             }
             function onCloseBrowser()
             {
-                return false;
+                //return false;
             }
             function onBackbuttonPress () {
                 alert('oka');
@@ -35,8 +32,8 @@
                     alert('Mobile.fis-ski.com need a internet connection, please activate the internet and try again.')
                     navigator.app.exitApp();
                 } else {
-                    //top.document.location = 'http://m.fisski.com';
-                    var cb = ChildBrowser.install();
+                    top.document.location = 'http://m.fisski.com';
+                    /*var cb = ChildBrowser.install();
                     if(cb != null && cb != undefined){
                         cb.onClose = function(){onCloseBrowser()};
                         window.plugins.childBrowser.showWebPage("http://m.fisski.com",{ showLocationBar: false });
@@ -52,7 +49,7 @@
                         window.plugins.childBrowser.onClose = function(){onCloseBrowser()};
                         //window.plugins.childBrowser.openExternal("http://m.fisski.com",true);
                         window.plugins.childBrowser.showWebPage("http://m.fisski.com",{ showLocationBar: false });
-                    }
+                    }*/
                 }
             }
         </script>

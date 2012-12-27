@@ -41,7 +41,8 @@
                         window.plugins.childBrowser.showWebPage("http://m.fisski.com",{ showLocationBar: false });
                     } else {
                         window.plugins.childBrowser.onClose = function(){onCloseBrowser()};
-                        window.plugins.childBrowser.showWebPage("http://m.fisski.com",{ showLocationBar: false });
+                        window.plugins.childBrowser.openExternal("http://m.fisski.com",true);
+                        //window.plugins.childBrowser.showWebPage("http://m.fisski.com",{ showLocationBar: false });
                     }
                 }
             }

@@ -4,26 +4,12 @@
 		<title>m.fis-ski.com</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
         <script src="phonegap.js"></script>
-        <script src="childbrowser.js"></script>
         <script>
-            if (v_exit){
-                alert('ok');
-            }
-            var v_exit;
             document.addEventListener("deviceready", onDeviceReady, false);
             
             function onDeviceReady() {
                 //document.addEventListener("backbutton", onBackbuttonPress, false);
-                v_exit = true;
                 checkConnection();
-            }
-            function onCloseBrowser()
-            {
-                //return false;
-            }
-            function onBackbuttonPress () {
-                alert('oka');
-                return false;
             }
             
             function checkConnection() {
@@ -33,23 +19,6 @@
                     navigator.app.exitApp();
                 } else {
                     top.document.location = 'http://m.fisski.com';
-                    /*var cb = ChildBrowser.install();
-                    if(cb != null && cb != undefined){
-                        cb.onClose = function(){onCloseBrowser()};
-                        window.plugins.childBrowser.showWebPage("http://m.fisski.com",{ showLocationBar: false });
-                    } else {
-                        var URL_NOTHING = 'exit.html';
-                        window.plugins.childBrowser.onLocationChange = function ( url ) {
-                            alert('ok detected');
-                            if ( url.indexOf( URL_NOTHING ) > -1 ) {
-                                alert('close');
-                                window.plugins.childBrowser.close();
-                            };
-                        };
-                        window.plugins.childBrowser.onClose = function(){onCloseBrowser()};
-                        //window.plugins.childBrowser.openExternal("http://m.fisski.com",true);
-                        window.plugins.childBrowser.showWebPage("http://m.fisski.com",{ showLocationBar: false });
-                    }*/
                 }
             }
         </script>

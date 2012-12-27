@@ -15,8 +15,9 @@
                 }
             }
             document.addEventListener("deviceready", onDeviceReady, false);
-            document.addEventListener("backbutton", onBackbuttonPress, false);
+            
             function onDeviceReady() {
+                document.addEventListener("backbutton", onBackbuttonPress, false);
                 checkConnection();
             }
             function onCloseBrowser()

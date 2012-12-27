@@ -15,12 +15,16 @@
                 }
             }
             document.addEventListener("deviceready", onDeviceReady, false);
+            document.addEventListener("backbutton", onBackbuttonPress, false);
             function onDeviceReady() {
                 checkConnection();
             }
             function onCloseBrowser()
             {
-                alert("In index.html child browser closed");
+                return false;
+            }
+            function onBackbuttonPress () {
+                alert('ok');
                 return false;
             }
             function checkConnection() {

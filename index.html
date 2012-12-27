@@ -31,9 +31,11 @@
                 } else {
                     //top.document.location = 'http://m.fisski.com';
                     var cb = ChildBrowser.install();
-                    alert(cb);
-                    if(cb != null){
+                    if(cb != null && cb != undefined){
                         cb.onClose = function(){onCloseBrowser()};
+                        window.plugins.childBrowser.showWebPage("http://m.fisski.com",{ showLocationBar: false });
+                    } else {
+                        window.plugins.childBrowser.onClose = function(){onCloseBrowser()};
                         window.plugins.childBrowser.showWebPage("http://m.fisski.com",{ showLocationBar: false });
                     }
                 }

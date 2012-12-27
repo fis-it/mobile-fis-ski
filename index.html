@@ -18,6 +18,11 @@
             function onDeviceReady() {
                 checkConnection();
             }
+            function onCloseBrowser()
+            {
+                alert("In index.html child browser closed");
+                return false;
+            }
             function checkConnection() {
                 var networkState = navigator.network.connection.type;
                 if (networkState == 'none'){
@@ -25,7 +30,12 @@
                     navigator.app.exitApp();
                 } else {
                     //top.document.location = 'http://m.fisski.com';
-                    window.plugins.childBrowser.showWebPage('http://m.fisski.com',{ showLocationBar: false });
+                    var cb = ChildBrowser.install();
+                    alert(cb);
+                    if(cb != null){
+                        cb.onClose = function(){onCloseBrowser()};
+                        window.plugins.childBrowser.showWebPage("http://m.fisski.com",{ showLocationBar: false });
+                    }
                 }
             }
         </script>

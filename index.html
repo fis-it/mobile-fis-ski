@@ -6,7 +6,13 @@
         <script src="phonegap.js"></script>
         <script>
             document.addEventListener("deviceready", onDeviceReady, false);
-            
+            function printObject(o) {
+                var out = '';
+                for (var p in o) {
+                  out += p + ': ' + o[p] + '\n';
+                }
+                alert(out);
+            }
             function onDeviceReady() {
                 //document.addEventListener("backbutton", onBackbuttonPress, false);
                 checkConnection();
@@ -18,7 +24,8 @@
                     alert('Mobile.fis-ski.com need a internet connection, please activate the internet and try again.')
                     navigator.app.exitApp();
                 } else {
-                    top.document.location = 'http://m.fisski.com';
+                    printObject(navigator.splashscreen);
+                    //top.document.location = 'http://m.fisski.com';
                 }
             }
         </script>

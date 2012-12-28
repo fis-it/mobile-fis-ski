@@ -21,8 +21,6 @@
             function debuglog()
             {
                 document.write("<h2>History.length</h2>"+history.length);
-                document.write("<h2>Object window</h2>");
-                printObject(window);
                 document.write("<h2>Object Navigator</h2>");
                 printObject(navigator);
                 document.write("<h2>Object Navigator.app</h2>");
@@ -31,6 +29,8 @@
                 printObject(history);
                 document.write("<h2>Object document</h2>");
                 printObject(document);
+                document.write("<h2>Object window</h2>");
+                printObject(window);
             }
             function checkConnection() {
                 var networkState = navigator.network.connection.type;

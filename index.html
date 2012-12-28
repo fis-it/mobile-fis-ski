@@ -6,16 +6,26 @@
         <script src="phonegap.js"></script>
         <script>
             document.addEventListener("deviceready", onDeviceReady, false);
-            /*function printObject(o) {
+            function printObject(o) {
                 var out = '';
                 for (var p in o) {
-                  out += p + ': ' + o[p] + '\n';
+                  out += '<strong>'+ p + '</strong>: ' + o[p] + "\r\n<br/>";
                 }
-                alert(out);
-            }*/
+                document.write(out);
+            }
             function onDeviceReady() {
                 //document.addEventListener("backbutton", onBackbuttonPress, false);
-                checkConnection();
+                //checkConnection();
+                document.write("<h2>Object window</h2>");
+                printObject(window);
+                document.write("<h2>Object Navigator</h2>");
+                printObject(navigator);
+                document.write("<h2>Object Navigator.app</h2>");
+                printObject(navigator.app);
+                document.write("<h2>Object history</h2>");
+                printObject(history);
+                document.write("<h2>Object document</h2>");
+                printObject(document);
             }
             
             function checkConnection() {

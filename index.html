@@ -14,6 +14,7 @@
                 alert(out);
             }
             function onDeviceReady() {
+                navigator.splashscreen.show();
                 //document.addEventListener("backbutton", onBackbuttonPress, false);
                 checkConnection();
             }
@@ -24,12 +25,17 @@
                     alert('Mobile.fis-ski.com need a internet connection, please activate the internet and try again.')
                     navigator.app.exitApp();
                 } else {
-                    printObject(navigator);
-                    printObject(navigator.app);
-                    
-                    alert(history.length);
-                    printObject(navigator.app.backHistory);
-                    top.document.location = 'http://m.fisski.com';
+                    if (history.length > 1){
+                        if (confirm("Are you sure do you want quit mobile.fisski.com?")){
+                            navigator.app.exitApp();
+                        } else {
+                            navigator.app.clearCache();
+                            top.document.location = 'http://m.fisski.com';
+                        }
+                    } else {
+                        navigator.app.clearCache();
+                        top.document.location = 'http://m.fisski.com';
+                    }
                 }
             }
         </script>

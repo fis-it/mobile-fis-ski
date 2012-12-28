@@ -6,15 +6,14 @@
         <script src="phonegap.js"></script>
         <script>
             document.addEventListener("deviceready", onDeviceReady, false);
-            function printObject(o) {
+            /*function printObject(o) {
                 var out = '';
                 for (var p in o) {
                   out += p + ': ' + o[p] + '\n';
                 }
                 alert(out);
-            }
+            }*/
             function onDeviceReady() {
-                navigator.splashscreen.show();
                 //document.addEventListener("backbutton", onBackbuttonPress, false);
                 checkConnection();
             }

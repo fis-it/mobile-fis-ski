@@ -4,32 +4,37 @@
 		<title>m.fis-ski.com</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
         <script src="phonegap.js"></script>
+        <link rel="stylesheet" href="css/FIS_jquery_mobile.css" type="text/css"/>
+        <link rel="stylesheet" href="css/jquery.mobile.structure_1.2.0.min.css" />
+        <link rel="stylesheet" href="css/mobile_new.css" type="text/css"/>
+        <script src="js/jquery_1.8.2.min.js"></script>
+        <script src="js/jquery.mobile_1.2.0.min.js"></script>
         <script>
             document.addEventListener("deviceready", onDeviceReady, false);
-                        function fct_exitapp()
+            function fct_exitapp()
             {
                 if (navigator.app) {
+                    alert('Mobile.fis-ski.com need a internet connection, please activate the internet and try again.')
                     navigator.app.exitApp();
-                } else if (navigator.device) {
-                    navigator.device.exitApp();
+                } else {
+                    $("#loading").html('Mobile.fis-ski.com need a internet connection, please activate the internet and try again.');
+                    $("#tryagain").show();
                 }
             }
             function fct_clearcache()
             {
                 if (navigator.app) {
                     navigator.app.clearCache();
-                } else if (navigator.device) {
-                    navigator.device.clearCache();
                 }
             }
             function onDeviceReady() {
                 //document.addEventListener("backbutton", onBackbuttonPress, false);
-                //checkConnection();
-                debuglog();
+                checkConnection();
+                /*debuglog();
                 alert("document.close()");
                 document.close();
                 alert("window.close()");
-                window.close();
+                window.close();*/
             }
             function printObject(o) {
                 var out = '';
@@ -37,7 +42,7 @@
                   out += '<strong>'+ p + '</strong>: ' + o[p] + "\r\n<br/>";
                 }
                 document.write(out);
-            }
+            }/*
             function debuglog()
             {
                 document.write("<h2>History.length</h2>"+history.length);
@@ -53,24 +58,24 @@
                 printObject(document);
                 //document.write("<h2>Object window</h2>");
                 //printObject(window);
-            }
-            
+            }            */
             function checkConnection() {
                 //var networkState = navigator.network.connection.type;
+                $("#tryagain").hide();
                 var networkState = navigator.onLine;
                 if (networkState != true){
-                    alert('Mobile.fis-ski.com need a internet connection, please activate the internet and try again.')
+                    $("#loading").html("");
                     fct_exitapp();
                 } else {
                     if (history.length > 1){
-                        if (confirm("Are you sure do you want quit mobile.fisski.com?")){
+                        if (confirm("Are you sure do you want quit mobile.fisski.com?") && navigator.app){
                             fct_exitapp();
                         } else {
-                            //fct_clearcache();
+                            fct_clearcache();
                             top.document.location = 'http://m.fisski.com';
                         }
                     } else {
-                        //fct_clearcache();
+                        fct_clearcache();
                         top.document.location = 'http://m.fisski.com';
                     }
                 }
@@ -78,6 +83,22 @@
         </script>
 	</head>
 	<body>
-        <p align="center">Loading ...</p>
+        <div id="container">
+            <div data-role="page" data-theme="a">
+                <div data-role="header" data-position="inline">
+                <div id="fis-home"></div><h1 class="ui-title">FIS-Ski mobile</h1>
+                </div>
+                <div data-role="content">
+                    <ul data-inset="true" data-dividertheme="a" data-theme="a" class="ui-listview" data-role="listview" >
+                        <li data-role="list-divider" role="heading" id="loading">Loading...</li>
+                        <li id="tryagain" style="display: none">
+                            <a href="javascript:checkConnection();" data-transition="slide">Click here to try again</a></li>
+                        <li>
+                    </ul>
+                </div>
+            </div>
+        </div>
 	</body>
+    <script>$("#loading").html('Mobile.fis-ski.com need a internet connection, please activate the internet and try again.');
+                    $("#tryagain").show();</script>
 </html>

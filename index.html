@@ -63,16 +63,8 @@
             function checkConnection() {
                 //var networkState = navigator.network.connection.type;
                 $("#tryagain").hide();
-                var networkState = navigator.onLine;
-                alert(navigator.onLine);
-                alert(networkState);
-                if (networkState != true){
-                    alert('exit');
-                    $("#loading").html("");
-                    alert('exit');
-                    fct_exitapp();
-                } else {
-                    if (history.length > 1){
+                if (navigator.onLine){
+                   if (history.length > 1){
                         if (confirm("Are you sure do you want quit mobile.fisski.com?") && navigator.app){
                             fct_exitapp();
                         } else {
@@ -83,6 +75,9 @@
                         fct_clearcache();
                         top.document.location = 'http://m.fisski.com';
                     }
+                } else {
+                    $("#loading").html("");
+                    fct_exitapp();
                 }
             }
         </script>

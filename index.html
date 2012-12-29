@@ -6,14 +6,7 @@
         <script src="phonegap.js"></script>
         <script>
             document.addEventListener("deviceready", onDeviceReady, false);
-            /*function printObject(o) {
-                var out = '';
-                for (var p in o) {
-                  out += '<strong>'+ p + '</strong>: ' + o[p] + "\r\n<br/>";
-                }
-                document.write(out);
-            }*/
-            function fct_exitapp()
+                        function fct_exitapp()
             {
                 if (navigator.app) {
                     navigator.app.exitApp();
@@ -31,10 +24,20 @@
             }
             function onDeviceReady() {
                 //document.addEventListener("backbutton", onBackbuttonPress, false);
-                checkConnection();
-                //debuglog();
+                //checkConnection();
+                debuglog();
+                alert("document.close()");
+                document.close();
+                alert("window.close()");
+                window.close();
             }
-            /*
+            function printObject(o) {
+                var out = '';
+                for (var p in o) {
+                  out += '<strong>'+ p + '</strong>: ' + o[p] + "\r\n<br/>";
+                }
+                document.write(out);
+            }
             function debuglog()
             {
                 document.write("<h2>History.length</h2>"+history.length);
@@ -42,17 +45,20 @@
                 printObject(navigator);
                 document.write("<h2>Object Navigator.device</h2>");
                 printObject(navigator.device);
+                document.write("<h2>Object Navigator.device.capture</h2>");
+                printObject(navigator.device.capture);
                 document.write("<h2>Object history</h2>");
                 printObject(history);
                 document.write("<h2>Object document</h2>");
                 printObject(document);
-                document.write("<h2>Object window</h2>");
-                printObject(window);
+                //document.write("<h2>Object window</h2>");
+                //printObject(window);
             }
-            */
+            
             function checkConnection() {
-                var networkState = navigator.network.connection.type;
-                if (networkState == 'none'){
+                //var networkState = navigator.network.connection.type;
+                var networkState = navigator.onLine;
+                if (networkState != true){
                     alert('Mobile.fis-ski.com need a internet connection, please activate the internet and try again.')
                     fct_exitapp();
                 } else {

@@ -73,7 +73,7 @@
                 if (connectionStatus == 'online'){
                    if (history.length > 1){
                         if (confirm("Are you sure do you want quit mobile.fisski.com?") && navigator.app){
-                            fct_exitapp();
+                            navigator.app.exitApp();
                         } else {
                             fct_clearcache();
                             top.document.location = 'http://m.fisski.com';

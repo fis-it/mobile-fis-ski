@@ -38,14 +38,14 @@
                 alert("window.close()");
                 window.close();*/
             }
-            /*
+            
             function printObject(o) {
                 var out = '';
                 for (var p in o) {
                   out += '<strong>'+ p + '</strong>: ' + o[p] + "\r\n<br/>";
                 }
-                document.write(out);
-            }
+                alert(out);
+            }/*
             function debuglog()
             {
                 document.write("<h2>History.length</h2>"+history.length);
@@ -64,8 +64,12 @@
             }            */
             function checkConnection() {
                 //var networkState = navigator.network.connection.type;
+                alert('ok');
                 $("#tryagain").hide();
                 var connectionStatus = ((navigator.onLine) ? 'online' : 'offline');
+                alert('ok2');
+                alert(connectionStatus);
+                printObject(navigator);
                 if (connectionStatus == 'online'){
                    if (history.length > 1){
                         if (confirm("Are you sure do you want quit mobile.fisski.com?") && navigator.app){

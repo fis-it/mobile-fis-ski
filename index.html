@@ -64,8 +64,12 @@
                 //var networkState = navigator.network.connection.type;
                 $("#tryagain").hide();
                 var networkState = navigator.onLine;
+                alert(navigator.onLine);
+                alert(networkState);
                 if (networkState != true){
+                    alert('exit');
                     $("#loading").html("");
+                    alert('exit');
                     fct_exitapp();
                 } else {
                     if (history.length > 1){

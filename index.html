@@ -29,7 +29,9 @@
             }
             function onDeviceReady() {
                 //document.addEventListener("backbutton", onBackbuttonPress, false);
-                checkConnection();
+                $(document).ready(function(){
+                    checkConnection();
+                });
                 /*debuglog();
                 alert("document.close()");
                 document.close();
@@ -63,7 +65,8 @@
             function checkConnection() {
                 //var networkState = navigator.network.connection.type;
                 $("#tryagain").hide();
-                if (navigator.onLine){
+                var connectionStatus = ((navigator.onLine) ? 'online' : 'offline');
+                if (connectionStatus == 'online'){
                    if (history.length > 1){
                         if (confirm("Are you sure do you want quit mobile.fisski.com?") && navigator.app){
                             fct_exitapp();

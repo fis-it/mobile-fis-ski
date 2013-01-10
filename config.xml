@@ -14,7 +14,7 @@
        <preference name="target-device" value="universal" />
        <preference name="fullscreen" value="false" />
        <preference name="webviewbounce" value="false" />
-       <preference name="stay-in-webview" value="true" />
+       <preference name="stay-in-webview" value="false" />
        <preference name="show-splash-screen-spinner" value="true" />
        <gap:splash src="splash/splash.png" />
        <gap:splash src="splash/android/portrait/ldpi.png" gap:platform="android" gap:density="ldpi" />
@@ -37,7 +37,7 @@
        <gap:splash src="splash/ios/Default_iphone5.png" width="640" height="1136" />
        <gap:splash src="splash/ios/Default-Landscape.png" width="1024" height="768" />
        <gap:splash src="splash/ios/Default-Portrait.png" width="768" height="1024" />
-       <!--<access />
+       <access />
        <access origin="http://fisski.com" subdomains="true" />
        <access origin="http://www.fis-ski.com" />
        <access origin="http://www.fisalpine.com" />
@@ -46,7 +46,7 @@
        <access origin="http://www.fisfreestyle.com" />
        <access origin="http://www.fisskijumping.com" />
        <access origin="http://www.fisnordicombined.com" />
-       <access origin="http://live.fisski.com" />-->
+       <access origin="http://live.fisski.com" />
        <preference name="permissions" value="none" />
        <gap:plugin name="NetworkStatus" value="org.apache.cordova.NetworkManager" />
        <feature name="http://api.phonegap.com/1.0/network"/>

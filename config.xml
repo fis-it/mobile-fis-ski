@@ -49,5 +49,6 @@
        <access origin="http://live.fisski.com" />
        <preference name="permissions" value="none" />
        <gap:plugin name="NetworkStatus" value="org.apache.cordova.NetworkManager" />
+       <gap:plugin name="ChildBrowser" />
        <feature name="http://api.phonegap.com/1.0/network"/>
 </widget>

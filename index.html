@@ -24,9 +24,20 @@
             function fct_clearcache()
             {
                 $("#loading").html("Loading...");
-                if (navigator.app) {
+                /*if (navigator.app) {
                     navigator.app.clearCache();
-                }
+                }*/
+            }
+            function fct_run_app()
+            {
+                var cb = ChildBrowser.install();
+                    if(cb != null && cb != undefined){
+                        cb.onClose = function(){onCloseBrowser()};
+                        window.plugins.childBrowser.showWebPage("http://m.fisski.com",{ showLocationBar: true });
+                    } else {
+                        window.plugins.childBrowser.onClose = function(){onCloseBrowser()};
+                        window.plugins.childBrowser.showWebPage("http://m.fisski.com",{ showLocationBar: true });
+                    }
             }
             function onDeviceReady() {
                 //document.addEventListener("backbutton", onBackbuttonPress, false);
@@ -78,11 +89,11 @@
                             navigator.app.exitApp();
                         } else {
                             fct_clearcache();
-                            top.document.location = 'http://m.fisski.com';
+                            fct_run_app();
                         }
                     } else {
                         fct_clearcache();
-                        top.document.location = 'http://m.fisski.com';
+                        fct_run_app();
                     }
                 } else {
                     $("#loading").html("");

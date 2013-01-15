@@ -34,10 +34,10 @@
                 var cb = ChildBrowser.install();
                     if(cb != null && cb != undefined){
                         cb.onClose = function(){onCloseBrowser()};
-                        window.plugins.childBrowser.showWebPage("http://m.fisski.com",{ showLocationBar: false,locationBarAlign: "bottom" });
+                        window.plugins.childBrowser.showWebPage("http://m.fisski.com",{ showLocationBar: true,locationBarAlign: "bottom" });
                     } else {
                         window.plugins.childBrowser.onClose = function(){onCloseBrowser()};
-                        window.plugins.childBrowser.showWebPage("http://m.fisski.com",{ showLocationBar: false,locationBarAlign: "bottom" });
+                        window.plugins.childBrowser.showWebPage("http://m.fisski.com",{ showLocationBar: true,locationBarAlign: "bottom" });
                     }
             }
              function onCloseBrowser()
@@ -95,11 +95,11 @@
                             navigator.app.exitApp();
                         } else {
                             fct_clearcache();
-                            fct_run_app();
+                            //fct_run_app();
                         }
                     } else {
                         fct_clearcache();
-                        fct_run_app();
+                        //fct_run_app();
                     }
                 } else {
                     $("#loading").html("");
@@ -109,6 +109,8 @@
         </script>
 	</head>
 	<body>
+        <iframe src="http://m.fisski.com" frameborder="0" width="100%" height="100%"></iframe>  
+        <!--
         <div id="container">
             <div data-role="page" data-theme="a">
                 <div data-role="header" data-position="inline">
@@ -123,6 +125,6 @@
                     </ul>
                 </div>
             </div>
-        </div>
+        </div> -->
 	</body>
 </html>

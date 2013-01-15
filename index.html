@@ -34,11 +34,16 @@
                 var cb = ChildBrowser.install();
                     if(cb != null && cb != undefined){
                         cb.onClose = function(){onCloseBrowser()};
-                        window.plugins.childBrowser.showWebPage("http://m.fisski.com",{ showLocationBar: true });
+                        window.plugins.childBrowser.showWebPage("http://m.fisski.com",{ showLocationBar: false,locationBarAlign: "bottom" });
                     } else {
                         window.plugins.childBrowser.onClose = function(){onCloseBrowser()};
-                        window.plugins.childBrowser.showWebPage("http://m.fisski.com",{ showLocationBar: true });
+                        window.plugins.childBrowser.showWebPage("http://m.fisski.com",{ showLocationBar: false,locationBarAlign: "bottom" });
                     }
+            }
+             function onCloseBrowser()
+            {
+                fct_run_app();
+                return false;
             }
             function onDeviceReady() {
                 //document.addEventListener("backbutton", onBackbuttonPress, false);

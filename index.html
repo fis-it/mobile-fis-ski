@@ -4,7 +4,6 @@
 		<title>m.fis-ski.com</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
         <script src="phonegap.js"></script>
-        <script src="childbrowser.js"></script>
         <link rel="stylesheet" href="css/FIS_jquery_mobile.css" type="text/css"/>
         <link rel="stylesheet" href="css/jquery.mobile.structure_1.2.0.min.css" />
         <link rel="stylesheet" href="css/mobile_new.css" type="text/css"/>
@@ -19,36 +18,20 @@
                     navigator.app.exitApp();
                 } else {
                     $("#loading").html('Mobile.fis-ski.com need a internet connection, please activate the internet and try again.');
+                    $("#loading").show();
                     $("#tryagain").show();
                 }
             }
             function fct_clearcache()
             {
-                $("#loading").html("Loading...");
+                $("#loading").show();
                 /*if (navigator.app) {
                     navigator.app.clearCache();
                 }*/
             }
-            function fct_run_app()
-            {
-                var cb = ChildBrowser.install();
-                    if(cb != null && cb != undefined){
-                        cb.onClose = function(){onCloseBrowser()};
-                        window.plugins.childBrowser.showWebPage("http://m.fisski.com",{ showLocationBar: true,locationBarAlign: "bottom" });
-                    } else {
-                        window.plugins.childBrowser.onClose = function(){onCloseBrowser()};
-                        window.plugins.childBrowser.showWebPage("http://m.fisski.com",{ showLocationBar: true,locationBarAlign: "bottom" });
-                    }
-            }
-             function onCloseBrowser()
-            {
-                fct_run_app();
-                return false;
-            }
             function onDeviceReady() {
                 //document.addEventListener("backbutton", onBackbuttonPress, false);
                 $(document).ready(function(){
-                    $("#loading").html("");
                     checkConnection();
                 });
                 /*debuglog();
@@ -95,22 +78,20 @@
                             navigator.app.exitApp();
                         } else {
                             fct_clearcache();
-                            //fct_run_app();
+                            top.document.location = 'http://m.fisski.com';
                         }
                     } else {
                         fct_clearcache();
-                        //fct_run_app();
+                        top.document.location = 'http://m.fisski.com';
                     }
                 } else {
-                    $("#loading").html("");
+                    $("#loading").hide();
                     fct_exitapp();
                 }
             }
         </script>
 	</head>
 	<body>
-        <iframe src="http://m.fisski.com" frameborder="0" width="100%" height="100%"></iframe>  
-        <!--
         <div id="container">
             <div data-role="page" data-theme="a">
                 <div data-role="header" data-position="inline">
@@ -118,13 +99,13 @@
                 </div>
                 <div data-role="content">
                     <ul data-inset="true" data-dividertheme="a" data-theme="a" class="ui-listview" data-role="listview" >
-                        <li data-role="list-divider" role="heading" id="loading"></li>
+                        <li data-role="list-divider" role="heading" id="loading" style="display:none">Loading...</li>
                         <li id="tryagain" style="display: none">
                             <a href="javascript:checkConnection();" data-transition="slide">Click here to try again</a></li>
                         <li>
                     </ul>
                 </div>
             </div>
-        </div> -->
+        </div>
 	</body>
 </html>

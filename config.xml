@@ -14,7 +14,7 @@
        <preference name="target-device" value="universal" />
        <preference name="fullscreen" value="false" />
        <preference name="webviewbounce" value="false" />
-       <preference name="stay-in-webview" value="false" />
+       <preference name="stay-in-webview" value="true" />
        <preference name="show-splash-screen-spinner" value="true" />
        <gap:splash src="splash/splash.png" />
        <gap:splash src="splash/android/portrait/ldpi.png" gap:platform="android" gap:density="ldpi" />
@@ -49,6 +49,6 @@
        <access origin="http://live.fisski.com" />
        <preference name="permissions" value="none" />
        <gap:plugin name="NetworkStatus" value="org.apache.cordova.NetworkManager" />
-       <gap:plugin name="ChildBrowser" />
+       <!--<gap:plugin name="ChildBrowser" />-->
        <feature name="http://api.phonegap.com/1.0/network"/>
 </widget>

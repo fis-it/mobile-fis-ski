@@ -28,7 +28,7 @@
                 /*if (navigator.app) {
                     navigator.app.clearCache();
                 }*/
-                 var ref = window.open('http://m.fisski.com?inapp=true', '_blank', 'location=yes');
+                 var ref = window.open('http://m.fisski.com?inapp=true', '_blank', 'location=no');
                 ref.addEventListener('loadstart', function() { alert('start: ' + event.url); });
                 ref.addEventListener('loadstop', function() { alert('stop: ' + event.url); });
                 ref.addEventListener('exit', function() { alert(event.type); });

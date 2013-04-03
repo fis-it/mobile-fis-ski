@@ -28,6 +28,11 @@
                 /*if (navigator.app) {
                     navigator.app.clearCache();
                 }*/
+                 var ref = window.open('http://m.fisski.com?inapp=true', '_blank', 'location=yes');
+                ref.addEventListener('loadstart', function() { alert('start: ' + event.url); });
+                ref.addEventListener('loadstop', function() { alert('stop: ' + event.url); });
+                ref.addEventListener('exit', function() { alert(event.type); });
+
             }
             function onDeviceReady() {
                 //document.addEventListener("backbutton", onBackbuttonPress, false);
@@ -78,11 +83,12 @@
                             navigator.app.exitApp();
                         } else {
                             fct_clearcache();
-                            top.document.location = 'http://m.fisski.com?inapp=true';
+                            
+                            //top.document.location = 'http://m.fisski.com?inapp=true';
                         }
                     } else {
                         fct_clearcache();
-                        top.document.location = 'http://m.fisski.com?inapp=true';
+                        //top.document.location = 'http://m.fisski.com?inapp=true';
                     }
                 } else {
                     $("#loading").hide();

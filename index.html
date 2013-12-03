@@ -70,10 +70,10 @@
                 //printObject(window);
             }            */
             function checkConnection() {
-                //var networkState = navigator.network.connection.type;
+                var networkState = navigator.connection.type;
                 var states = {};
-                alert('Connection type: ');
-                /*$("#tryagain").hide();
+                alert('Connection type: '+ navigator.connection.type);
+                $("#tryagain").hide();
                 //var connectionStatus = ((navigator.onLine) ? 'online' : 'offline');
                 //alert('ok2');
                 //alert(connectionStatus);
@@ -94,7 +94,7 @@
                 } else {
                     $("#loading").hide();
                     fct_exitapp();
-                }*/
+                }
             }
         </script>
 	</head>

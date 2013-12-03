@@ -71,7 +71,8 @@
             }            */
             function checkConnection() {
                 var networkState = navigator.network.connection.type;
-                //alert('ok');
+                var states = {};
+                alert('Connection type: '+ states[networkState]);
                 $("#tryagain").hide();
                 //var connectionStatus = ((navigator.onLine) ? 'online' : 'offline');
                 //alert('ok2');

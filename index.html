@@ -11,22 +11,6 @@
         <script src="js/jquery.mobile_1.2.0.min.js"></script>
         <script>
             document.addEventListener("deviceready", onDeviceReady, false);
-            function checkConnectionType() {
-                alert("alert 1");
-                var networkState = navigator.connection.type;
-                alert("alert 2");
-                var states = {};
-                states[navigator.connection.UNKNOWN]  = 'Unknown connection';
-                states[navigator.connection.ETHERNET] = 'Ethernet connection';
-                states[navigator.connection.WIFI]     = 'WiFi connection';
-                states[navigator.connection.CELL_2G]  = 'Cell 2G connection';
-                states[navigator.connection.CELL_3G]  = 'Cell 3G connection';
-                states[navigator.connection.CELL_4G]  = 'Cell 4G connection';
-                states[navigator.connection.CELL]     = 'Cell generic connection';
-                states[navigator.connection.NONE]     = 'No network connection';
-                alert("alert 3");
-                alert('Connection type: ' + states[networkState]);
-            }
 
             function fct_exitapp()
             {
@@ -62,7 +46,7 @@
                 alert("window.close()");
                 window.close();*/
             }
-            
+            /*
             function printObject(o) {
                 var out = '';
                 for (var p in o) {
@@ -82,20 +66,18 @@
                 document.write("<h2>Object history</h2>");
                 printObject(history);
                 document.write("<h2>Object document</h2>");
-                printObject(document);*/
+                printObject(document);
                 //document.write("<h2>Object window</h2>");
                 //printObject(window);
-            }            
+            }*/      
             function checkConnection() {
-                alert("hello");
-                debuglog();
-                //checkConnectionType();
+                var networkState = navigator.connection.type;
                 $("#tryagain").hide();
                 //var connectionStatus = ((navigator.onLine) ? 'online' : 'offline');
                 //alert('ok2');
                 //alert(connectionStatus);
                 //printObject(navigator);
-                /*if (networkState != 'none'){
+                if (networkState != 'none'){
                    if (history.length > 1){
                         if (confirm("Are you sure do you want quit mobile.fisski.com?") && navigator.app){
                             navigator.app.exitApp();
@@ -111,7 +93,7 @@
                 } else {
                     $("#loading").hide();
                     fct_exitapp();
-                }*/
+                }
             }
         </script>
 	</head>

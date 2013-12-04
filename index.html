@@ -62,7 +62,7 @@
                 alert("window.close()");
                 window.close();*/
             }
-            /*
+            
             function printObject(o) {
                 var out = '';
                 for (var p in o) {
@@ -72,11 +72,11 @@
             }
             function debuglog()
             {
-                document.write("<h2>History.length</h2>"+history.length);
-                document.write("<h2>Object Navigator</h2>");
-                printObject(navigator);
-                document.write("<h2>Object Navigator.device</h2>");
-                printObject(navigator.device);
+                document.write("<h2>navigator.connection</h2>"+navigator.connection);
+                //document.write("<h2>Object Navigator</h2>");
+                printObject(navigator.connection);
+                document.write("<h2>Connection</h2>");
+                printObject(Connection);
                 document.write("<h2>Object Navigator.device.capture</h2>");
                 printObject(navigator.device.capture);
                 document.write("<h2>Object history</h2>");
@@ -85,10 +85,11 @@
                 printObject(document);
                 //document.write("<h2>Object window</h2>");
                 //printObject(window);
-            }            */
+            }            
             function checkConnection() {
                 alert("hello");
-                checkConnectionType();
+                debuglog();
+                //checkConnectionType();
                 $("#tryagain").hide();
                 //var connectionStatus = ((navigator.onLine) ? 'online' : 'offline');
                 //alert('ok2');

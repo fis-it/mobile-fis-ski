@@ -39,4 +39,5 @@
             <param name="android-package" value="org.apache.cordova.NetworkManager" />
             <param name="ios-package" value="CDVConnection" />
        </feature>
+       <gap:plugin name="org.apache.cordova.network-information" />
 </widget>

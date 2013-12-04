@@ -4,12 +4,12 @@
         id="com.fis-ski.mobile-fis-ski" 
         version="1.2.1" 
         versioncode="30">
-    <name>Mobile.fis-ski.com</name>
-    <Description>Official web app of the FIS (International Ski Federation). Everything about the ski and snowboard World: Worldcup, Continental cup, every race level results, Live timing and live scoring, Calendar, News, Athletes Biographies, Cup standings.</Description>
+    <name>mobile.fis-ski.com</name>
+    <description>Official web app of the FIS (International Ski Federation). Everything about the ski and snowboard World: Worldcup, Continental cup, every race level results, Live timing and live scoring, Calendar, News, Athletes Biographies, Cup standings.</description>
     <author href="http://www.fis-ski.com">
         FIS IT department
     </author>
-        <preference name="phonegap-version" value="3.1.0" />
+        <preference name="phonegap-version" value="2.9.0" />
        <preference name="orientation" value="both" />
        <preference name="target-device" value="universal" />
        <preference name="fullscreen" value="false" />

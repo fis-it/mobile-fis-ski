@@ -12,8 +12,9 @@
         <script>
             document.addEventListener("deviceready", onDeviceReady, false);
             function checkConnectionType() {
+                alert("alert 1");
                 var networkState = navigator.connection.type;
-
+                alert("alert 2");
                 var states = {};
                 states[Connection.UNKNOWN]  = 'Unknown connection';
                 states[Connection.ETHERNET] = 'Ethernet connection';
@@ -23,7 +24,7 @@
                 states[Connection.CELL_4G]  = 'Cell 4G connection';
                 states[Connection.CELL]     = 'Cell generic connection';
                 states[Connection.NONE]     = 'No network connection';
-
+                alert("alert 3");
                 alert('Connection type: ' + states[networkState]);
             }
 
@@ -86,6 +87,7 @@
                 //printObject(window);
             }            */
             function checkConnection() {
+                alert("hello");
                 checkConnectionType();
                 $("#tryagain").hide();
                 //var connectionStatus = ((navigator.onLine) ? 'online' : 'offline');

@@ -68,7 +68,7 @@
                 for (var p in o) {
                   out += '<strong>'+ p + '</strong>: ' + o[p] + "\r\n<br/>";
                 }
-                alert(out);
+                document.write(out);
             }
             function debuglog()
             {
@@ -76,13 +76,13 @@
                 //document.write("<h2>Object Navigator</h2>");
                 printObject(navigator.connection);
                 document.write("<h2>Connection</h2>");
-                printObject(Connection);
+                printObject(Connection);/*
                 document.write("<h2>Object Navigator.device.capture</h2>");
                 printObject(navigator.device.capture);
                 document.write("<h2>Object history</h2>");
                 printObject(history);
                 document.write("<h2>Object document</h2>");
-                printObject(document);
+                printObject(document);*/
                 //document.write("<h2>Object window</h2>");
                 //printObject(window);
             }            

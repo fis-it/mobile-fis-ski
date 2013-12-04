@@ -35,4 +35,8 @@
        <gap:splash src="splash/ios/Default-Portrait.png" width="768" height="1024" />
        <preference name="permissions" value="none" />
        <feature name="http://api.phonegap.com/1.0/network"/>
+       <feature name="NetworkStatus">
+            <param name="android-package" value="org.apache.cordova.NetworkManager" />
+            <param name="ios-package" value="CDVConnection" />
+       </feature>
 </widget>

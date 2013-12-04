@@ -50,11 +50,10 @@
        <access origin="http://live.fisski.com" />-->
        <preference name="permissions" value="none" />
        <feature name="NetworkStatus">
-    <param name="android-package" value="org.apache.cordova.networkinformation.NetworkManager" />
-    <param name="blackberry-package" value="org.apache.cordova.network.Network" />
-<param name="ios-package" value="CDVConnection" />
-</feature>
+            <param name="android-package" value="org.apache.cordova.networkinformation.NetworkManager" />
+            <param name="ios-package" value="CDVConnection" />
+        </feature>
        <!--<gap:plugin name="NetworkStatus" value="org.apache.cordova.NetworkManager" />-->
-      <!-- <gap:plugin name="InAppBrowser" value="org.apache.cordova.InAppBrowser" />-->
-       <feature name="http://api.phonegap.com/1.0/network"/>
+      <!-- <gap:plugin name="InAppBrowser" value="org.apache.cordova.InAppBrowser" />
+       <feature name="http://api.phonegap.com/1.0/network"/>-->
 </widget>

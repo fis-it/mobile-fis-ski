@@ -9,40 +9,44 @@
     <author href="http://www.fis-ski.com">
         FIS IT department
     </author>
-        <preference name="phonegap-version" value="3.1.0" />
-       <preference name="orientation" value="both" />
-       <preference name="target-device" value="universal" />
-       <preference name="fullscreen" value="false" />
-       <preference name="webviewbounce" value="false" />
-       <preference name="stay-in-webview" value="no" />
-       <preference name="show-splash-screen-spinner" value="true" />
-       <gap:splash src="splash/splash.png" />
-       <gap:splash src="splash/android/portrait/ldpi.png" gap:platform="android" gap:density="ldpi" />
-       <gap:splash src="splash/android/portrait/mdpi.png" gap:platform="android" gap:density="mdpi" />
-       <gap:splash src="splash/android/portrait/hdpi.png" gap:platform="android" gap:density="hdpi" />
-       <gap:splash src="splash/android/portrait/xhdpi.png" gap:platform="android" gap:density="xhdpi" />
-       <icon src="icons/android/fis_logo-36x36.png" gap:platform="android" gap:density="ldpi" />
-        <icon src="icons/android/fis_logo-48x48.png" gap:platform="android" gap:density="mdpi" />
-        <icon src="icons/android/fis_logo-72x72.png" gap:platform="android" gap:density="hdpi" />
-        <icon src="icons/android/fis_logo-96x96.png" gap:platform="android" gap:density="xhdpi" />
-       <icon src="icons/ios/fis_logo-57x57.png" width="57" height="57" />
-        <icon src="icons/ios/fis_logo-72x72.png" gap:platform="ios" width="72" height="72" />
-        <icon src="icons/ios/fis_logo-114x114.png" width="114" height="114" />
-        <icon src="icons/ios/apple-touch-icon-76x76" width="76" height="76" />
-        <icon src="icons/ios/apple-touch-icon-120x120" width="120" height="120" />
-        <icon src="icons/ios/apple-touch-icon-152x152" width="152" height="152" />
-       <gap:splash src="splash/ios/Default.png" width="320" height="480" />
-       <gap:splash src="splash/ios/Default_at_2x.png" width="640" height="960" />
-       <gap:splash src="splash/ios/Default_iphone5.png" width="640" height="1136" />
-       <gap:splash src="splash/ios/Default-Landscape.png" width="1024" height="768" />
-       <gap:splash src="splash/ios/Default-Portrait.png" width="768" height="1024" />
-       <preference name="permissions" value="none" />
-       <feature name="http://api.phonegap.com/1.0/network"/>
-       <feature name="NetworkStatus">
-            <param name="android-package" value="org.apache.cordova.NetworkManager" />
-            <param name="ios-package" value="CDVConnection" />
-       </feature>
-       <gap:plugin name="org.apache.cordova.network-information" />
-       <gap:plugin name="org.apache.cordova.inappbrowser" />
-       <!--<gap:plugin name="com.simplec.plugins.powermanagement" />-->
+    <preference name="phonegap-version" value="3.1.0" />
+    <preference name="orientation" value="both" />
+    <preference name="target-device" value="universal" />
+    <preference name="fullscreen" value="false" />
+    <preference name="webviewbounce" value="false" />
+    <preference name="stay-in-webview" value="no" />
+    <preference name="show-splash-screen-spinner" value="true" />
+    <gap:splash src="splash/splash.png" />
+    <gap:splash src="splash/android/portrait/ldpi.png" gap:platform="android" gap:density="ldpi" />
+    <gap:splash src="splash/android/portrait/mdpi.png" gap:platform="android" gap:density="mdpi" />
+    <gap:splash src="splash/android/portrait/hdpi.png" gap:platform="android" gap:density="hdpi" />
+    <gap:splash src="splash/android/portrait/xhdpi.png" gap:platform="android" gap:density="xhdpi" />
+    <icon src="icons/android/fis_logo-36x36.png" gap:platform="android" gap:density="ldpi" />
+    <icon src="icons/android/fis_logo-48x48.png" gap:platform="android" gap:density="mdpi" />
+    <icon src="icons/android/fis_logo-72x72.png" gap:platform="android" gap:density="hdpi" />
+    <icon src="icons/android/fis_logo-96x96.png" gap:platform="android" gap:density="xhdpi" />
+    <icon src="icons/ios/fis_logo-57x57.png" width="57" height="57" />
+    <icon src="icons/ios/fis_logo-72x72.png" gap:platform="ios" width="72" height="72" />
+    <icon src="icons/ios/fis_logo-114x114.png" width="114" height="114" />
+    <icon src="icons/ios/apple-touch-icon-76x76" width="76" height="76" />
+    <icon src="icons/ios/apple-touch-icon-120x120" width="120" height="120" />
+    <icon src="icons/ios/apple-touch-icon-152x152" width="152" height="152" />
+    <gap:splash src="splash/ios/Default.png" width="320" height="480" />
+    <gap:splash src="splash/ios/Default_at_2x.png" width="640" height="960" />
+    <gap:splash src="splash/ios/Default_iphone5.png" width="640" height="1136" />
+    <gap:splash src="splash/ios/Default-Landscape.png" width="1024" height="768" />
+    <gap:splash src="splash/ios/Default-Portrait.png" width="768" height="1024" />
+    <preference name="permissions" value="none" />
+    <feature name="http://api.phonegap.com/1.0/network"/>
+    <feature name="NetworkStatus">
+        <param name="android-package" value="org.apache.cordova.NetworkManager" />
+        <param name="ios-package" value="CDVConnection" />
+    </feature>
+    <feature name="InAppBrowser">
+        <param name="android-package" value="org.apache.cordova.inappbrowser.InAppBrowser" />
+        <param name="ios-package" value="CDVInAppBrowser" />
+    </feature>
+    <gap:plugin name="org.apache.cordova.network-information" />
+    <gap:plugin name="org.apache.cordova.inappbrowser" />
+    <!--<gap:plugin name="com.simplec.plugins.powermanagement" />-->
 </widget>

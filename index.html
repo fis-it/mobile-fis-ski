@@ -30,7 +30,7 @@
                     navigator.app.clearCache();
                 }*/
                 //window.plugins.powerManagement.acquire();
-                 var ref = window.open('http://m.fisski.com/?inapp=true', '_self', 'location=no');
+                 var ref = window.open('http://m.fisski.com/?inapp=true', '_blank', 'location=no');
                  ref.addEventListener('loadstop', function(event) {        
     //if (event.url.match("mobile/close")) {
         alert(event.url);

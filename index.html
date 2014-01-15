@@ -31,10 +31,11 @@
                 }*/
                 //window.plugins.powerManagement.acquire();
                  var ref = window.open('http://m.fisski.com/?inapp=true', '_blank', 'location=no');
-                 ref.addEventListener('loadstop', function(event) {        
-    //if (event.url.match("mobile/close")) {
+                 ref.addEventListener('loadstart', function(event) {        
+    if (event.url.indexOf(".pdf") > 0) {
         alert(event.url);
-    //}
+        var ref2 = window.open(event.url, '_system', 'location=no');
+    }
     });
                 //ref.addEventListener('loadstart', function() { alert('start: ' + event.url); });
                 //ref.addEventListener('loadstop', function() { alert('stop: ' + event.url); });

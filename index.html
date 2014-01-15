@@ -30,7 +30,7 @@
                     navigator.app.clearCache();
                 }*/
                 //window.plugins.powerManagement.acquire();
-                 var ref = window.open('http://m.fisski.com/?inapp=true', '_blank', 'location=no');
+                 var ref = window.open('http://m.fisski.com/?inapp=true', '_blank', 'location=yes');
                  ref.addEventListener('loadstart', function(event) {        
     if (event.url.indexOf(".pdf") > 0 || event.url.indexOf("data.fis-ski.com") > 0) {
         var refpdf = window.open(event.url, '_system', 'location=no');

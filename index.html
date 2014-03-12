@@ -32,8 +32,8 @@
                  var ref = window.open('http://m.fisski.com/?inapp=true', '_blank', 'location=no');
                  ref.addEventListener('loadstart', function(event) {   
     if (event.url.indexOf(".pdf") > 0 || event.url.indexOf("data.fis-ski.com") > 0) {
-        alert(document.location);
-        v_page_referer = document.location.href;
+        alert(ref.url);
+        v_page_referer = ref.url;
         var refpdf = window.open(event.url, '_system', 'location=no');
         var pdfcallback = function(event) {
                         document.location = v_page_referer;

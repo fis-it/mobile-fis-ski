@@ -11,7 +11,6 @@
         <script src="js/jquery.mobile_1.2.0.min.js"></script>
         <script>
             document.addEventListener("deviceready", onDeviceReady, false);
-
             function fct_exitapp()
             {
                 if (navigator.app) {
@@ -29,17 +28,17 @@
                 /*if (navigator.app) {
                     navigator.app.clearCache();
                 }*/
-                //window.plugins.powerManagement.acquire();
-                /* var ref = window.open('http://m.fisski.com/?inapp=true', '_blank', 'location=yes');
+                window.plugins.powerManagement.acquire();
+                 var ref = window.open('http://m.fisski.com/?inapp=true', '_blank', 'location=no');
                  ref.addEventListener('loadstart', function(event) {        
     if (event.url.indexOf(".pdf") > 0 || event.url.indexOf("data.fis-ski.com") > 0) {
-        var refpdf = window.open(event.url, '_system', 'location=no');
+        var refpdf = window.open(event.url, '_system', 'location=yes');
         refpdf.addEventListener('loadstop', function(event) {
             refpdf.close();
             ref.show();
         });
     }
-    });*/
+    });
                 //ref.addEventListener('loadstart', function() { alert('start: ' + event.url); });
                 //ref.addEventListener('loadstop', function() { alert('stop: ' + event.url); });
                 //ref.addEventListener('exit', function() { alert(event.type); });
@@ -94,11 +93,11 @@
                         } else {
                             fct_clearcache();
                             
-                            top.document.location = 'content.html';
+                            //top.document.location = 'http://m.fisski.com?inapp=true';
                         }
                     } else {
                         fct_clearcache();
-                        top.document.location = 'content.html';
+                        //top.document.location = 'http://m.fisski.com?inapp=true';
                     }
                 } else {
                     $("#loading").hide();

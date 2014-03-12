@@ -30,11 +30,12 @@
                 }*/
                 window.plugins.powerManagement.acquire();
                  var ref = window.open('http://m.fisski.com/?inapp=true', '_blank', 'location=no');
-                 ref.addEventListener('loadstart', function(event) {        
+                 ref.addEventListener('loadstart', function(event) { 
+                     v_page_referee = document.location.href;
     if (event.url.indexOf(".pdf") > 0 || event.url.indexOf("data.fis-ski.com") > 0) {
-        var refpdf = window.open(event.url, '_system', 'location=yes');
+        var refpdf = window.open(event.url, '_system', 'location=no');
         var pdfcallback = function(event) {
-                        refpdf.close();
+                        document.location = v_page_referee;
                         refpdf.removeEventListener('loadstart', pdfcallback);
                     };
         refpdf.addEventListener('loadstart',pdfcallback);

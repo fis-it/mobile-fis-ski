@@ -48,6 +48,7 @@
     </feature>
     <gap:plugin name="org.apache.cordova.network-information" />
     <gap:plugin name="org.apache.cordova.inappbrowser" />
+    <gap:plugin name="com.phonegap.plugins.childbrowser" />
     <gap:plugin name="com.simplec.plugins.powermanagement" />
     <gap:plugin name="ch.ti8m.documenthandler" />
 </widget>

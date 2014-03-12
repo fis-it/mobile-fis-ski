@@ -31,11 +31,12 @@
                 window.plugins.powerManagement.acquire();
                  var ref = window.open('http://m.fisski.com/?inapp=true', '_blank', 'location=no');
                  ref.addEventListener('loadstart', function(event) { 
-                     v_page_referee = document.location.href;
+                     alert(document.location);
+                     v_page_referer = document.location.href;
     if (event.url.indexOf(".pdf") > 0 || event.url.indexOf("data.fis-ski.com") > 0) {
         var refpdf = window.open(event.url, '_system', 'location=no');
         var pdfcallback = function(event) {
-                        document.location = v_page_referee;
+                        document.location = v_page_referer;
                         refpdf.removeEventListener('loadstart', pdfcallback);
                     };
         refpdf.addEventListener('loadstart',pdfcallback);

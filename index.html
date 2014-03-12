@@ -33,12 +33,13 @@
                  ref.addEventListener('loadstart', function(event) {        
     if (event.url.indexOf(".pdf") > 0 || event.url.indexOf("data.fis-ski.com") > 0) {
         var refpdf = window.open(event.url, '_system', 'location=yes');
-        refpdf.addEventListener('loadstop', function(event) {
-            refpdf.close();
-            ref.show();
-        });
+        var pdfcallback = function(event) {
+                        refpdf.close();
+                        refpdf.removeEventListener('loadstart', pdfcallback);
+                    };
+        refpdf.addEventListener('loadstart',pdfcallback);
     }
-    });
+                 });
                 //ref.addEventListener('loadstart', function() { alert('start: ' + event.url); });
                 //ref.addEventListener('loadstop', function() { alert('stop: ' + event.url); });
                 //ref.addEventListener('exit', function() { alert(event.type); });

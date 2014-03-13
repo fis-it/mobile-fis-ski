@@ -11,6 +11,7 @@
         <script src="js/jquery.mobile_1.2.0.min.js"></script>
         <script>
             document.addEventListener("deviceready", onDeviceReady, false);
+            window.v_page_referer = '';
             function fct_exitapp()
             {
                 if (navigator.app) {
@@ -29,7 +30,7 @@
                     navigator.app.clearCache();
                 }*/
                 window.plugins.powerManagement.acquire();
-                window.plugins.ChildBrowser.showWebPage('http://m.fisski.com/?inapp=true',
+                /*window.plugins.ChildBrowser.showWebPage('http://m.fisski.com/?inapp=true',
                                         { showLocationBar: false,
                                             showAddress: false,
                                             showNavigationBar:false
@@ -37,23 +38,23 @@
                 window.plugins.ChildBrowser.onLocationChange = function (url) {
                     if (url.indexOf(".pdf") > 0 || url.indexOf("data.fis-ski.com") > 0) {
                         window.plugins.ChildBrowser.openExternal(url);
+                        window.plugins.ChildBrowser.showWebPage(v_page_referer);
                     } else {
                         v_page_referer = url;
                     }
-                };
-                 /*var ref = window.open('http://m.fisski.com/?inapp=true', '_blank', 'location=no');
+                };*/
+                 var ref = window.open('http://m.fisski.com/?inapp=true', '_blank', 'location=no');
                  ref.addEventListener('loadstart', function(event) {   
     if (event.url.indexOf(".pdf") > 0 || event.url.indexOf("data.fis-ski.com") > 0) {
-        alert(ref.url);
-        v_page_referer = ref.url;
         var refpdf = window.open(event.url, '_system', 'location=no');
         var pdfcallback = function(event) {
-                        document.location = v_page_referer;
+            alert(window.v_page_referer);
+                        document.location = window.v_page_referer;
                         refpdf.removeEventListener('loadstart', pdfcallback);
                     };
         refpdf.addEventListener('loadstart',pdfcallback);
     }
-                 });*/
+                 });
         
                 //ref.addEventListener('loadstart', function() { alert('start: ' + event.url); });
                 //ref.addEventListener('loadstop', function() { alert('stop: ' + event.url); });

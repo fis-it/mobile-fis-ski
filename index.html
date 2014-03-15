@@ -76,11 +76,13 @@
                 //document.addEventListener("backbutton", onBackbuttonPress, false);
                 $(document).ready(function(){
                     if (device.platform === 'iOS' && parseFloat(device.version) >= 7.0) {
+                        alert(device.platform+" detected");
                         StatusBar.overlaysWebView(false);
                         StatusBar.styleDefault();
                         StatusBar.backgroundColorByHexString("#00388C");
+                        printObject(StatusBar);
                     }
-                    checkConnection();
+                    //checkConnection();
                 });
                 /*debuglog();
                 alert("document.close()");
@@ -89,7 +91,7 @@
                 window.close();*/
             }
             
-            /*function printObject(o) {
+            function printObject(o) {
                 var out = '';
                 for (var p in o) {
                   out += '<strong>'+ p + '</strong>: ' + o[p] + "\r\n<br/>";

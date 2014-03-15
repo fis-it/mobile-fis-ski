@@ -37,6 +37,13 @@
     <gap:splash src="splash/ios/Default-Landscape.png" width="1024" height="768" />
     <gap:splash src="splash/ios/Default-Portrait.png" width="768" height="1024" />
     <preference name="permissions" value="none" />
+    
+    <gap:plugin name="org.apache.cordova.device" />
+    <gap:plugin name="org.apache.cordova.network-information" />
+    <gap:plugin name="org.apache.cordova.inappbrowser" />
+    <gap:plugin name="com.phonegap.plugins.childbrowser" />
+    <gap:plugin name="com.simplec.plugins.powermanagement" />
+    <gap:plugin name="com.phonegap.plugin.statusbar" />
     <feature name="http://api.phonegap.com/1.0/network"/>
     <feature name="NetworkStatus">
         <param name="android-package" value="org.apache.cordova.NetworkManager" />
@@ -45,17 +52,16 @@
     <feature name="InAppBrowser">
         <param name="android-package" value="org.apache.cordova.inappbrowser.InAppBrowser" />
         <param name="ios-package" value="CDVInAppBrowser" />
+    </feature>
+    <feature name="Device">
+        <param name="android-package" value="org.apache.cordova.device.Device" />
+    </feature>
+    <feature name="StatusBar">
         <param name="ios-package" value="CDVStatusBar" onload="true" />
     </feature>
-    <gap:plugin name="org.apache.cordova.network-information" />
-    <gap:plugin name="org.apache.cordova.inappbrowser" />
-    <gap:plugin name="com.phonegap.plugins.childbrowser" />
-    <gap:plugin name="com.simplec.plugins.powermanagement" />
-    <gap:plugin name="com.phonegap.plugin.statusbar" />
     <gap:config-file platform="ios" parent="UIStatusBarHidden">
         <false/>
     </gap:config-file>
-
     <gap:config-file platform="ios" parent="UIViewControllerBasedStatusBarAppearance">
         <true/>
     </gap:config-file>

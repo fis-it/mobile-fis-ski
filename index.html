@@ -68,6 +68,9 @@
             function onDeviceReady() {
                 //document.addEventListener("backbutton", onBackbuttonPress, false);
                 $(document).ready(function(){
+                    if (device.platform === 'iOS' && parseFloat(device.version) >= 7.0) {
+                        StatusBar.overlaysWebView(true);
+                    }
                     checkConnection();
                 });
                 /*debuglog();

@@ -45,10 +45,18 @@
     <feature name="InAppBrowser">
         <param name="android-package" value="org.apache.cordova.inappbrowser.InAppBrowser" />
         <param name="ios-package" value="CDVInAppBrowser" />
+        <param name="ios-package" value="CDVStatusBar" onload="true" />
     </feature>
     <gap:plugin name="org.apache.cordova.network-information" />
     <gap:plugin name="org.apache.cordova.inappbrowser" />
     <gap:plugin name="com.phonegap.plugins.childbrowser" />
     <gap:plugin name="com.simplec.plugins.powermanagement" />
-    <gap:plugin name="ch.ti8m.documenthandler" />
+    <gap:plugin name="com.phonegap.plugin.statusbar" />
+    <gap:config-file platform="ios" parent="UIStatusBarHidden">
+        <false/>
+    </gap:config-file>
+
+    <gap:config-file platform="ios" parent="UIViewControllerBasedStatusBarAppearance">
+        <true/>
+    </gap:config-file>
 </widget>

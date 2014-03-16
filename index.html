@@ -44,7 +44,7 @@
                         v_page_referer = url;
                     }
                 };*/
-                 var ref = window.open('http://www.google.com/?inapp=true', '_blank', 'location=no,toolbar=no');
+                 var ref = window.open('http://m.fis-ski.com/?inapp=true', '_blank', 'location=no');
                  ref.addEventListener('loadstart', function(event) {
                      alert('load m.fiski.com');
                      if (device.platform === 'iOS' && parseFloat(device.version) >= 7.0) {

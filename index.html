@@ -45,8 +45,9 @@
                         v_page_referer = url;
                     }
                 };*/
-                 var ref = window.open('http://m.fisski.com/?inapp=true', '_blank', 'location=no');
+                 var ref = window.open('http://m.fisski.com/?inapp=true', '_blank', 'location=no,toolbar=no,keyboardDisplayRequiresUserAction=no');
                  ref.addEventListener('loadstart', function(event) {
+                     window.plugins.powerManagement.acquire();
                      if (device.platform === 'iOS' && parseFloat(device.version) >= 7.0) {
                         StatusBar.overlaysWebView(false);
                         StatusBar.BlackOpaque();

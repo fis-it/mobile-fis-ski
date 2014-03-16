@@ -49,7 +49,7 @@
                  ref.addEventListener('loadstart', function(event) {
                      if (device.platform === 'iOS' && parseFloat(device.version) >= 7.0) {
                         StatusBar.overlaysWebView(false);
-                        StatusBar.styleDefault();
+                        StatusBar.BlackOpaque();
                         StatusBar.backgroundColorByHexString("#00388C");
                     }
     if (event.url.indexOf(".pdf") > 0 || event.url.indexOf("data.fis-ski.com") > 0) {
@@ -76,11 +76,9 @@
                 //document.addEventListener("backbutton", onBackbuttonPress, false);
                 $(document).ready(function(){
                     if (device.platform === 'iOS' && parseFloat(device.version) >= 7.0) {
-                        alert(device.platform+" detected");
                         StatusBar.overlaysWebView(false);
-                        StatusBar.styleDefault();
+                        StatusBar.BlackOpaque();
                         StatusBar.backgroundColorByHexString("#00388C");
-                        printObject(StatusBar);
                     }
                     //checkConnection();
                 });

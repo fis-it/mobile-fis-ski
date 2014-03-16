@@ -30,7 +30,7 @@
                 /*if (navigator.app) {
                     navigator.app.clearCache();
                 }*/
-                //window.plugins.powerManagement.acquire();
+                window.plugins.powerManagement.acquire();
                 /*window.plugins.ChildBrowser.showWebPage('http://m.fisski.com/?inapp=true',
                                         { showLocationBar: false,
                                             showAddress: false,
@@ -44,7 +44,7 @@
                         v_page_referer = url;
                     }
                 };*/
-                 /*var ref = window.open('http://m.fis-ski.com/?inapp=true', '_blank', 'location=no,toolbar=no');
+                 var ref = window.open('http://www.google.com/?inapp=true', '_blank', 'location=no,toolbar=no');
                  ref.addEventListener('loadstart', function(event) {
                      alert('load m.fiski.com');
                      if (device.platform === 'iOS' && parseFloat(device.version) >= 7.0) {
@@ -57,8 +57,6 @@
         var pdfcallback = function() {
             /*alert(window.v_page_referer);
                         document.location = window.v_page_referer;*/
-        
-        /*
                         refpdf.removeEventListener('loadstart', pdfcallback);
                     };
         refpdf.addEventListener('loadstart',pdfcallback);
@@ -72,7 +70,7 @@
                 //ref.addEventListener('loadstart', function() { alert('start: ' + event.url); });
                 //ref.addEventListener('loadstop', function() { alert('stop: ' + event.url); });
                 //ref.addEventListener('exit', function() { alert(event.type); });
-*/
+
             }
             function onDeviceReady() {
                 //document.addEventListener("backbutton", onBackbuttonPress, false);
@@ -82,7 +80,6 @@
                         StatusBar.BlackOpaque();
                         StatusBar.backgroundColorByHexString("#00388C");
                     }
-                    alert('check connection');
                     checkConnection();
                 });
                 /*debuglog();

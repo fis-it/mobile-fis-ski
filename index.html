@@ -47,6 +47,7 @@
                 };*/
                  var ref = window.open('http://m.fis-ski.com/?inapp=true', '_blank', 'location=no,toolbar=no');
                  ref.addEventListener('loadstart', function(event) {
+                     window.plugins.powerManagement.acquire();
                      if (device.platform === 'iOS' && parseFloat(device.version) >= 7.0) {
                         StatusBar.overlaysWebView(false);
                         StatusBar.BlackOpaque();

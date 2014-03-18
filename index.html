@@ -52,7 +52,8 @@
         var pdfcallback = function() {
             /*alert(window.v_page_referer);
 document.location = window.v_page_referer;*/
-                        refpdf.removeEventListener('loadstart', pdfcallback);
+                        //refpdf.removeEventListener('loadstart', pdfcallback);
+                        alert('OK 2');
                     };
                     alert('ok');
         refpdf.addEventListener('loadstart',pdfcallback);
@@ -60,7 +61,7 @@ document.location = window.v_page_referer;*/
                  });
         var exitcallback = function() {
            checkConnection();
-           ref.removeEventListener('exit', exitcallback);
+           //ref.removeEventListener('exit', exitcallback);
        };
        ref.addEventListener('exit', exitcallback);
                 //ref.addEventListener('loadstart', function() { alert('start: ' + event.url); });

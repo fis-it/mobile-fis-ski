@@ -49,6 +49,7 @@
                  ref.addEventListener('loadstart', function(event) {
                      window.plugins.powerManagement.acquire();
                      alert('ref'+event.url);
+                     alert(document.referrer);
                     /* if (device.platform === 'iOS' && parseFloat(device.version) >= 7.0) {
                         StatusBar.overlaysWebView(false);
                         StatusBar.BlackOpaque();
@@ -57,15 +58,17 @@
     if (event.url.indexOf(".pdf") > 0 ) { //|| event.url.indexOf("data.fis-ski.com") > 0
         
         var refpdf = window.open(event.url, '_system', 'location=no');
-        var pdfcallback = function(event) {
+        var pdfcallback = function(event,referrerpage) {
             /*alert(window.v_page_referer);
                         document.location = window.v_page_referer;*/
-        alert('refpdf'+event.url);
-        refpdf.removeEventListener('loadstart', pdfcallback(event));
+        alert('refpdf '+referrerpage);
+        refpdf.removeEventListener('loadstart', pdfcallback);
         refpdf.close();
+        ref.Close();
+        ref = window.open(referrerpage, '_blank', 'location=no,toolbar=no');
         ref.show();
                     };
-        refpdf.addEventListener('loadstart',pdfcallback(event));
+        refpdf.addEventListener('loadstart',pdfcallback(event,document.referrer));
     }
                  });
         var exitcallback = function() {

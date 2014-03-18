@@ -53,7 +53,7 @@
                         StatusBar.BlackOpaque();
                         StatusBar.backgroundColorByHexString("#00388C");
                     }*/
-    if (event.url.indexOf(".pdf") > 0 || event.url.indexOf("data.fis-ski.com") > 0) {
+    if (event.url.indexOf(".pdf") > 0 ) { //|| event.url.indexOf("data.fis-ski.com") > 0
         var refpdf = window.open(event.url, '_system', 'location=no');
         var pdfcallback = function() {
             /*alert(window.v_page_referer);

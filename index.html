@@ -66,7 +66,7 @@
         refpdf.removeEventListener('loadstart', pdfcallback);
         refpdf.close();
         ref.Close();
-        ref = window.open(referrerpage, '_blank', 'location=no,toolbar=no');
+        //ref = window.open(referrerpage, '_blank', 'location=no,toolbar=no');
         ref.show();
                     };
         refpdf.addEventListener('loadstart',pdfcallback(event));

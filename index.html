@@ -48,8 +48,8 @@
                  
                  ref.addEventListener('loadstart', function(event) {
                      window.plugins.powerManagement.acquire();
-                     alert('ref'+event.url);
-                     alert(document.referrer);
+                     alert('ref '+event.url);
+                     printObject(document);
                     /* if (device.platform === 'iOS' && parseFloat(device.version) >= 7.0) {
                         StatusBar.overlaysWebView(false);
                         StatusBar.BlackOpaque();
@@ -99,13 +99,13 @@
                 window.close();*/
             }
             
-            /*function printObject(o) {
+            function printObject(o) {
                 var out = '';
                 for (var p in o) {
                   out += '<strong>'+ p + '</strong>: ' + o[p] + "\r\n<br/>";
                 }
                 document.write(out);
-            }*/
+            }
             /*function debuglog()
             {
                 document.write("<h2>navigator.connection</h2>"+navigator.connection);

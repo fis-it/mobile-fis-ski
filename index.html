@@ -77,7 +77,8 @@ document.location = window.v_page_referer;*/
                     if (device.platform === 'iOS' && parseFloat(device.version) >= 7.0) {
                         StatusBar.overlaysWebView(false);
                         StatusBar.styleBlackOpaque();
-                        //StatusBar.backgroundColorByHexString("#00388C");
+                        StatusBar.backgroundColorByName("red");
+                       // StatusBar.backgroundColorByHexString("#00388C");
                     }
                     checkConnection();
                 });

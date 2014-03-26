@@ -44,17 +44,10 @@
                         v_page_referer = url;
                     }
                 };*/
-                 var ref = window.open('http://m.fis-ski.com/?inapp=true', '_blank', 'location=no,toolbar=no,presentationstyle=pagesheet');
+                 var ref = window.open('http://m.fis-ski.com/?inapp=true', '_blank', 'location=no,toolbar=no,suppressesIncrementalRendering=yes,disallowoverscroll=yes,presentationstyle=pagesheet');
                  
                  ref.addEventListener('loadstart', function(event) {
-                     if (device.platform === 'iOS' && parseFloat(device.version) >= 7.0) {
-                        StatusBar.overlaysWebView(false);
-                        alert('ok 2');
-                        //StatusBar.styleDefault();
-                        //StatusBar.backgroundColorByName("red");
-                        //document.body.style.marginTop = "20px";
-                       // StatusBar.backgroundColorByHexString("#00388C");
-                    }
+                     
     if (event.url.indexOf(".pdf") > 0) { // || event.url.indexOf("data.fis-ski.com") > 0
         var refpdf = window.open(event.url, '_system', 'location=no');
         var pdfcallback = function() {
@@ -66,6 +59,16 @@ document.location = window.v_page_referer;*/
                     alert('ok');
         refpdf.addEventListener('loadstart',pdfcallback);
     }
+                 });
+                 ref.addEventListener('loadstop', function(event) {
+                     if (device.platform === 'iOS' && parseFloat(device.version) >= 7.0) {
+                        StatusBar.overlaysWebView(false);
+                        alert('end');
+                        //StatusBar.styleDefault();
+                        //StatusBar.backgroundColorByName("red");
+                        //document.body.style.marginTop = "20px";
+                       // StatusBar.backgroundColorByHexString("#00388C");
+                    }
                  });
         var exitcallback = function() {
            checkConnection();

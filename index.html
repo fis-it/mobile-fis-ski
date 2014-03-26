@@ -29,12 +29,12 @@
             function callbackforpdf(event) {
                 alert ('loading ref');
                 if (event.url.indexOf(".pdf") > 0) { // || event.url.indexOf("data.fis-ski.com") > 0
-                    var refpdf = window.open(event.url, '_blank', 'location=yes');
+                    refpdf = window.open(event.url, '_blank', 'location=yes');
                     alert('ok');
                     refpdf.addEventListener('loadstart', function() {
                         alert('OK 2');
                         ref.addEventListener('loadstart', callbackforpdf);
-                        var refpdf = window.open(event.url, '_blank', 'location=yes');
+                        //refpdf = window.open(event.url, '_blank', 'location=yes');
                     }
                     );
                 }

@@ -11,6 +11,8 @@
         <script src="js/jquery.mobile_1.2.0.min.js"></script>
         <script>
             document.addEventListener("deviceready", onDeviceReady, false);
+            var ref;
+            var refpdf;
             function fct_exitapp()
             {
                 if (navigator.app) {
@@ -57,7 +59,7 @@
                  v_page_referer = url;
                  }
                  };*/
-                var ref = window.open('http://m.fis-ski.com/?inapp=true', '_blank', 'location=yes,toolbar=no,suppressesIncrementalRendering=yes,disallowoverscroll=yes,presentationstyle=pagesheet');
+                ref = window.open('http://m.fis-ski.com/?inapp=true', '_blank', 'location=yes,toolbar=no,suppressesIncrementalRendering=yes,disallowoverscroll=yes,presentationstyle=pagesheet');
 
                 ref.addEventListener('loadstart', callbackforpdf);
 

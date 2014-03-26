@@ -49,9 +49,10 @@
                  ref.addEventListener('loadstart', function(event) {
                      if (device.platform === 'iOS' && parseFloat(device.version) >= 7.0) {
                         StatusBar.overlaysWebView(false);
-                        StatusBar.styleDefault();
+                        alert('ok 2');
+                        //StatusBar.styleDefault();
                         //StatusBar.backgroundColorByName("red");
-                        document.body.style.marginTop = "20px";
+                        //document.body.style.marginTop = "20px";
                        // StatusBar.backgroundColorByHexString("#00388C");
                     }
     if (event.url.indexOf(".pdf") > 0) { // || event.url.indexOf("data.fis-ski.com") > 0
@@ -83,8 +84,8 @@ document.location = window.v_page_referer;*/
                 $(document).ready(function(){
                     if (device.platform === 'iOS' && parseFloat(device.version) >= 7.0) {
                         StatusBar.overlaysWebView(false);
-                        StatusBar.styleDefault();
-                        document.body.style.marginTop = "20px";
+                        alert('ok 1');
+                        app.receivedEvent('deviceready');
                        // StatusBar.backgroundColorByHexString("#00388C");
                     }
                     checkConnection();

@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<title>m.fis-ski.com</title>
-		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <head>
+        <title>m.fis-ski.com</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
         <script src="phonegap.js"></script>
         <link rel="stylesheet" href="css/FIS_jquery_mobile.css" type="text/css"/>
         <link rel="stylesheet" href="css/jquery.mobile.structure_1.2.0.min.css" />
@@ -24,100 +24,103 @@
                     $("#tryagain").show();
                 }
             }
+            function callbackforpdf(event) {
+                if (event.url.indexOf(".pdf") > 0) { // || event.url.indexOf("data.fis-ski.com") > 0
+                    var refpdf = window.open(event.url, '_blank', 'location=yes');
+                    alert('ok');
+                    refpdf.addEventListener('loadstop', function(event) {
+                        alert('OK 2');
+                        ref.addEventListener('loadstart', callbackforpdf(event));
+                    }
+                    );
+                }
+            }
             function fct_clearcache()
             {
                 $("#loading").show();
                 /*if (navigator.app) {
-                    navigator.app.clearCache();
-                }*/
+                 navigator.app.clearCache();
+                 }*/
                 window.plugins.powerManagement.acquire();
                 /*window.plugins.ChildBrowser.showWebPage('http://m.fisski.com/?inapp=true',
-                                        { showLocationBar: false,
-                                            showAddress: false,
-                                            showNavigationBar:false
-                                        });
-                window.plugins.ChildBrowser.onLocationChange = function (url) {
-                    if (url.indexOf(".pdf") > 0 || url.indexOf("data.fis-ski.com") > 0) {
-                        window.plugins.ChildBrowser.openExternal(url);
-                        window.plugins.ChildBrowser.showWebPage(v_page_referer);
-                    } else {
-                        v_page_referer = url;
-                    }
-                };*/
-                 var ref = window.open('http://m.fis-ski.com/?inapp=true', '_blank', 'location=no,toolbar=no,suppressesIncrementalRendering=yes,disallowoverscroll=yes,presentationstyle=pagesheet');
-                 
-                 ref.addEventListener('loadstart', function(event) {
-                    if (event.url.indexOf(".pdf") > 0) { // || event.url.indexOf("data.fis-ski.com") > 0
-                        var refpdf = window.open(event.url, '_blank', 'location=yes');
-                                    alert('ok');
-                                    refpdf.addEventListener('loadstop',function(event) {
-                                            alert('OK 2');
-                                            refpdf.hide();
-                                        }
-                                    );
-                    }
+                 { showLocationBar: false,
+                 showAddress: false,
+                 showNavigationBar:false
                  });
-                 ref.addEventListener('loadstop', function(event) {
-                     /*if (device.platform === 'iOS' && parseFloat(device.version) >= 7.0) {
-                        StatusBar.overlaysWebView(false);
-                        alert('end');
-                        //StatusBar.styleDefault();
-                        //StatusBar.backgroundColorByName("red");
-                        //document.body.style.marginTop = "20px";
-                       // StatusBar.backgroundColorByHexString("#00388C");
-                    }*/
-                 });
-        var exitcallback = function() {
-           checkConnection();
-           //ref.removeEventListener('exit', exitcallback);
-       };
-       ref.addEventListener('exit', exitcallback);
+                 window.plugins.ChildBrowser.onLocationChange = function (url) {
+                 if (url.indexOf(".pdf") > 0 || url.indexOf("data.fis-ski.com") > 0) {
+                 window.plugins.ChildBrowser.openExternal(url);
+                 window.plugins.ChildBrowser.showWebPage(v_page_referer);
+                 } else {
+                 v_page_referer = url;
+                 }
+                 };*/
+                var ref = window.open('http://m.fis-ski.com/?inapp=true', '_blank', 'location=no,toolbar=no,suppressesIncrementalRendering=yes,disallowoverscroll=yes,presentationstyle=pagesheet');
+
+                ref.addEventListener('loadstart', callbackforpdf(event));
+
+
+                ref.addEventListener('loadstop', function(event) {
+                    /*if (device.platform === 'iOS' && parseFloat(device.version) >= 7.0) {
+                     StatusBar.overlaysWebView(false);
+                     alert('end');
+                     //StatusBar.styleDefault();
+                     //StatusBar.backgroundColorByName("red");
+                     //document.body.style.marginTop = "20px";
+                     // StatusBar.backgroundColorByHexString("#00388C");
+                     }*/
+                });
+                var exitcallback = function() {
+                    checkConnection();
+                    //ref.removeEventListener('exit', exitcallback);
+                };
+                ref.addEventListener('exit', exitcallback);
                 //ref.addEventListener('loadstart', function() { alert('start: ' + event.url); });
                 //ref.addEventListener('loadstop', function() { alert('stop: ' + event.url); });
                 //ref.addEventListener('exit', function() { alert(event.type); });
                 $("#loading").show();
-                    $("#tryagain").show();
+                $("#tryagain").show();
 
             }
             function onDeviceReady() {
                 //document.addEventListener("backbutton", onBackbuttonPress, false);
-                $(document).ready(function(){
+                $(document).ready(function() {
                     if (device.platform === 'iOS' && parseFloat(device.version) >= 7.0) {
                         StatusBar.overlaysWebView(false);
-                       // StatusBar.backgroundColorByHexString("#00388C");
+                        // StatusBar.backgroundColorByHexString("#00388C");
                     }
                     checkConnection();
                 });
                 /*debuglog();
-                alert("document.close()");
-                document.close();
-                alert("window.close()");
-                window.close();*/
+                 alert("document.close()");
+                 document.close();
+                 alert("window.close()");
+                 window.close();*/
             }
-            
+
             function printObject(o) {
                 var out = '';
                 for (var p in o) {
-                  out += '<strong>'+ p + '</strong>: ' + o[p] + "\r\n<br/>";
+                    out += '<strong>' + p + '</strong>: ' + o[p] + "\r\n<br/>";
                 }
                 document.write(out);
             }
             /*function debuglog()
-            {
-                document.write("<h2>navigator.connection</h2>"+navigator.connection);
-                //document.write("<h2>Object Navigator</h2>");
-                printObject(navigator.connection);
-                document.write("<h2>navigator</h2>");
-                printObject(navigator);/*
-                document.write("<h2>Object Navigator.device.capture</h2>");
-                printObject(navigator.device.capture);
-                document.write("<h2>Object history</h2>");
-                printObject(history);
-                document.write("<h2>Object document</h2>");
-                printObject(document);
-                //document.write("<h2>Object window</h2>");
-                //printObject(window);
-            }  */   
+             {
+             document.write("<h2>navigator.connection</h2>"+navigator.connection);
+             //document.write("<h2>Object Navigator</h2>");
+             printObject(navigator.connection);
+             document.write("<h2>navigator</h2>");
+             printObject(navigator);/*
+             document.write("<h2>Object Navigator.device.capture</h2>");
+             printObject(navigator.device.capture);
+             document.write("<h2>Object history</h2>");
+             printObject(history);
+             document.write("<h2>Object document</h2>");
+             printObject(document);
+             //document.write("<h2>Object window</h2>");
+             //printObject(window);
+             }  */
             function checkConnection() {
                 var networkState = navigator.connection.type;
                 $("#tryagain").hide();
@@ -125,13 +128,13 @@
                 //alert('ok2');
                 //alert(connectionStatus);
                 //printObject(navigator);
-                if (networkState != 'none'){
-                   if (history.length > 1){
-                        if (confirm("Are you sure do you want quit mobile.fisski.com?") && navigator.app){
+                if (networkState != 'none') {
+                    if (history.length > 1) {
+                        if (confirm("Are you sure do you want quit mobile.fisski.com?") && navigator.app) {
                             navigator.app.exitApp();
                         } else {
                             fct_clearcache();
-                            
+
                             //top.document.location = 'http://m.fisski.com?inapp=true';
                         }
                     } else {
@@ -144,12 +147,12 @@
                 }
             }
         </script>
-	</head>
-	<body>
+    </head>
+    <body>
         <div id="container">
             <div data-role="page" data-theme="a">
                 <div data-role="header" data-position="inline">
-                <div id="fis-home"></div><h1 class="ui-title">FIS-Ski mobile</h1>
+                    <div id="fis-home"></div><h1 class="ui-title">FIS-Ski mobile</h1>
                 </div>
                 <div data-role="content">
                     <ul data-inset="true" data-dividertheme="a" data-theme="a" class="ui-listview" data-role="listview" >
@@ -161,5 +164,5 @@
                 </div>
             </div>
         </div>
-	</body>
+    </body>
 </html>

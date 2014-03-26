@@ -61,14 +61,14 @@ document.location = window.v_page_referer;*/
     }
                  });
                  ref.addEventListener('loadstop', function(event) {
-                     if (device.platform === 'iOS' && parseFloat(device.version) >= 7.0) {
+                     /*if (device.platform === 'iOS' && parseFloat(device.version) >= 7.0) {
                         StatusBar.overlaysWebView(false);
                         alert('end');
                         //StatusBar.styleDefault();
                         //StatusBar.backgroundColorByName("red");
                         //document.body.style.marginTop = "20px";
                        // StatusBar.backgroundColorByHexString("#00388C");
-                    }
+                    }*/
                  });
         var exitcallback = function() {
            checkConnection();

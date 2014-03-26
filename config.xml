@@ -40,7 +40,7 @@
     
     <gap:plugin name="org.apache.cordova.device" />
     <gap:plugin name="org.apache.cordova.network-information" />
-    <gap:plugin name="org.apache.cordova.inappbrowser" />
+    <gap:plugin name="org.apache.cordova.inappbrowser" version="0.3.3" />
     <!--<gap:plugin name="com.phonegap.plugins.childbrowser" />-->
     <gap:plugin name="com.simplec.plugins.powermanagement" />
     <gap:plugin name="com.phonegap.plugin.statusbar" />

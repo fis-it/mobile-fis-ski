@@ -28,9 +28,9 @@
                 if (event.url.indexOf(".pdf") > 0) { // || event.url.indexOf("data.fis-ski.com") > 0
                     var refpdf = window.open(event.url, '_blank', 'location=yes');
                     alert('ok');
-                    refpdf.addEventListener('loadstop', function(event) {
+                    refpdf.addEventListener('loadstop', function() {
                         alert('OK 2');
-                        ref.addEventListener('loadstart', callbackforpdf(event));
+                        ref.addEventListener('loadstart', callbackforpdf);
                     }
                     );
                 }
@@ -57,7 +57,7 @@
                  };*/
                 var ref = window.open('http://m.fis-ski.com/?inapp=true', '_blank', 'location=no,toolbar=no,suppressesIncrementalRendering=yes,disallowoverscroll=yes,presentationstyle=pagesheet');
 
-                ref.addEventListener('loadstart', callbackforpdf(event));
+                ref.addEventListener('loadstart', callbackforpdf);
 
 
                 ref.addEventListener('loadstop', function(event) {

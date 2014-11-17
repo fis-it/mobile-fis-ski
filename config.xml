@@ -44,6 +44,7 @@
     <!--<gap:plugin name="com.phonegap.plugins.childbrowser" />-->
     <gap:plugin name="com.simplec.plugins.powermanagement" />
     <gap:plugin name="com.phonegap.plugin.statusbar" />
+    <gap:plugin name="de.appplant.cordova.plugin.background-mode" />
     <feature name="http://api.phonegap.com/1.0/network"/>
     <feature name="NetworkStatus">
         <param name="android-package" value="org.apache.cordova.NetworkManager" />

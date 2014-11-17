@@ -4,11 +4,11 @@
         <title>m.fis-ski.com</title>
         <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
         <script src="phonegap.js"></script>
-       <!-- <link rel="stylesheet" href="css/FIS_jquery_mobile.css" type="text/css"/>
+        <link rel="stylesheet" href="css/FIS_jquery_mobile.css" type="text/css"/>
         <link rel="stylesheet" href="css/jquery.mobile.structure_1.2.0.min.css" />
-        <link rel="stylesheet" href="css/mobile_new.css" type="text/css"/>-->
-        <script src="js/jquery-2.1.1.min"></script>
-        <script src="js/jquery.jsonp.min"></script>
+        <link rel="stylesheet" href="css/mobile_new.css" type="text/css"/>
+        <script src="js/jquery_1.8.2.min.js"></script>
+        <script src="js/jquery.mobile_1.2.0.min.js"></script>
         <script>
             document.addEventListener("deviceready", onDeviceReady, false);
             var ref;
@@ -46,7 +46,6 @@
                  navigator.app.clearCache();
                  }*/
                 window.plugins.powerManagement.acquire();
-                window.plugin.backgroundMode.enable();
                 /*window.plugins.ChildBrowser.showWebPage('http://m.fisski.com/?inapp=true',
                  { showLocationBar: false,
                  showAddress: false,
@@ -60,12 +59,12 @@
                  v_page_referer = url;
                  }
                  };*/
-                //ref = window.open('http://m.fis-ski.com/?inapp=true', '_blank', 'location=yes,toolbar=no,suppressesIncrementalRendering=yes,disallowoverscroll=yes,presentationstyle=pagesheet');
+                ref = window.open('http://m.fis-ski.com/?inapp=true', '_blank', 'location=yes,toolbar=no,suppressesIncrementalRendering=yes,disallowoverscroll=yes,presentationstyle=pagesheet');
 
-                //ref.addEventListener('loadstart', callbackforpdf);
+                ref.addEventListener('loadstart', callbackforpdf);
 
 
-                //ref.addEventListener('loadstop', function(event) {
+                ref.addEventListener('loadstop', function(event) {
                     /*if (device.platform === 'iOS' && parseFloat(device.version) >= 7.0) {
                      StatusBar.overlaysWebView(false);
                      alert('end');
@@ -74,7 +73,7 @@
                      //document.body.style.marginTop = "20px";
                      // StatusBar.backgroundColorByHexString("#00388C");
                      }*/
-                //});
+                });
                 var exitcallback = function() {
                     checkConnection();
                     //ref.removeEventListener('exit', exitcallback);
@@ -83,23 +82,8 @@
                 //ref.addEventListener('loadstart', function() { alert('start: ' + event.url); });
                 //ref.addEventListener('loadstop', function() { alert('stop: ' + event.url); });
                 //ref.addEventListener('exit', function() { alert(event.type); });
-                /*$("#loading").show();
-                $("#tryagain").show();*/
-                
-                $.jsonp({
-5	        url: 'http://mobile.fis-ski.com/?inapp=true',
-6	        callbackParameter: 'callback',
-7	        timeout: 25000,
-8	        success: function(data, status) {
-9	            //$('#your-tweets').append('<li>The feed loads fine');
-10	            $('#container').html(data);
-15	        },
-16	        error: function(){
-                    $("#loading").show();
-                    $("#tryagain").show();
-17	            $('#container').append('<li>There was an error loading the feed');
-18	        }
-19	    });
+                $("#loading").show();
+                $("#tryagain").show();
 
             }
             function onDeviceReady() {

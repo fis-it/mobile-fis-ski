@@ -87,19 +87,19 @@
                 $("#tryagain").show();*/
                 
                 $.jsonp({
-5	        url: 'http://mobile.fis-ski.com/?inapp=true',
-6	        callbackParameter: 'callback',
-7	        timeout: 25000,
-8	        success: function(data, status) {
-9	            //$('#your-tweets').append('<li>The feed loads fine');
-10	            $('#container').html(data);
-15	        },
-16	        error: function(){
-                    $("#loading").show();
-                    $("#tryagain").show();
-17	            $('#container').append('<li>There was an error loading the feed');
-18	        }
-19	    });
+                    url: 'http://mobile.fis-ski.com/?inapp=true',
+                    callbackParameter: 'callback',
+                    timeout: 25000,
+                    success: function(data, status) {
+                        //$('#your-tweets').append('<li>The feed loads fine');
+                        $('#container').html(data);
+                    },
+                    error: function(){
+                        $("#loading").show();
+                        $("#tryagain").show();
+                        $('#container').append('There was an error loading the feed');
+                    }
+                });
 
             }
             function onDeviceReady() {

@@ -92,25 +92,7 @@
                 /*$("#loading").show();
                 $("#tryagain").show();*/
                 
-                $(document).on( "pagebeforecreate", function(event) {
-                    $.jsonp({
-                    url: 'http://mobile.fis-ski.com/uk/mobile/fis-for-mobile2.html?json=true&inapp=true&callback=myfuncrt&v=43456',
-                    callbackParameter: 'callback',
-                    timeout: 25000,
-                    success: function(data, status) {
-                        //$('#your-tweets').append('<li>The feed loads fine');
-                        $('#pagecontent').html(data.fishtml).trigger('create');;
-                    },
-                    error: function(){
-                        $("#loading").show();
-                        $("#tryagain").show();
-                        $('#pagecontent').append('There was an error loading the feed');
-                    }
-                });
-                });
-                $(document).on( "pagecreate", function(event) {
-                    $('ul').listview('refresh');
-                });
+                
 
             }
             function onDeviceReady() {
@@ -177,7 +159,25 @@
                     fct_exitapp();
                 }
             }
-            
+            $(document).on( "pagebeforecreate", function(event) {
+                    $.jsonp({
+                    url: 'http://mobile.fis-ski.com/uk/mobile/fis-for-mobile2.html?json=true&inapp=true&callback=myfuncrt&v=43456',
+                    callbackParameter: 'callback',
+                    timeout: 25000,
+                    success: function(data, status) {
+                        //$('#your-tweets').append('<li>The feed loads fine');
+                        $('#pagecontent').html(data.fishtml).trigger('create');;
+                    },
+                    error: function(){
+                        $("#loading").show();
+                        $("#tryagain").show();
+                        $('#pagecontent').append('There was an error loading the feed');
+                    }
+                });
+                });
+                $(document).on( "pagecreate", function(event) {
+                    $('ul').listview('refresh');
+                });
         </script>
     </head>
     <body>

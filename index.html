@@ -1,18 +1,24 @@
-<!DOCTYPE html>
 <html>
     <head>
         <title>m.fis-ski.com</title>
         <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
         <script src="phonegap.js"></script>
-       <!-- <link rel="stylesheet" href="css/FIS_jquery_mobile.css" type="text/css"/>
-        <link rel="stylesheet" href="css/jquery.mobile.structure_1.2.0.min.css" />
-        <link rel="stylesheet" href="css/mobile_new.css" type="text/css"/>-->
-        <script src="js/jquery-1.11.1.min.js"></script>
+       <link rel="stylesheet" href="css/mobile_new.css" type="text/css"/>
+	<link rel="stylesheet" href="css/FIS_jquery_mobile.css" type="text/css"/>
+    <link rel="stylesheet" href="css/jquery.mobile.structure_1.2.0.min.css" />
+	<!--[if IE]>
+	    <style type="text/css">@import url(http://www.fis-ski.com/css/mobile_ie.css);</style>
+	<![endif]-->
+    <script src="js/jquery_1.8.2.min.js"></script>
+    <script src="js/jquery.mobile_1.2.0.min.js"></script>
+    <script src="js/jquery.cookie.js"></script>
+    <script src="js/mobile_common_fis.js?v=20131124"></script>
+        <!--<script src="js/jquery-1.11.1.min.js"></script>-->
         <script src="js/jquery.jsonp.min.js"></script>
         <script>
-            document.addEventListener("deviceready", onDeviceReady, false);
+            /*document.addEventListener("deviceready", onDeviceReady, false);
             var ref;
-            var refpdf;
+            var refpdf;*/
             function fct_exitapp()
             {
                 if (navigator.app) {
@@ -87,7 +93,7 @@
                 $("#tryagain").show();*/
                 
                 $.jsonp({
-                    url: 'http://mobile.fis-ski.com/?inapp=true&json=true',
+                    url: 'http://mobile.fis-ski.com/?json=true&inapp=true',
                     callbackParameter: 'callback',
                     timeout: 25000,
                     success: function(data, status) {
@@ -166,16 +172,38 @@
                     fct_exitapp();
                 }
             }
-            
+            $(document).on( "pagebeforecreate", function(event) {
+                    $.jsonp({
+                    url: 'http://mobile.fis-ski.com/uk/mobile/fis-for-mobile2.html?json=true&inapp=true&callback=myfuncrt&v=43456',
+                    callbackParameter: 'callback',
+                    timeout: 25000,
+                    success: function(data, status) {
+                        //$('#your-tweets').append('<li>The feed loads fine');
+                        $('#pagecontent').html(data.fishtml).trigger('create');;
+                    },
+                    error: function(){
+                        $("#loading").show();
+                        $("#tryagain").show();
+                        $('#pagecontent').append('There was an error loading the feed');
+                    }
+                });
+                });
+                $(document).on( "pagecreate", function(event) {
+                    $('ul').listview('refresh');
+                });
         </script>
     </head>
     <body>
-        <div id="container">
-            <div data-role="page" data-theme="a">
-                <div data-role="header" data-position="inline">
-                    <div id="fis-home"></div><h1 class="ui-title">FIS-Ski mobile</h1>
-                </div>
-                <div data-role="content">
+        <div data-role="page" data-theme="a" id="home">
+        <div data-role="header" data-position="fixed">
+            <div id="fis"></div>
+
+            <!--div id="fis-home"></div-->
+            <h1 class="ui-title">FIS-Ski mobile</h1>
+            <a href="http://movile.fis-ski.com/uk/mobile/bile-settings.html" data-role="button" data-icon="gear" data-iconpos="notext" data-theme="b" data-transition="flip" class="ui-btn-right">Settings</a>
+        </div>
+                <div id="pagecontent">
+                    <div data-role="content">
                     <ul data-inset="true" data-dividertheme="a" data-theme="a" class="ui-listview" data-role="listview" >
                         <li data-role="list-divider" role="heading" id="loading" style="display:none">Loading...</li>
                         <li id="tryagain" style="display: none">
@@ -183,23 +211,8 @@
                         <li>
                     </ul>
                 </div>
+                </div>
             </div>
-        </div>
-        <script>
-            $.jsonp({
-                    url: 'http://mobile.fis-ski.com/?inapp=true',
-                    callbackParameter: 'callback',
-                    timeout: 25000,
-                    success: function(data, status) {
-                        //$('#your-tweets').append('<li>The feed loads fine');
-                        $('#container').html(data);
-                    },
-                    error: function(){
-                        $("#loading").show();
-                        $("#tryagain").show();
-                        $('#container').append('There was an error loading the feed');
-                    }
-                });
-        </script>
+        
     </body>
 </html>

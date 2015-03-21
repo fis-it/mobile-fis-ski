@@ -50,6 +50,12 @@
         <param name="android-package" value="org.apache.cordova.NetworkManager" />
         <param name="ios-package" value="CDVConnection" />
     </feature>
+    <feature name="Media">
+    <param name="android-package" value="org.apache.cordova.media.AudioHandler" />
+</feature>
+<feature name="Media">
+    <param name="ios-package" value="CDVSound" />
+</feature>
     <feature name="InAppBrowser">
         <param name="android-package" value="org.apache.cordova.inappbrowser.InAppBrowser" />
         <param name="ios-package" value="CDVInAppBrowser" />

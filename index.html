@@ -159,25 +159,43 @@
                     fct_exitapp();
                 }
             }
+            function fct_loadfisdata(v_url){
+                if (v_url.indexOf("http://") == -1){
+                    v_url = 'http://mobile.fis-ski.com'+v_url;
+                }
+                $.jsonp({
+                        url: v_url+'&json=true&callback=myfunct',
+                        callbackParameter: 'callback',
+                        timeout: 25000,
+                        success: function(data, status) {
+                            //$('#your-tweets').append('<li>The feed loads fine');
+                            $('#pagecontent').html(data.fishtml).trigger('create');
+                            $('a').unbind('click');
+                            $('form').unbind('submit');
+                            $('a').click(function(e){
+                                fct_loadfisdata($(this).attr('href').replace('mobile-menu.html','mobile-menu1.html'));
+                                e.preventDefault();
+                                e.stopImmediatePropagation();
+                            });
+                            $('form').submit(function(e){
+                                alert($(this).attr('action').replace('mobile-menu.html','mobile-menu1.html')+'?'+$(this).serialize());
+                                fct_loadfisdata($(this).attr('action').replace('mobile-menu.html','mobile-menu1.html')+'?'+$(this).serialize());
+                                e.preventDefault();
+                                e.stopImmediatePropagation();
+                            });
+                        },
+                        error: function(){
+                            $("#loading").show();
+                            $("#tryagain").show();
+                            $('#pagecontent').append('There was an error loading the feed');
+                        }
+                    });
+            }
+            
             $(document).on( "pagebeforecreate", function(event) {
-                    $.jsonp({
-                    url: 'http://mobile.fis-ski.com/uk/mobile/fis-for-mobile2.html?json=true&inapp=true&callback=myfuncrt&v=43456',
-                    callbackParameter: 'callback',
-                    timeout: 25000,
-                    success: function(data, status) {
-                        //$('#your-tweets').append('<li>The feed loads fine');
-                        $('#pagecontent').html(data.fishtml).trigger('create');;
-                    },
-                    error: function(){
-                        $("#loading").show();
-                        $("#tryagain").show();
-                        $('#pagecontent').append('There was an error loading the feed');
-                    }
+                    fct_loadfisdata('http://mobile.fis-ski.com/uk/mobile/fis-for-mobile2.html?json=true&inapp=true&callback=myfunct&v=43456');
                 });
-                });
-                $(document).on( "pagecreate", function(event) {
-                    $('ul').listview('refresh');
-                });
+                
         </script>
     </head>
     <body>
@@ -186,7 +204,8 @@
             <div id="fis"></div>
 
             <!--div id="fis-home"></div-->
-            <h1 class="ui-title">FIS-Ski mobile</h1>
+            <h1 class="ui-title">FIS-Ski mobile app</h1>
+            I'm still in App :P
             <a href="http://movile.fis-ski.com/uk/mobile/bile-settings.html" data-role="button" data-icon="gear" data-iconpos="notext" data-theme="b" data-transition="flip" class="ui-btn-right">Settings</a>
         </div>
                 <div id="pagecontent">

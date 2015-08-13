@@ -27,7 +27,7 @@
                 }
             }
             function callbackforpdf(event) {
-                alert ('loading ref');
+                //alert ('loading ref');
                 if (event.url.indexOf(".pdf") > 0) { // || event.url.indexOf("data.fis-ski.com") > 0
                     refpdf = window.open(event.url, '_blank', 'location=yes');
                     /*alert('ok');
@@ -51,34 +51,21 @@
                  showAddress: false,
                  showNavigationBar:false
                  });
-                 window.plugins.ChildBrowser.onLocationChange = function (url) {
-                 if (url.indexOf(".pdf") > 0 || url.indexOf("data.fis-ski.com") > 0) {
-                 window.plugins.ChildBrowser.openExternal(url);
-                 window.plugins.ChildBrowser.showWebPage(v_page_referer);
-                 } else {
-                 v_page_referer = url;
-                 }
-                 };*/
-                ref = window.open('http://m.fis-ski.com/?inapp=true', '_blank', 'location=yes,toolbar=no,suppressesIncrementalRendering=yes,disallowoverscroll=yes,presentationstyle=pagesheet');
-
-                ref.addEventListener('loadstart', callbackforpdf);
-
-
-                ref.addEventListener('loadstop', function(event) {
-                    /*if (device.platform === 'iOS' && parseFloat(device.version) >= 7.0) {
-                     StatusBar.overlaysWebView(false);
-                     alert('end');
-                     //StatusBar.styleDefault();
-                     //StatusBar.backgroundColorByName("red");
-                     //document.body.style.marginTop = "20px";
-                     // StatusBar.backgroundColorByHexString("#00388C");
-                     }*/
-                });
-                var exitcallback = function() {
-                    checkConnection();
-                    //ref.removeEventListener('exit', exitcallback);
-                };
-                ref.addEventListener('exit', exitcallback);
+                 ref.addEventListener('loadstop', function(event) {
+                     if (device.platform === 'iOS' && parseFloat(device.version) >= 7.0) {
+                        StatusBar.overlaysWebView(false);
+                        alert('end');
+                        //StatusBar.styleDefault();
+                        //StatusBar.backgroundColorByName("red");
+                        //document.body.style.marginTop = "20px";
+                       // StatusBar.backgroundColorByHexString("#00388C");
+                    }
+                 });
+        var exitcallback = function() {
+           checkConnection();
+           //ref.removeEventListener('exit', exitcallback);
+       };
+       ref.addEventListener('exit', exitcallback);
                 //ref.addEventListener('loadstart', function() { alert('start: ' + event.url); });
                 //ref.addEventListener('loadstop', function() { alert('stop: ' + event.url); });
                 //ref.addEventListener('exit', function() { alert(event.type); });

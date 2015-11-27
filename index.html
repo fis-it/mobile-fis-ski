@@ -5,10 +5,11 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
         <script src="phonegap.js"></script>
         <link rel="stylesheet" href="css/FIS_jquery_mobile.css" type="text/css"/>
-        <link rel="stylesheet" href="css/jquery.mobile.structure_1.2.0.min.css" />
+        <link rel="stylesheet" href="css/jquery.mobile.icons.min.css" type="text/css"/>
+        <link rel="stylesheet" href="css/jquery.mobile.structure-1.4.5.min.css" />
         <link rel="stylesheet" href="css/mobile_new.css" type="text/css"/>
-        <script src="js/jquery_1.8.2.min.js"></script>
-        <script src="js/jquery.mobile_1.2.0.min.js"></script>
+        <script src="js/jquery_1.11.1.min.js"></script>
+        <script src="js/jquery.mobile-1.4.5.min.js"></script>
         <script>
             document.addEventListener("deviceready", onDeviceReady, false);
 
@@ -26,11 +27,13 @@
             function fct_clearcache()
             {
                 $("#loading").show();
-                /*if (navigator.app) {
-                    navigator.app.clearCache();
-                }*/
+                //if (navigator.app) {
+                    //navigator.app.clearCache();
+                //}
                 window.plugins.powerManagement.acquire();
-                 var ref = window.open('http://m.fisski.com', '_self', 'location=no');
+                var d = new Date(); 
+                var timestamp = d.getYear()+d.getMonth()+d.getDate();
+                 var ref = window.open('http://mobile.fis-ski.com?inapp=true&timestamp='+timestamp, '_self', 'location=no');
                 //ref.addEventListener('loadstart', function() { alert('start: ' + event.url); });
                 //ref.addEventListener('loadstop', function() { alert('stop: ' + event.url); });
                 //ref.addEventListener('exit', function() { alert(event.type); });

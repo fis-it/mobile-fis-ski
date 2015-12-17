@@ -36,16 +36,18 @@
     <gap:splash src="splash/ios/Default-Landscape.png" width="1024" height="768" />
     <gap:splash src="splash/ios/Default-Portrait.png" width="768" height="1024" />
     <preference name="permissions" value="none" />
-    
+    <plugin name="br.com.paveisitemas.splashscreen" source="pgb" />
+    <preference name="FadeSplashScreen" value="true"/>
+      <preference name="ShowSplashScreenSpinner" value="true"/>
     <gap:plugin name="org.apache.cordova.device" />
     <gap:plugin name="org.apache.cordova.network-information" />
     <!--<gap:plugin name="com.phonegap.plugins.childbrowser" />-->
-    <plugin name="com.simplec.plugins.powermanagement" spec="0.4.0" source="pgb" />
-    <plugin name="org.apache.cordova.media" spec="0.2.16" source="pgb" />
-    <plugin name="net.bgta.phonegap.plugin.appversion" spec="1.1.1" source="pgb" />
-    <plugin name="cordova-plugin-inappbrowser" spec="1.0.1" source="pgb" />
+    <plugin name="com.simplec.plugins.powermanagement" source="pgb" />
+    <plugin name="org.apache.cordova.media" source="pgb" />
+    <plugin name="net.bgta.phonegap.plugin.appversion" source="pgb" />
+    <plugin name="cordova-plugin-inappbrowser" source="pgb" />
     <gap:plugin name="com.phonegap.plugin.statusbar" />
-    <plugin name="de.appplant.cordova.plugin.background-mode" spec="0.6.4" source="pgb" />
+    <plugin name="de.appplant.cordova.plugin.background-mode" source="pgb" />
     <feature name="http://api.phonegap.com/1.0/network"/>
     <feature name="NetworkStatus">
         <param name="android-package" value="org.apache.cordova.NetworkManager" />

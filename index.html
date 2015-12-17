@@ -46,6 +46,7 @@
                     app_version = version.replace('.','');
                 });
                 var $app_version_saved = $.cookie("fis_app_version");
+                alert($app_version_saved);
                 if ($app_version_saved == null || $app_version_saved < app_version){
                     navigator.app.clearCache();
                     alert('cache cleared');
@@ -100,18 +101,19 @@
                 //alert(connectionStatus);
                 //printObject(navigator);
                 if (networkState != 'none'){
-                    var ref_param = 'location=no,zoom=no,hardwareback=yes';
-                   if (history.length > 1){
-                        if (confirm("Are you sure do you want quit mobile.fis-ski.com?") && navigator.app){
-                            navigator.app.exitApp();
-                        } else {
-                            fct_clearcache();
-                            var ref = cordova.InAppBrowser.open('http://mobile.fis-ski.com?inapp=true', '_self', ref_param);
-                        }
-                    } else {
+                    var ref_param = 'location=no,zoom=no,hardwareback=yes,hidden=yes';
+                   //if (history.length > 1){
+                        //if (confirm("Are you sure do you want quit mobile.fis-ski.com?") && navigator.app){
+                        //    navigator.app.exitApp();
+                        //} else {
+                        //    fct_clearcache();
+                        //    var ref = cordova.InAppBrowser.open('http://mobile.fis-ski.com?inapp=true', '_self', ref_param);
+                        //}
+                    //} else {
                         fct_clearcache();
                         var ref = cordova.InAppBrowser.open('http://mobile.fis-ski.com?inapp=true', '_self', ref_param);
-                    }
+                        ref.addEventListener('loadstop', function(event) {ref.show();ref.removeEventListener('loadstop'); });
+                    //}
                 } else {
                     $("#loading").hide();
                     fct_exitapp();

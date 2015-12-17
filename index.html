@@ -39,12 +39,13 @@
                         navigator.app.clearCache();
                     }
                 }
-                alert(getAppVersion());
+                getAppVersion(function(version) {
+                    alert('Native App Version: ' + version);
+                });
                 //var ref = window.open('http://mobile.fis-ski.com?inapp=true&timestamp='+timestamp, '_self', 'location=no');
                 //ref.addEventListener('loadstart', function() { alert('start: ' + event.url); });
                 //ref.addEventListener('loadstop', function() { alert('stop: ' + event.url); });
                 //ref.addEventListener('exit', function() { alert(event.type); });
-
             }
             function onDeviceReady() {
                 //document.addEventListener("backbutton", onBackbuttonPress, false);

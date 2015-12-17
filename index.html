@@ -32,13 +32,13 @@
                     //navigator.app.clearCache();
                 //}
                 window.plugins.powerManagement.acquire();
-                if (navigator.app) {
+                /*if (navigator.app) {
                     var today = new Date();
                     if ($.cookie("fis_app_cache") == null){
                         $.cookie("fis_app_cache", today , {expires: 200, path: "/"});
                         navigator.app.clearCache();
                     }
-                }
+                }*/
                 getAppVersion(function(version) {
                     alert('Native App Version: ' + version);
                 });
@@ -96,11 +96,11 @@
                             navigator.app.exitApp();
                         } else {
                             fct_clearcache();
-                            top.document.location = 'http://mobile.fis-ski.com?inapp=true';
+                            window.location.href = 'http://mobile.fis-ski.com?inapp=true';
                         }
                     } else {
                         fct_clearcache();
-                        top.document.location = 'http://mobile.fis-ski.com?inapp=true';
+                        window.location.href = 'http://mobile.fis-ski.com?inapp=true';
                     }
                 } else {
                     $("#loading").hide();

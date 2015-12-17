@@ -39,7 +39,6 @@
     <plugin name="br.com.paveisitemas.splashscreen" source="pgb" />
     <plugin name="hu.dpal.phonegap.plugins.spinnerdialog" source="pgb" />
     <preference name="FadeSplashScreen" value="true"/>
-      <preference name="ShowSplashScreenSpinner" value="true"/>
     <gap:plugin name="org.apache.cordova.device" />
     <gap:plugin name="org.apache.cordova.network-information" />
     <!--<gap:plugin name="com.phonegap.plugins.childbrowser" />-->

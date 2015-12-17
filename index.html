@@ -31,8 +31,8 @@
                 //if (navigator.app) {
                     //navigator.app.clearCache();
                 //}
-                //window.plugins.powerManagement.acquire();
-                keepscreenon.enable();
+                window.plugins.powerManagement.acquire();
+                //keepscreenon.enable();
                 cordova.plugins.backgroundMode.setDefaults({ text:'FIS SKI mobile still in background'});
                 cordova.plugins.backgroundMode.enable();
                 /*if (navigator.app) {
@@ -42,7 +42,7 @@
                         navigator.app.clearCache();
                     }
                 }*/
-                var app_version = 0;
+                /*var app_version = 0;
                 getAppVersion(function(version) {
                     app_version = version.replace('.','');
                 });
@@ -52,7 +52,7 @@
                     navigator.app.clearCache();
                     //alert('cache cleared');
                 }
-                window.localStorage.setItem("fis_app_version", app_version);
+                window.localStorage.setItem("fis_app_version", app_version);*/
                 //var ref = window.open('http://mobile.fis-ski.com?inapp=true&timestamp='+timestamp, '_self', 'location=no');
                 //ref.addEventListener('loadstart', function() { alert('start: ' + event.url); });
                 //ref.addEventListener('loadstop', function() { alert('stop: ' + event.url); });
@@ -104,7 +104,7 @@
                 //alert(connectionStatus);
                 //printObject(navigator);
                 if (networkState != 'none'){
-                    var ref_param = 'location=no,zoom=no,hardwareback=yes';
+                    var ref_param = 'location=no,zoom=no,hardwareback=yes,hidden=yes';
                    //if (history.length > 1){
                         //if (confirm("Are you sure do you want quit mobile.fis-ski.com?") && navigator.app){
                         //    navigator.app.exitApp();

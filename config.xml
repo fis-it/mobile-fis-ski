@@ -39,9 +39,10 @@
     
     <gap:plugin name="org.apache.cordova.device" />
     <gap:plugin name="org.apache.cordova.network-information" />
-    <gap:plugin name="org.apache.cordova.inappbrowser" />
     <!--<gap:plugin name="com.phonegap.plugins.childbrowser" />-->
-    <gap:plugin name="com.simplec.plugins.powermanagement" />
+    <plugin name="com.simplec.plugins.powermanagement" spec="0.4.0" source="pgb" />
+    <plugin name="org.apache.cordova.media" spec="0.2.16" source="pgb" />
+    <plugin name="net.bgta.phonegap.plugin.appversion" spec="1.1.1" source="pgb" />
     <gap:plugin name="com.phonegap.plugin.statusbar" />
     <gap:plugin name="de.appplant.cordova.plugin.background-mode" />
     <feature name="http://api.phonegap.com/1.0/network"/>

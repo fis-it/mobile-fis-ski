@@ -115,7 +115,7 @@
                     //} else {
                         fct_clearcache();
                         var ref = cordova.InAppBrowser.open('http://mobile.fis-ski.com?inapp=true', '_self', ref_param);
-                        ref.addEventListener('loadstop', function(event) {window.plugins.spinnerDialog.hide();navigator.splashscreen.hide();ref.show();ref.removeEventListener('loadstop'); });
+                        ref.addEventListener('loadstop', function(event) {window.plugins.spinnerDialog.hide();navigator.splashscreen.hide();ref.show();ref.removeEventListener('loadstop');document.getElementById("rescuelink").innerHTML = 'Got to mobile.fis-ski.com'});
                     //}
                 } else {
                     //$("#loading").hide();
@@ -125,6 +125,6 @@
         </script>
 	</head>
 	<body>
-            <a onclick="checkConnection();">Go to FIS-SKI mobile</a>
+            <a onclick="checkConnection();" id="rescuelink"></a>
 	</body>
 </html>

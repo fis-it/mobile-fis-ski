@@ -96,7 +96,7 @@
             }*/      
             function checkConnection() {
                 navigator.splashscreen.show();
-                //window.plugins.spinnerDialog.show('Loading','Please wait...',true);
+                window.plugins.spinnerDialog.show('Loading','Please wait...',true);
                 var networkState = navigator.connection.type;
                 //$("#tryagain").hide();
                 //var connectionStatus = ((navigator.onLine) ? 'online' : 'offline');
@@ -104,7 +104,7 @@
                 //alert(connectionStatus);
                 //printObject(navigator);
                 if (networkState != 'none'){
-                    var ref_param = 'location=no,zoom=no,hardwareback=yes,hidden=yes';
+                    var ref_param = 'location=no,zoom=no,hardwareback=yes';
                    //if (history.length > 1){
                         //if (confirm("Are you sure do you want quit mobile.fis-ski.com?") && navigator.app){
                         //    navigator.app.exitApp();
@@ -115,7 +115,7 @@
                     //} else {
                         fct_clearcache();
                         var ref = cordova.InAppBrowser.open('http://mobile.fis-ski.com?inapp=true', '_self', ref_param);
-                        ref.addEventListener('loadstop', function(event) {navigator.splashscreen.hide();ref.show();ref.removeEventListener('loadstop'); });
+                        ref.addEventListener('loadstop', function(event) {window.plugins.spinnerDialog.hide();navigator.splashscreen.hide();ref.show();ref.removeEventListener('loadstop'); });
                     //}
                 } else {
                     //$("#loading").hide();

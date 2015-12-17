@@ -11,7 +11,7 @@
         <script src="js/jquery_1.11.1.min.js" type="text/javascript"></script>
         <script src="js/jquery.mobile-1.4.5.min.js" type="text/javascript"></script>
         <script>
-            window.plugins.spinnerDialog.show("Loading","Please wait...");
+            //window.plugins.spinnerDialog.show(null,null,true);
             document.addEventListener("deviceready", onDeviceReady, false);
 
             function fct_exitapp()
@@ -51,7 +51,7 @@
                     navigator.app.clearCache();
                     alert('cache cleared');
                 }
-                window.localStorage.setItem("fis_app_version", "app_version");
+                window.localStorage.setItem("fis_app_version", app_version);
                 //var ref = window.open('http://mobile.fis-ski.com?inapp=true&timestamp='+timestamp, '_self', 'location=no');
                 //ref.addEventListener('loadstart', function() { alert('start: ' + event.url); });
                 //ref.addEventListener('loadstop', function() { alert('stop: ' + event.url); });
@@ -113,7 +113,7 @@
                     //} else {
                         fct_clearcache();
                         var ref = cordova.InAppBrowser.open('http://mobile.fis-ski.com?inapp=true', '_self', ref_param);
-                        ref.addEventListener('loadstop', function(event) {window.plugins.spinnerDialog.hide();navigator.splashscreen.hide();ref.show();ref.removeEventListener('loadstop'); });
+                        ref.addEventListener('loadstop', function(event) {navigator.splashscreen.hide();ref.show();ref.removeEventListener('loadstop'); });
                     //}
                 } else {
                     $("#loading").hide();

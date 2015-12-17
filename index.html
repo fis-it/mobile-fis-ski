@@ -48,6 +48,7 @@
                 var $app_version_saved = $.cookie("fis_app_version");
                 if ($app_version_saved == null || $app_version_saved < app_version){
                     navigator.app.clearCache();
+                    alert('cache cleared');
                 }
                 $.cookie("fis_app_version", app_version , {expires: 365, path: "/"});
                 //var ref = window.open('http://mobile.fis-ski.com?inapp=true&timestamp='+timestamp, '_self', 'location=no');

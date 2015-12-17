@@ -11,7 +11,7 @@
         <script src="js/jquery_1.11.1.min.js" type="text/javascript"></script>
         <script src="js/jquery.mobile-1.4.5.min.js" type="text/javascript"></script>
         <script>
-            window.plugins.spinnerDialog.show(null,null,true);
+            
             document.addEventListener("deviceready", onDeviceReady, false);
 
             function fct_exitapp()
@@ -31,7 +31,8 @@
                 //if (navigator.app) {
                     //navigator.app.clearCache();
                 //}
-                window.plugins.powerManagement.acquire();
+                //window.plugins.powerManagement.acquire();
+                keepscreenon.enable();
                 cordova.plugins.backgroundMode.setDefaults({ text:'FIS SKI mobile still in background'});
                 cordova.plugins.backgroundMode.enable();
                 /*if (navigator.app) {
@@ -95,6 +96,7 @@
             }*/      
             function checkConnection() {
                 navigator.splashscreen.show();
+                window.plugins.spinnerDialog.show(null,null,true);
                 var networkState = navigator.connection.type;
                 $("#tryagain").hide();
                 //var connectionStatus = ((navigator.onLine) ? 'online' : 'offline');

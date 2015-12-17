@@ -4,12 +4,12 @@
 		<title>m.fis-ski.com</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
         <script src="phonegap.js"></script>
-        <link href="css/FIS_jquery_mobile.css" rel="stylesheet" type="text/css">
+        <!--<link href="css/FIS_jquery_mobile.css" rel="stylesheet" type="text/css">
         <link href="css/jquery.mobile.icons.min.css" rel="stylesheet" type="text/css">
         <link href="css/jquery.mobile.structure-1.4.5.min.css" rel="stylesheet" type="text/css">
         <link href="css/mobile_new.css" rel="stylesheet" type="text/css">
         <script src="js/jquery_1.11.1.min.js" type="text/javascript"></script>
-        <script src="js/jquery.mobile-1.4.5.min.js" type="text/javascript"></script>
+        <script src="js/jquery.mobile-1.4.5.min.js" type="text/javascript"></script>-->
         <script>
             
             document.addEventListener("deviceready", onDeviceReady, false);
@@ -20,14 +20,14 @@
                     alert('Mobile.fis-ski.com need a internet connection, please activate the internet and try again.')
                     navigator.app.exitApp();
                 } else {
-                    $("#loading").html('Mobile.fis-ski.com need a internet connection, please activate the internet and try again.');
+                    /*ding").html('Mobile.fis-ski.com need a internet connection, please activate the internet and try again.');
                     $("#loading").show();
-                    $("#tryagain").show();
+                    $("#tryagain").show();*/
                 }
             }
             function fct_clearcache()
             {
-                $("#loading").show();
+               // $("#loading").show();
                 //if (navigator.app) {
                     //navigator.app.clearCache();
                 //}
@@ -96,9 +96,9 @@
             }*/      
             function checkConnection() {
                 navigator.splashscreen.show();
-                window.plugins.spinnerDialog.show(null,null,true);
+                window.plugins.spinnerDialog.show('Loading','Please wait...',true);
                 var networkState = navigator.connection.type;
-                $("#tryagain").hide();
+                //$("#tryagain").hide();
                 //var connectionStatus = ((navigator.onLine) ? 'online' : 'offline');
                 //alert('ok2');
                 //alert(connectionStatus);
@@ -115,7 +115,7 @@
                     //} else {
                         fct_clearcache();
                         var ref = cordova.InAppBrowser.open('http://mobile.fis-ski.com?inapp=true', '_self', ref_param);
-                        ref.addEventListener('loadstop', function(event) {navigator.splashscreen.hide();ref.show();ref.removeEventListener('loadstop'); });
+                        ref.addEventListener('loadstop', function(event) {window.plugins.spinnerDialog.hide());navigator.splashscreen.hide();ref.show();ref.removeEventListener('loadstop'); });
                     //}
                 } else {
                     $("#loading").hide();
@@ -125,17 +125,6 @@
         </script>
 	</head>
 	<body>
-        <div data-role="page" data-theme="a" id="home" data-dom-cache="false">
-    <div data-role="header" data-position="fixed">
-        <div id="fis-home"></div>
-        <div class="ui-title">FIS mobile</div>
-        </div>
-    <div role="main" class="ui-content">
-        <ul data-divider-theme="a" data-theme="a" data-count-theme="b" data-role="listview">
-            <li data-icon="false" data-theme="b">Loading...</li>
-            <li id="tryagain" style="display: none"><a href="javascript:checkConnection();" data-transition="slide">Click here to try again</a></li>
-        </ul>
-    </div>
-    </div>
+            <a onclick="checkConnection();">Go to FIS-SKI mobile</a>
 	</body>
 </html>

@@ -48,6 +48,9 @@
 	text-align:center;
 	font-size:10px;
 }
+#sidepanel{
+    background-color: #303030;
+}   
 .spacer{
     height: 3em;
 }
@@ -71,12 +74,17 @@
 	margin-left: 10px;
 	text-align: left;
 }
-.live_menu_divider {
-	visibility:hidden;
-	line-height: 0px;
+.gender_l {
+    color: #ca10ca;
+    font-weight: 700;
+}
+.gender_m {
+    color: #002395;
+    font-weight: 700;
 }
 
-@media screen and (min-width: 500px) {
+/*====================================== START live====================================*/
+@media screen and (min-width: 600px) {
 	li.live_menu {
 		font-size:16px;
 	}
@@ -90,13 +98,8 @@
 	}
 	
 }
-/*iPhone*/
-@media screen and (max-width:600px) {
-    li.live_menu a.livelink, li.live_menu {
-        font-size:12px;
-	}   
-}
-@media screen and (min-width:500px) and (max-width:760px)    {
+
+@media screen and (min-width:600px) and (max-width:768px)    {
     li.live_menu a.livelink, li.live_menu{
         font-size:12px;
 	} 
@@ -166,6 +169,11 @@
     margin-bottom: -6px;
     margin-left: 1px;
 }
+.live_menu_divider {
+	visibility:hidden;
+	line-height: 0px;
+}
+
 .livesector,.livenumber { 
     float: both; 
     height: 50%;
@@ -179,6 +187,18 @@
     background: rgba(255,255,255,0.1);  
 /*    border: 1px solid rgba(0,0,0,0.1);*/
 }
+.livelist > li.liveline,
+.livelist > li.liveline a{   
+    font-size:14px !important;    
+    font-weight:normal ! important;
+}  
+.livelist > li,
+.livelist > li a{
+    margin-top: -0.2em ! important;
+    margin-bottom: -0.2em ! important;
+    padding-top: 0.2em ! important;
+    padding-bottom: 0.2em ! important;
+}
 .livedata > div{
     padding-left:10px;
     text-overflow: ellipsis;
@@ -187,13 +207,24 @@
 }
 .livestarttime{
     width: 10% !important;
-    text-align: right;
+}
+.livecategory{
+    width: 10% !important;
+    text-align:right;
 }
 .livestatus{
-    width: 15% !important;
+    width: 20% !important;
+    text-align:right;
+}
+.liveinfo{
+    text-align: right;
+    color: #999999;
 }
 .livedata{
-    width: 70% !important;
+    width: 60% !important;
+}
+.review{
+    background:#a7a7a7;
 }
 #sidepanel li a{ 
     font-weight: normal;
@@ -206,18 +237,145 @@
 	font-weight:bold;
 	font-size:12px;
 }
-@media screen and (max-width: 600px) {
+.carousel{
+    overflow:hidden;
+    width:100%;
+    position:relative;
+}
+.carousel > ul{
+    padding: 0;
+}
+.panes{
+    list-style:none;
+    position:relative;
+    overflow:hidden; /* This is used solely to clear floats, it does not add functionality. */
+}
+.panes1{    
+    width:100%; /* Number of panes * 100% */    
+}
+.panes2{
+    width:200%; /* Number of panes * 100% */  
+    -webkit-animation:carousel2 10s infinite;
+       -moz-animation:carousel2 10s infinite;
+            animation:carousel2 10s infinite;
+}
+.panes3{
+    width:300%; /* Number of panes * 100% */    
+    -webkit-animation:carousel3 15s infinite;
+       -moz-animation:carousel3 15s infinite;
+            animation:carousel3 15s infinite;
+}
+.panes > li{
+    position:relative;
+    float:left;
+    display:block;
+}
+.panes1 > li{
+    width:100%; /* 100 / number of panes */
+}
+.panes2 > li{
+    width:50%; /* 100 / number of panes */
+}
+.panes3 > li{
+    width:33.33%; /* 100 / number of panes */
+}
+.carousel div{
+    display:block;
+    width:100%;
+    max-width:100%;
+}
+.runno{
+    font-size:8px;
+    text-align:center;
+    color:#555;
+}
+.carousel .starttime{
+    font-weight: bold;
+    text-align:center;
+    color:#000;
+}
+@-moz-keyframes carousel2{
+    0%      { left:0; }
+    49%     { left:0; }
+    50%     { left:-100%; }
+    99%   { left:-100%; }
+    100%    { left:0; }
+}
+
+@-webkit-keyframes carousel2{
+    0%      { left:0; }
+    49%     { left:0; }
+    50%     { left:-100%; }
+    99%   { left:-100%; }
+    100%    { left:0; }
+}
+
+@keyframes carousel2{
+    0%      { left:0; }
+    49%     { left:0; }
+    50%     { left:-100%; }
+    99%   { left:-100%; }
+    100%    { left:0; }
+}
+@-moz-keyframes carousel3{
+    0%  { left:0; }
+    32% { left:0; }
+    33% { left:-100%; }
+    66% { left:-100%; }
+    67% { left:-200%; }
+    99% { left:-200%; }
+    100%{ left:0; }
+}
+
+@-webkit-keyframes carousel3{
+    0%  { left:0; }
+    32% { left:0; }
+    33% { left:-100%; }
+    66% { left:-100%; }
+    67% { left:-200%; }
+    99% { left:-200%; }
+    100%{ left:0; }
+}
+
+@keyframes carousel3{
+    0%  { left:0; }
+    32% { left:0; }
+    33% { left:-100%; }
+    66% { left:-100%; }
+    67% { left:-200%; }
+    99% { left:-200%; }
+    100%{ left:0; }
+}
+@media screen and (max-width:600px) {
+    .livelist > li,
+    .livelist > li a,
+    .livelist > li.liveline,
+    .livelist > li.liveline a{   
+        font-size:12px !important; 
+    }
+    li.live_menu a.livelink, li.live_menu {
+        font-size:12px;
+    }
     .livestarttime{
         width: 60px !important;
     }
+    .livecategory{
+        width: 35px !important;
+    }
     .livedata{
-        width: 60% !important;
+        width: 50% !important;
     }
     .livedata > div{
         padding-left:4px;
     }
-
+    .livestatus{
+        width: 15% !important;
+    }
+    .livelist > .liveline > a > .ui-li-count{
+        right: 0.2em;
+    }
 }    
+/*====================================== END live====================================*/
 /*====================================== START event,calendar====================================*/
 .eventdata{
 	text-overflow: ellipsis;
@@ -230,23 +388,16 @@ li.eventheader{
 }
 .eventlist > li,
 .eventlist > li a,
-.livelist > li.liveline,
-.livelist > li.liveline a,
 .medallist > li.medalline a{   
     font-size:14px !important;    
     font-weight:normal ! important;
 }  
 .eventlist > li,
-.livelist > li,
 .medallist > li{   
     padding-top: 0.2em ! important;
     padding-bottom: 0.2em ! important;
 }
 .eventlist > li a,
-livelist > li,
-.livelist > li a,
-.livelist > li.liveline,
-.livelist > li.liveline a,
 .medallist > li.medalline a{
     margin-top: -0.2em ! important;
     margin-bottom: -0.2em ! important;
@@ -263,14 +414,12 @@ livelist > li,
 @media screen and (max-width: 600px) {
     .eventlist > li,
     .eventlist > li a,
-    .livelist > li,
-    .livelist > li a,
-    .livelist > li.liveline,
-    .livelist > li.liveline a,
     .medallist > li,
     .medallist > li a,
     .medallist > li.medalline a{   
         font-size:12px !important; 
+        padding-left:0.2em;
+        padding-right: 0.2em
     } 
     #hide{
         display:block;
@@ -279,6 +428,12 @@ livelist > li,
     .calendar{
         padding-top: 0px;
         padding-bottom: 0px;
+    }
+    .eventlist > .ui-li-static{
+        padding: 0.7em 0.2em;
+    }
+    .eventlist > .ui-li-divider{
+        padding: 0.5em 0.2em;
     }
 /*    a.calendar{
         font-size:12px;
@@ -477,7 +632,7 @@ li.irm{
 }
 .width_Rank { 
     width:10% !important;
-    margin-left: -2px;
+    /*margin-left: -2px;*/
 }
 .width_Bib { 
     width:10% !important;
@@ -520,6 +675,9 @@ li.irm{
     div.nameheader {
         padding-left:7px;
 	}
+    .live_menu_wrap {
+		float: left;
+	}
     li.resultline,
     li.resultline a,
     li.resultlineteam a,
@@ -527,7 +685,12 @@ li.irm{
     .resultlist > li,
     .resultlist > li a{
        font-size:12px !important; 
+       padding-right: 0.2em
     }  
+    li.resultheader{
+        padding-right: 0.2em !important;
+        padding-left: 0.3em !important;
+    }
     .width_block1/*, .ui-grid-a > *:nth-child(n) .width_block1*/{ 
         width:65% !important;
     }
@@ -549,12 +712,12 @@ li.irm{
     .width_Time4/*, .ui-grid-a > *:nth-child(n) .width_Time4*/{ 
         width:50% !important; 
     }
-    .width_Time31{
+/*    .width_Time31{
        width:40% !important; 
     }
     .width_Time41{
        width:60% !important; 
-    }
+    }*/
     .expand_50,
     .width_Time3.expand_50,
     .width_Time4.expand_50{
@@ -648,5 +811,10 @@ li.irm{
 /*======================================START biog====================================*/
 .select_biog{
     margin: -1em;
+}
+@media screen and (max-width: 600px) {
+    .ui-field-contain.select_biog, .ui-mobile fieldset.ui-field-contain.select_biog{
+        padding: 0;
+    }
 }
 /*======================================END biog====================================*/

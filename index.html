@@ -4,12 +4,13 @@
 		<title>m.fis-ski.com</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
         <script src="phonegap.js"></script>
-        <link rel="stylesheet" href="css/FIS_jquery_mobile.css" type="text/css"/>
-        <link rel="stylesheet" href="css/jquery.mobile.icons.min.css" type="text/css"/>
-        <link rel="stylesheet" href="css/jquery.mobile.structure-1.4.5.min.css" />
-        <link rel="stylesheet" href="css/mobile_new.css" type="text/css"/>
-        <script src="js/jquery_1.11.1.min.js"></script>
-        <script src="js/jquery.mobile-1.4.5.min.js"></script>
+        <link href="css/FIS_jquery_mobile.css" rel="stylesheet" type="text/css">
+        <link href="css/jquery.mobile.icons.min.css" rel="stylesheet" type="text/css">
+        <link href="css/jquery.mobile.structure-1.4.5.min.css" rel="stylesheet" type="text/css">
+        <link href="css/mobile_new.css" rel="stylesheet" type="text/css">
+        <script src="js/jquery_1.11.1.min.js" type="text/javascript"></script>
+        <script src="js/jquery.mobile-1.4.5.min.js" type="text/javascript"></script>
+        <script src="js/jquery.cookie.js" type="text/javascript"></script>
         <script>
             document.addEventListener("deviceready", onDeviceReady, false);
 
@@ -31,9 +32,15 @@
                     //navigator.app.clearCache();
                 //}
                 window.plugins.powerManagement.acquire();
-                var d = new Date(); 
-                var timestamp = d.getYear()+d.getMonth()+d.getDate();
-                 var ref = window.open('http://mobile.fis-ski.com?inapp=true&timestamp='+timestamp, '_self', 'location=no');
+                /*if (navigator.app) {
+                    var today = new Date();
+                    var cache_expired_date = new Date();
+                    if ($.cookie("fis_app_cache") == null){
+                        $.cookie("fis_app_cache", today , {expires: 200, path: "/"});
+                        navigator.app.clearCache();
+                    }
+                }*/
+                //var ref = window.open('http://mobile.fis-ski.com?inapp=true&timestamp='+timestamp, '_self', 'location=no');
                 //ref.addEventListener('loadstart', function() { alert('start: ' + event.url); });
                 //ref.addEventListener('loadstop', function() { alert('stop: ' + event.url); });
                 //ref.addEventListener('exit', function() { alert(event.type); });
@@ -87,12 +94,11 @@
                             navigator.app.exitApp();
                         } else {
                             fct_clearcache();
-                            
-                            //top.document.location = 'http://m.fisski.com?inapp=true';
+                            top.document.location = 'http://mobile.fis-ski.com?inapp=true';
                         }
                     } else {
                         fct_clearcache();
-                        //top.document.location = 'http://m.fisski.com?inapp=true';
+                        top.document.location = 'http://mobile.fis-ski.com?inapp=true';
                     }
                 } else {
                     $("#loading").hide();
@@ -102,20 +108,17 @@
         </script>
 	</head>
 	<body>
-        <div id="container">
-            <div data-role="page" data-theme="a">
-                <div data-role="header" data-position="inline">
-                <div id="fis-home"></div><h1 class="ui-title">FIS-Ski mobile</h1>
-                </div>
-                <div data-role="content">
-                    <ul data-inset="true" data-dividertheme="a" data-theme="a" class="ui-listview" data-role="listview" >
-                        <li data-role="list-divider" role="heading" id="loading" style="display:none">Loading...</li>
-                        <li id="tryagain" style="display: none">
-                            <a href="javascript:checkConnection();" data-transition="slide">Click here to try again</a></li>
-                        <li>
-                    </ul>
-                </div>
-            </div>
+        <div data-role="page" data-theme="a" id="home" data-dom-cache="false">
+    <div data-role="header" data-position="fixed">
+        <div id="fis-home"></div>
+        <div class="ui-title">FIS mobile</div>
         </div>
+    <div role="main" class="ui-content">
+        <ul data-divider-theme="a" data-theme="a" data-count-theme="b" data-role="listview">
+            <li data-icon="false" data-theme="b">Loading...</li>
+            <li id="tryagain" style="display: none"><a href="javascript:checkConnection();" data-transition="slide">Click here to try again</a></li>
+        </ul>
+    </div>
+    </div>
 	</body>
 </html>

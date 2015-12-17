@@ -39,9 +39,15 @@
                         navigator.app.clearCache();
                     }
                 }*/
+                var app_version = 0;
                 getAppVersion(function(version) {
-                    alert('Native App Version: ' + version);
+                    app_version = version.replace('.','');
                 });
+                var $app_version_saved = $.cookie("fis_app_version");
+                if ($app_version_saved == null || $app_version_saved < app_version){
+                    navigator.app.clearCache();
+                }
+                $.cookie("fis_app_version", app_version , {expires: 365, path: "/"});
                 //var ref = window.open('http://mobile.fis-ski.com?inapp=true&timestamp='+timestamp, '_self', 'location=no');
                 //ref.addEventListener('loadstart', function() { alert('start: ' + event.url); });
                 //ref.addEventListener('loadstop', function() { alert('stop: ' + event.url); });

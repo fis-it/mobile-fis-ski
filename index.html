@@ -11,7 +11,7 @@
         <script src="js/jquery_1.11.1.min.js" type="text/javascript"></script>
         <script src="js/jquery.mobile-1.4.5.min.js" type="text/javascript"></script>
         <script>
-            //window.plugins.spinnerDialog.show(null,null,true);
+            window.plugins.spinnerDialog.show(null,null,true);
             document.addEventListener("deviceready", onDeviceReady, false);
 
             function fct_exitapp()
@@ -46,10 +46,10 @@
                     app_version = version.replace('.','');
                 });
                 var $app_version_saved =  window.localStorage.getItem("fis_app_version");
-                alert($app_version_saved);
+                //alert($app_version_saved);
                 if ($app_version_saved == null || $app_version_saved < app_version){
                     navigator.app.clearCache();
-                    alert('cache cleared');
+                    //alert('cache cleared');
                 }
                 window.localStorage.setItem("fis_app_version", app_version);
                 //var ref = window.open('http://mobile.fis-ski.com?inapp=true&timestamp='+timestamp, '_self', 'location=no');

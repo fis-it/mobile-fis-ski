@@ -37,6 +37,7 @@
     <gap:splash src="splash/ios/Default-Portrait.png" width="768" height="1024" />
     <preference name="permissions" value="none" />
     <plugin name="br.com.paveisitemas.splashscreen" source="pgb" />
+    <plugin name="hu.dpal.phonegap.plugins.spinnerdialog" source="pgb" />
     <preference name="FadeSplashScreen" value="true"/>
       <preference name="ShowSplashScreenSpinner" value="true"/>
     <gap:plugin name="org.apache.cordova.device" />

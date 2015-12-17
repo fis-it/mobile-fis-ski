@@ -43,8 +43,9 @@
     <plugin name="com.simplec.plugins.powermanagement" spec="0.4.0" source="pgb" />
     <plugin name="org.apache.cordova.media" spec="0.2.16" source="pgb" />
     <plugin name="net.bgta.phonegap.plugin.appversion" spec="1.1.1" source="pgb" />
+    <plugin name="cordova-plugin-inappbrowser" spec="1.0.1" source="pgb" />
     <gap:plugin name="com.phonegap.plugin.statusbar" />
-    <gap:plugin name="de.appplant.cordova.plugin.background-mode" />
+    <plugin name="de.appplant.cordova.plugin.background-mode" spec="0.6.4" source="pgb" />
     <feature name="http://api.phonegap.com/1.0/network"/>
     <feature name="NetworkStatus">
         <param name="android-package" value="org.apache.cordova.NetworkManager" />

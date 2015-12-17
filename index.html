@@ -32,6 +32,7 @@
                     //navigator.app.clearCache();
                 //}
                 window.plugins.powerManagement.acquire();
+                cordova.plugins.backgroundMode.setDefaults({ text:'FIS SKI mobile still in background'});
                 cordova.plugins.backgroundMode.enable();
                 /*if (navigator.app) {
                     var today = new Date();

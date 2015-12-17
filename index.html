@@ -32,14 +32,14 @@
                     //navigator.app.clearCache();
                 //}
                 window.plugins.powerManagement.acquire();
-                /*if (navigator.app) {
+                if (navigator.app) {
                     var today = new Date();
-                    var cache_expired_date = new Date();
                     if ($.cookie("fis_app_cache") == null){
                         $.cookie("fis_app_cache", today , {expires: 200, path: "/"});
                         navigator.app.clearCache();
                     }
-                }*/
+                }
+                printObject(navigator);
                 //var ref = window.open('http://mobile.fis-ski.com?inapp=true&timestamp='+timestamp, '_self', 'location=no');
                 //ref.addEventListener('loadstart', function() { alert('start: ' + event.url); });
                 //ref.addEventListener('loadstop', function() { alert('stop: ' + event.url); });
@@ -57,7 +57,7 @@
                 alert("window.close()");
                 window.close();*/
             }
-            /*
+            
             function printObject(o) {
                 var out = '';
                 for (var p in o) {
@@ -65,6 +65,7 @@
                 }
                 document.write(out);
             }
+            /*
             function debuglog()
             {
                 document.write("<h2>navigator.connection</h2>"+navigator.connection);
@@ -90,7 +91,7 @@
                 //printObject(navigator);
                 if (networkState != 'none'){
                    if (history.length > 1){
-                        if (confirm("Are you sure do you want quit mobile.fisski.com?") && navigator.app){
+                        if (confirm("Are you sure do you want quit mobile.fis-ski.com?") && navigator.app){
                             navigator.app.exitApp();
                         } else {
                             fct_clearcache();

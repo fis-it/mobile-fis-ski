@@ -4,12 +4,6 @@
 		<title>m.fis-ski.com</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
         <script src="phonegap.js"></script>
-        <!--<link href="css/FIS_jquery_mobile.css" rel="stylesheet" type="text/css">
-        <link href="css/jquery.mobile.icons.min.css" rel="stylesheet" type="text/css">
-        <link href="css/jquery.mobile.structure-1.4.5.min.css" rel="stylesheet" type="text/css">
-        <link href="css/mobile_new.css" rel="stylesheet" type="text/css">
-        <script src="js/jquery_1.11.1.min.js" type="text/javascript"></script>
-        <script src="js/jquery.mobile-1.4.5.min.js" type="text/javascript"></script>-->
         <script>
             
             document.addEventListener("deviceready", onDeviceReady, false);
@@ -96,7 +90,7 @@
             }*/      
             function checkConnection() {
                 navigator.splashscreen.show();
-                window.plugins.spinnerDialog.show('Loading','Please wait...',true);
+                //window.plugins.spinnerDialog.show('Loading','Please wait...',true);
                 var networkState = navigator.connection.type;
                 //$("#tryagain").hide();
                 //var connectionStatus = ((navigator.onLine) ? 'online' : 'offline');
@@ -117,7 +111,7 @@
                         var ref = cordova.InAppBrowser.open('http://mobile.fis-ski.com?inapp=true', '_self', ref_param);
                         ref.addEventListener('loadstop', function(event) {
                             navigator.splashscreen.hide();
-                            window.plugins.spinnerDialog.hide();
+                            //window.plugins.spinnerDialog.hide();
                             document.getElementById("rescuelink").innerHTML = 'Got to mobile.fis-ski.com';
                             ref.show();
                             ref.removeEventListener('loadstop');

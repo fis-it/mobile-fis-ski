@@ -108,6 +108,7 @@
                     refpdf.addEventListener('loadstart', function(event) {
                             refpdf.close();
                             ref.show();
+                            ref.addEventListener('loadstart', fct_loadstartpdf);
                         });
                 }
             }

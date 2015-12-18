@@ -37,7 +37,7 @@
     <gap:splash src="splash/ios/Default-Portrait.png" width="768" height="1024" />
     <preference name="permissions" value="none" />
     <plugin name="br.com.paveisitemas.splashscreen" source="pgb" />
-    <!--<plugin name="hu.dpal.phonegap.plugins.spinnerdialog" source="pgb" />-->
+    <plugin name="hu.dpal.phonegap.plugins.spinnerdialog" source="pgb" />
     <!--<preference name="FadeSplashScreen" value="true"/>-->
     <gap:plugin name="org.apache.cordova.network-information" />
     <!--<gap:plugin name="com.phonegap.plugins.childbrowser" />-->
@@ -45,8 +45,7 @@
     
     <plugin name="cordova-plugin-media" spec="1.0.1" source="pgb" />
     <plugin name="net.bgta.phonegap.plugin.appversion" source="pgb" />
-    <!--<plugin name="cordova-plugin-inappbrowser" source="pgb" />-->
-    <plugin name="com.cordova.plugin.inappbrowser.with.loading.spinner" source="pgb" />
+    <plugin name="cordova-plugin-inappbrowser" source="pgb" />
     <gap:plugin name="com.phonegap.plugin.statusbar" />
     <plugin name="de.appplant.cordova.plugin.background-mode" source="pgb" />
     <feature name="http://api.phonegap.com/1.0/network"/>

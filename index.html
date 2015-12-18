@@ -56,6 +56,15 @@
                 //document.addEventListener("backbutton", onBackbuttonPress, false);
                 //$(document).ready(function(){
                     checkConnection();
+                    var ref = cordova.InAppBrowser.open('http://mobile.fis-ski.com?inapp=true', '_self', ref_param);
+                        ref.addEventListener('loadstop', function(event) {
+                            navigator.splashscreen.hide();
+                            window.plugins.spinnerDialog.hide();
+                            document.getElementById("rescuelink").innerHTML = 'Got to mobile.fis-ski.com';
+                            ref.show();
+                            ref.removeEventListener('loadstop');
+                        });
+                        ref.addEventListener('loadstart', fct_loadstartpdf);
                 //});
                 /*debuglog();
                 alert("document.close()");
@@ -114,15 +123,7 @@
                         //}
                     //} else {
                         fct_clearcache();
-                        var ref = cordova.InAppBrowser.open('http://mobile.fis-ski.com?inapp=true', '_self', ref_param);
-                        ref.addEventListener('loadstop', function(event) {
-                            navigator.splashscreen.hide();
-                            window.plugins.spinnerDialog.hide();
-                            document.getElementById("rescuelink").innerHTML = 'Got to mobile.fis-ski.com';
-                            ref.show();
-                            ref.removeEventListener('loadstop');
-                        });
-                        ref.addEventListener('loadstart', fct_loadstartpdf);
+                        
                     //}
                 } else {
                     //$("#loading").hide();

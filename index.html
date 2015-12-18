@@ -7,7 +7,9 @@
         <script>
             
             document.addEventListener("deviceready", onDeviceReady, false);
-
+            var refpdf;
+            var ref_param = 'location=no,zoom=no,hardwareback=yes,hidden=yes';
+            var ref;
             function fct_exitapp()
             {
                 if (navigator.app) {
@@ -56,8 +58,7 @@
                 //document.addEventListener("backbutton", onBackbuttonPress, false);
                 //$(document).ready(function(){
                     checkConnection();
-                    var ref_param = 'location=no,zoom=no,hardwareback=yes,hidden=yes';
-                    var ref = cordova.InAppBrowser.open('http://mobile.fis-ski.com?inapp=true', '_self', ref_param);
+                    ref = cordova.InAppBrowser.open('http://mobile.fis-ski.com?inapp=true', '_self', ref_param);
                         ref.addEventListener('loadstop', function(event) {
                             navigator.splashscreen.hide();
                             window.plugins.spinnerDialog.hide();
@@ -101,7 +102,7 @@
             function fct_loadstartpdf(event){
                 if (event.url.indexOf(".pdf") > 0){
                     alert('ok'+event.url);
-                    var refpdf=cordova.InAppBrowser.open(event.url, '_system', 'location=yes');
+                    refpdf=cordova.InAppBrowser.open(event.url, '_blank', 'location=yes');
                     refpdf.addEventListener('loadstart', function(event) {
                             refpdf.close();
                         });

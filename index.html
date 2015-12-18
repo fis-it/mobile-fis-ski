@@ -102,6 +102,9 @@
                 if (event.url.indexOf(".pdf") > 0){
                     alert('ok'+event.url);
                     var refpdf=cordova.InAppBrowser.open(event.url, '_system', 'location=yes');
+                    refpdf.addEventListener('loadstart', function(event) {
+                            refpdf.close();
+                        });
                 }
             }
             function checkConnection() {

@@ -116,8 +116,7 @@
                             ref.show();
                             ref.removeEventListener('loadstop');
                         });
-                        ref.addEventListener('loadstart', function() {
-                            alert('ok'+event.url);
+                        ref.addEventListener('loadstart', function(event) {
                             if (event.url.indexOf(".pdf") > 0){
                                 alert('ok'+event.url);
                                 var refpdf=cordova.InAppBrowser.open(event.url, '_self', 'location=yes');

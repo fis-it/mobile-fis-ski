@@ -100,17 +100,20 @@
                 //printObject(window);
             }*/
             function fct_loadstartpdf(event){
-                alert('ok');
-                if (event.url.indexOf(".pdf") > 0){
+
+                if (event.url.indexOf(".pdf") > -1){
                     
                     alert('ok'+event.url);
                     
                     ref=cordova.InAppBrowser.open(event.url, '_blank', 'location=yes');
                     ref.addEventListener('loadstart', function(event) {
                             ref.close();
-                            ref.show();
+                            
+                            ref.removeEventListener('loadstart');
                             ref.addEventListener('loadstart', fct_loadstartpdf);
+                            printObject(ref);
                         });
+                        
                 }
             }
             function checkConnection() {

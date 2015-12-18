@@ -42,8 +42,8 @@
     <gap:plugin name="org.apache.cordova.network-information" />
     <!--<gap:plugin name="com.phonegap.plugins.childbrowser" />-->
     <plugin name="com.simplec.plugins.powermanagement" source="pgb" />
-    
-    <plugin name="cordova-plugin-media" spec="1.0.1" source="pgb" />
+    <plugin name="com.chanthu.evri.gcs-file-transfer" source="pgb" />
+    <plugin name="cordova-plugin-media" source="pgb" />
     <plugin name="net.bgta.phonegap.plugin.appversion" source="pgb" />
     <plugin name="cordova-plugin-inappbrowser" source="pgb" />
     <gap:plugin name="com.phonegap.plugin.statusbar" />

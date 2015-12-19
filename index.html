@@ -65,6 +65,9 @@
                         document.getElementById("rescuelink").innerHTML = 'Got to mobile.fis-ski.com';
                         ref.show();
                         ref.removeEventListener('loadstop');
+                        ref.addEventListener('loadstop', function(event) {
+                            window.plugins.spinnerDialog.hide();
+                        });
                     });
                     ref.addEventListener('loadstart', fct_loadstartpdf);
                 //});
@@ -100,7 +103,7 @@
                 //printObject(window);
             }*/
             function fct_loadstartpdf(event){
-
+                window.plugins.spinnerDialog.show('Loading','Please wait...',true);
                 if (event.url.indexOf(".pdf") > -1){
                     
                     alert('ok'+event.url);
@@ -118,7 +121,6 @@
             }
             function checkConnection() {
                 navigator.splashscreen.show();
-                window.plugins.spinnerDialog.show('Loading','Please wait...',true);
                 var networkState = navigator.connection.type;
                 //$("#tryagain").hide();
                 //var connectionStatus = ((navigator.onLine) ? 'online' : 'offline');

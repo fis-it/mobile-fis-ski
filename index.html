@@ -65,8 +65,7 @@
 	                navigator.app.exitApp();
 	            });
                     //ref = cordova.InAppBrowser.open('http://mobile.fis-ski.com?inapp=true', '_self', ref_param);
-                    //document.addEventListener("backbutton", onBackKeyDown, false);
-                    //alert(window.location.href);
+                    //ref.addEventListener("backbutton", onBackKeyDown(e), false);
                     ref.addEventListener('loadstop', function(event) {
                         navigator.splashscreen.hide();
                         window.plugins.spinnerDialog.hide();
@@ -154,17 +153,19 @@
                 }
             }
             // Handle the back button Android
-		function onBackKeyDown() {
-			//alert("onBackKeyDown");
-			alert(window.location.href);
+		function onBackKeyDown(e) {
+			alert("onBackKeyDown");
+			alert(document.referrer);
 		    if(document.getElementById('home') !== null || 
-	    		    document.getElementById('rescuelink') !== null ||
-		            window.location.href === "file:///android_asset/www/index.html" ||
-		            window.location.href === "http://mobile.fis-ski.com" ||
+		            document.referrer === "" || 
+		            document.referrer === "http://mobile.fis-ski.com" || 
+		            document.referrer === "http://data.fis-ski.com/mobile/index.html" ||
+		            window.location.href === "" ||
 		            window.location.href === "http://mobile.fis-ski.com" ||
 		            window.location.href === "http://data.fis-ski.com/mobile/index.html" ||
 		            window.history.length === 0){
-		//        e.preventDefault();
+		            	alert("exit");
+		        e.preventDefault();
 		        if (navigator.app) {
 		            navigator.app.exitApp();
 		        }else {
@@ -172,14 +173,19 @@
 		                navigator.device.exitApp();
 		            }
 		        }
-		    } else if (window.history.length > 0 && 
-		                document.getElementById('rescuelink') === null
-		                window.location.href !== "file:///android_asset/www/index.html" &&
+		    } else {
+		    	alert("back");
+		        if (window.history.length > 0 && 
+		                document.getElementById('home') === null && 
+		                document.referrer !== "" && 
+		                document.referrer !== "http://mobile.fis-ski.com" && 
+		                document.referrer !== "http://data.fis-ski.com/mobile/index.html" &&
 		                window.location.href !== "" &&
 		                window.location.href !== "http://mobile.fis-ski.com" &&
 		                window.location.href !== "http://data.fis-ski.com/mobile/index.html"){
 		                	alert("back");
 		                window.history.back();
+		        }
 		    }
 		}
         </script>

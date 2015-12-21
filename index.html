@@ -8,7 +8,6 @@
         	<script>
             		function onLoad()
             		{
-				alert("start");
 				document.addEventListener("deviceready", onDeviceReady, false);
 				var refpdf;
 				var ref_param = 'location=no,zoom=no,hardwareback=yes,hidden=yes';
@@ -63,17 +62,19 @@
 				//$(document).ready(function(){
 				checkConnection();
 				// Register the event listener for backbutton
+				alert("onDeviceReady");
 				ref = cordova.InAppBrowser.open('http://mobile.fis-ski.com?inapp=true', '_self', ref_param);
 				ref.addEventListener('backbutton', onBackKeyDown, false);
+				alert("onDeviceReady2");
 				ref.addEventListener('loadstop', function(event) {
-				navigator.splashscreen.hide();
-				window.plugins.spinnerDialog.hide();
-				document.getElementById("rescuelink").innerHTML = 'Go to mobile.fis-ski.com';
-				ref.show();
-				ref.removeEventListener('loadstop');
-				ref.addEventListener('loadstop', function(event) {
-				    window.plugins.spinnerDialog.hide();
-				});
+					navigator.splashscreen.hide();
+					window.plugins.spinnerDialog.hide();
+					document.getElementById("rescuelink").innerHTML = 'Go to mobile.fis-ski.com';
+					ref.show();
+					ref.removeEventListener('loadstop');
+					ref.addEventListener('loadstop', function(event) {
+					    window.plugins.spinnerDialog.hide();
+					});
 				});
 				ref.addEventListener('loadstart', fct_loadstartpdf);
 				//});

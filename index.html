@@ -62,8 +62,9 @@
 				//$(document).ready(function(){
 				checkConnection();
 				// Register the event listener for backbutton
-				alert("onDeviceReady");
+				
 				ref = cordova.InAppBrowser.open('http://mobile.fis-ski.com?inapp=true', '_self', ref_param);
+				alert("onDeviceReady");
 				ref.addEventListener('backbutton', onBackKeyDown, false);
 				alert("onDeviceReady2");
 				ref.addEventListener('loadstop', function(event) {

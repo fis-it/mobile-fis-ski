@@ -59,8 +59,8 @@
                 //$(document).ready(function(){
                     checkConnection();
                     // Register the event listener for backbutton
-    		    document.addEventListener("backbutton", onBackKeyDown, false);
                     ref = cordova.InAppBrowser.open('http://mobile.fis-ski.com?inapp=true', '_self', ref_param);
+                    ref.addEventListener("backbutton", onBackKeyDown, false);
                     ref.addEventListener('loadstop', function(event) {
                         navigator.splashscreen.hide();
                         window.plugins.spinnerDialog.hide();

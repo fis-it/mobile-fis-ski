@@ -151,7 +151,7 @@
             // Handle the back button Android
 		function onBackKeyDown() {
 			//alert("onBackKeyDown");
-			//alert(window.location.href);
+			alert(window.location.href);
 		    if(document.getElementById('home') !== null || 
 	    		    document.getElementById('rescuelink') !== null ||
 		            window.location.href === "file:///android_asset/www/index.html" ||
@@ -175,7 +175,6 @@
 		                window.location.href !== "http://data.fis-ski.com/mobile/index.html"){
 		                	alert("back");
 		                window.history.back();
-		        }
 		    }
 		}
         </script>

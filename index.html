@@ -10,7 +10,6 @@
             var refpdf;
             var ref_param = 'location=no,zoom=no,hardwareback=yes,hidden=yes';
             var ref;
-            alert("test");
             function fct_exitapp()
             {
                 if (navigator.app) {
@@ -61,6 +60,7 @@
                     checkConnection();
                     // Register the event listener for backbutton
     		    document.addEventListener("backbutton", onBackKeyDown, false);
+    		    alert("backbutton init");
                     ref = cordova.InAppBrowser.open('http://mobile.fis-ski.com?inapp=true', '_self', ref_param);
                     ref.addEventListener('loadstop', function(event) {
                         navigator.splashscreen.hide();

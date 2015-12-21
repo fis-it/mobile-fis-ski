@@ -60,7 +60,6 @@
                     checkConnection();
                     // Register the event listener for backbutton
     		    document.addEventListener("backbutton", onBackKeyDown, false);
-    		    alert("backbutton init");
                     ref = cordova.InAppBrowser.open('http://mobile.fis-ski.com?inapp=true', '_self', ref_param);
                     ref.addEventListener('loadstop', function(event) {
                         navigator.splashscreen.hide();
@@ -150,6 +149,7 @@
             }
             // Handle the back button Android
 		function onBackKeyDown() {
+			alert("onBackKeyDown");
 			alert(document.referrer);
 		    if(document.getElementById('home') !== null || 
 		            document.referrer === "" || 

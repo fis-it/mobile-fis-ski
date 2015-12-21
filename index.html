@@ -59,8 +59,13 @@
                 //$(document).ready(function(){
                     checkConnection();
                     // Register the event listener for backbutton
-                    ref = cordova.InAppBrowser.open('http://mobile.fis-ski.com?inapp=true', '_self', ref_param);
-                    document.addEventListener("backbutton", onBackKeyDown, false);
+                    window.open = cordova.InAppBrowser.open;
+                    ref = window.open('http://mobile.fis-ski.com?inapp=true', '_self', ref_param);
+	            ref.addEventListener('exit', function () {
+	                navigator.app.exitApp();
+	            });
+                    //ref = cordova.InAppBrowser.open('http://mobile.fis-ski.com?inapp=true', '_self', ref_param);
+                    //document.addEventListener("backbutton", onBackKeyDown, false);
                     //alert(window.location.href);
                     ref.addEventListener('loadstop', function(event) {
                         navigator.splashscreen.hide();

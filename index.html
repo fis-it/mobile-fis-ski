@@ -149,6 +149,7 @@
             }
             // Handle the back button Android
 		function onBackKeyDown() {
+			alert(document.referrer);
 		    if(document.getElementById('home') !== null || 
 		            document.referrer === "" || 
 		            document.referrer === "http://mobile.fis-ski.com" || 
@@ -181,6 +182,7 @@
 		                window.location.href !== "" &&
 		                window.location.hfer !== "http://mobile.fis-ski.com" &&
 		                window.location.hfer !== "http://data.fis-ski.com/mobile/index.html"){
+		                	alert("back");
 		                window.history.back();
 		        }
 		    }

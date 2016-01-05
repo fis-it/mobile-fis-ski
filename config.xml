@@ -42,7 +42,7 @@
     <gap:plugin name="org.apache.cordova.network-information" />
     <!--<gap:plugin name="com.phonegap.plugins.childbrowser" />-->
     <plugin name="com.simplec.plugins.powermanagement" source="pgb" />
-    
+    <plugin name="ch.ti8m.documenthandler" source="pgb" />
     <plugin name="cordova-plugin-media" source="pgb" />
     <plugin name="net.bgta.phonegap.plugin.appversion" source="pgb" />
     <plugin name="cordova-plugin-inappbrowser" source="pgb" />

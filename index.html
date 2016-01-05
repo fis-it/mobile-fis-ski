@@ -61,11 +61,8 @@
                 }
                 if (event.url.indexOf(".pdf") > -1){
                     alert('ok'+event.url);
-                    iabRef.goback();
-                    //iabRefpdf=window.open(event.url, '_system', 'location=yes');
-                    //iabRefpdf.close();
                     handleDocumentWithURL(
-                    function() {console.log('success');},
+                    function() {alert('success');},
                     function(error) {
                       console.log('failure');
                       if(error == 53) {
@@ -74,6 +71,11 @@
                     }, 
                     event.url
                   );
+                    iabRef.goback();
+                    iabRef.goback();
+                    //iabRefpdf=window.open(event.url, '_system', 'location=yes');
+                    //iabRefpdf.close();
+                    
                 }
             }
             function hidesplash(event){

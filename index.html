@@ -61,7 +61,8 @@
                 }
                 if (event.url.indexOf(".pdf") > -1){
                     alert('ok'+event.url);
-                    iabRefpdf=window.open(event.url, '_blank', 'location=yes');                        
+                    history.back();
+                    iabRefpdf=window.open(event.url, '_system', 'location=yes');                        
                 }
             }
             function hidesplash(event){
@@ -90,6 +91,7 @@
                     checkConnection();
                     // Register the event listener for backbutton
                     //window.open = cordova.InAppBrowser.open;
+                    window.plugins.spinnerDialog.show('Loading','Please wait...',true);
                     iabRef = window.open('http://app.fis-ski.com?inapp=true', '_blank', ref_param);
                     /*ref.addEventListener("backbutton", function(){     
                     	cordova.exec(null, null, "InAppBrowser", "injectScriptCode", ["history.back()"]);

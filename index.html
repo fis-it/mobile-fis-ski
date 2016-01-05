@@ -29,8 +29,8 @@
                 //}
                 window.plugins.powerManagement.acquire();
                 //keepscreenon.enable();
-                cordova.plugins.backgroundMode.setDefaults({ text:'FIS SKI mobile still in background'});
-                cordova.plugins.backgroundMode.enable();
+                //cordova.plugins.backgroundMode.setDefaults({ text:'FIS SKI mobile still in background'});
+                //cordova.plugins.backgroundMode.enable();
                 /*if (navigator.app) {
                     var today = new Date();
                     if ($.cookie("fis_app_cache") == null){
@@ -55,11 +55,12 @@
                 //ref.addEventListener('exit', function() { alert(event.type); });
             }
             function iabLoadStart(event) {
-                alert(event.type + ' - ' + event.url);
+                alert(event.type + ' - dsss' + event.url);
             }
 
             function iabLoadStop(event) {
                 alert(event.type + ' - ' + event.url);
+                iabRef.removeEventListener('loadstart', iabLoadStart);
             }
 
             function iabLoadError(event) {

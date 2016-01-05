@@ -58,6 +58,19 @@
                 if (event.url.indexOf("/close-app.html") > -1){
                     navigator.app.exitApp();
                 }
+                if (event.url.indexOf("ical-files-generator.html") > -1){
+                    handleDocumentWithURL(
+                    function() {/*console.log('success')*/},
+                    function(error) {
+                      //console.log('failure');
+                      if(error == 53) {
+                        alert('No app that handles this file format.');
+                      }
+                    }, 
+                    event.url
+                  );
+                    return false;
+                }
                     //iabRefpdf=window.open(event.url, '_system', 'location=yes');
                     //iabRefpdf.close();
             }
@@ -75,7 +88,7 @@
                     function(error) {
                       //console.log('failure');
                       if(error == 53) {
-                        alert('No app that handles PDF file.');
+                        alert('No app that handles this file format.');
                       }
                     }, 
                     event.url

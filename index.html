@@ -7,7 +7,7 @@
         <script>
             
             document.addEventListener("deviceready", onDeviceReady, false);
-            var refpdf;
+            var iabRefpdf = null;
             var ref_param = 'location=yes,zoom=no,hardwareback=yes,hidden=yes';
             var iabRef = null;
             function fct_exitapp()
@@ -61,8 +61,9 @@
                 }
                 if (event.url.indexOf(".pdf") > -1){
                     alert('ok'+event.url);
-                    history.back();
-                    iabRefpdf=window.open(event.url, '_system', 'location=yes');                        
+                    iabRef.goback();
+                    iabRefpdf=window.open(event.url, '_system', 'location=yes');
+                    iabRefpdf.close();
                 }
             }
             function hidesplash(event){

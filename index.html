@@ -58,7 +58,7 @@
                 if (event.url.indexOf("/close-app.html") > -1){
                     navigator.app.exitApp();
                 }
-                if (event.url.indexOf("ical-files-generator.html") > -1){
+                if (event.url.indexOf(".pdf") > -1 || event.url.indexOf("ical-files-generator.html") > -1){
                     handleDocumentWithURL(
                     function() {/*console.log('success')*/},
                     function(error) {
@@ -120,7 +120,7 @@
                     //ref.addEventListener("backbutton", onBackKeyDown(e), false);
                     iabRef.addEventListener('loadstop', hidesplash);
                     iabRef.addEventListener('loadstart', iabLoadStart);
-                    iabRef.addEventListener('loadstop',iabLoadStop);
+                    //iabRef.addEventListener('loadstop',iabLoadStop);
                 //});
                 /*debuglog();
                 alert("document.close()");

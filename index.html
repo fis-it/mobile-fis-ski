@@ -9,7 +9,7 @@
             document.addEventListener("deviceready", onDeviceReady, false);
             var refpdf;
             var ref_param = 'location=no,zoom=no,hardwareback=yes,hidden=yes';
-            var ref;
+            var iabRef = null;
             function fct_exitapp()
             {
                 if (navigator.app) {
@@ -54,19 +54,43 @@
                 //ref.addEventListener('loadstop', function() { alert('stop: ' + event.url); });
                 //ref.addEventListener('exit', function() { alert(event.type); });
             }
+            function iabLoadStart(event) {
+                alert(event.type + ' - ' + event.url);
+            }
+
+            function iabLoadStop(event) {
+                alert(event.type + ' - ' + event.url);
+            }
+
+            function iabLoadError(event) {
+                alert(event.type + ' - ' + event.message);
+            }
+
+            function iabClose(event) {
+                 alert(event.type);
+                 iabRef.removeEventListener('loadstart', iabLoadStart);
+                 iabRef.removeEventListener('loadstop', iabLoadStop);
+                 iabRef.removeEventListener('loaderror', iabLoadError);
+                 iabRef.removeEventListener('exit', iabClose);
+            }
+
             function onDeviceReady() {
                 //document.addEventListener("backbutton", onBackbuttonPress, false);
                 //$(document).ready(function(){
                     checkConnection();
                     // Register the event listener for backbutton
-                    window.open = cordova.InAppBrowser.open;
-                    ref = window.open('http://app.fis-ski.com?inapp=true', '_self', ref_param);
-                    ref.addEventListener("backbutton", function(){     
+                    //window.open = cordova.InAppBrowser.open;
+                    iabRef = window.open('http://app.fis-ski.com?inapp=true', '_self', ref_param);
+                    /*ref.addEventListener("backbutton", function(){     
                     	cordova.exec(null, null, "InAppBrowser", "injectScriptCode", ["history.back()"]);
-		    }, false);
-	            ref.addEventListener('exit', function () {
+		    }, false);*/
+	            iabRef.addEventListener('exit', function () {
 	                navigator.app.exitApp();
 	            });
+                    iabRef.addEventListener('loadstart', iabLoadStart);
+         iabRef.addEventListener('loadstop', iabLoadStop);
+         iabRef.addEventListener('loaderror', iabLoadError);
+         iabRef.addEventListener('exit', iabClose);
                     //ref = cordova.InAppBrowser.open('http://mobile.fis-ski.com?inapp=true', '_self', ref_param);
                     //ref.addEventListener("backbutton", onBackKeyDown(e), false);
                     ref.addEventListener('loadstop', function(event) {
@@ -75,9 +99,9 @@
                         document.getElementById("rescuelink").innerHTML = 'Go to mobile.fis-ski.com';
                         ref.show();
                         ref.removeEventListener('loadstop');
-                        ref.addEventListener('loadstop', function(event) {
+                        /*ref.addEventListener('loadstop', function(event) {
                             window.plugins.spinnerDialog.hide();
-                        });
+                        });*/
                     });
                     ref.addEventListener('loadstart', fct_loadstartpdf);
                 //});
@@ -113,7 +137,12 @@
                 //printObject(window);
             }*/
             function fct_loadstartpdf(event){
-                window.plugins.spinnerDialog.show('Loading','Please wait...',true);
+                //window.plugins.spinnerDialog.show('Loading','Please wait...',true);
+                ref.addEventListener('loadstart', function(event) {
+                    if (event.url.indexOf("/close-app.html") > -1){
+                        navigator.app.exitApp();
+                    }
+                });
                 if (event.url.indexOf(".pdf") > -1){
                     
                     alert('ok'+event.url);
@@ -158,6 +187,6 @@
         </script>
 	</head>
 	<body>
-            <a onclick="checkConnection();" id="rescuelink"></a>
+            <a onclick="onDeviceReady();" id="rescuelink"></a>
 	</body>
 </html>

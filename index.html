@@ -8,7 +8,7 @@
             
             document.addEventListener("deviceready", onDeviceReady, false);
             var refpdf;
-            var ref_param = 'location=no,zoom=no,hardwareback=yes,hidden=yes';
+            var ref_param = 'location=yes,zoom=no,hardwareback=yes,hidden=yes';
             var iabRef = null;
             function fct_exitapp()
             {
@@ -80,7 +80,7 @@
                     checkConnection();
                     // Register the event listener for backbutton
                     //window.open = cordova.InAppBrowser.open;
-                    iabRef = window.open('http://app.fis-ski.com?inapp=true', '_self', ref_param);
+                    iabRef = window.open('http://app.fis-ski.com?inapp=true', '_blank', ref_param);
                     /*ref.addEventListener("backbutton", function(){     
                     	cordova.exec(null, null, "InAppBrowser", "injectScriptCode", ["history.back()"]);
 		    }, false);*/

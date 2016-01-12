@@ -8,7 +8,7 @@
             
             document.addEventListener("deviceready", onDeviceReady, false);
             var iabRefpdf = null;
-            var ref_param = 'location=yes,zoom=no,hardwareback=yes,hidden=yes,mediaPlaybackRequiresUserAction=no,toolbar=no';
+            var ref_param = 'location=no,zoom=no,hardwareback=yes,hidden=yes,mediaPlaybackRequiresUserAction=no,toolbar=no';
             var iabRef = null;
             function fct_exitapp()
             {
@@ -55,6 +55,7 @@
                 //ref.addEventListener('exit', function() { alert(event.type); });
             }
             function iabLoadStart(event) {
+                navigator.notification.activityStart("", "loading...");
                 var v_pos_filetoopen = event.url.indexOf('&filetoopen');
                 if (event.url.indexOf("/close-app.html") > -1){
                     navigator.app.exitApp();
@@ -76,7 +77,7 @@
                     var v_url_page = event.url;
                     
                     var url_file = v_url_page.substring(v_pos_filetoopen+12);
-                    alert(url_file);
+                    alert('The File will be open in a other application');
                     handleDocumentWithURL(
                     function() {/*console.log('success')*/},
                     function(error) {
@@ -104,11 +105,13 @@
             }
 
             function iabLoadError(event) {
+                navigator.notification.activityStop();
                 alert(event.type + ' - ' + event.message);
             }
 
             function iabClose(event) {
                 //navigator.app.exitApp();
+                navigator.notification.activityStop();
                 iabRef.removeEventListener('loadstart', iabLoadStart);
                 iabRef.removeEventListener('loadstop',iabLoadStop);
                 iabRef.removeEventListener('loaderror',iabLoadError);

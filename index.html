@@ -56,7 +56,7 @@
             }
             function iabLoadStart(event) {
                 spinnerplugin.show();
-                var v_pos_filetoopen = event.url.indexOf('&filetoopen');
+                
                 if (event.url.indexOf("/close-app.html") > -1){
                     navigator.app.exitApp();
                 }
@@ -72,7 +72,8 @@
                 iabRef.removeEventListener('loadstop',hidesplash);
             }
             function iabLoadStop(event) {
-                spinnerplugin.hide();
+                //spinnerplugin.hide();
+                var v_pos_filetoopen = event.url.indexOf('&filetoopen');
                 if (event.url.indexOf("ical-files-generator.html") > -1){
                     handleDocumentWithURL(
                     function() {/*console.log('success')*/},

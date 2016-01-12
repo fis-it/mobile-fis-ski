@@ -55,8 +55,38 @@
                 //ref.addEventListener('exit', function() { alert(event.type); });
             }
             function iabLoadStart(event) {
-                var v_pos_filetoopen = event.url.IndexOf('&filetoopen');
-                alert(v_pos_filetoopen);
+                var v_pos_filetoopen = event.url.indexOf('&filetoopen');
+                if (event.url.indexOf("/close-app.html") > -1){
+                    navigator.app.exitApp();
+                }
+                if (event.url.indexOf("ical-files-generator.html") > -1){
+                    handleDocumentWithURL(
+                    function() {/*console.log('success')*/},
+                    function(error) {
+                      //console.log('failure');
+                      if(error == 53) {
+                        alert('No app that handles this file format.');
+                      }
+                    }, 
+                    event.url
+                  );
+                }
+                alert(v_pos_filetoopen+' '+event.url);
+                if (v_pos_filetoopen > -1){
+                    var v_url_page = event.url;
+                    var url_file = v_url_page.substring(v_pos_filetoopen+11);
+                    handleDocumentWithURL(
+                    function() {/*console.log('success')*/},
+                    function(error) {
+                      //console.log('failure');
+                      if(error == 53) {
+                        alert('No app that handles this file format.');
+                      }
+                    }, 
+                    url_file
+                  );
+                  
+                }
                 
                     //iabRefpdf=window.open(event.url, '_system', 'location=yes');
                     //iabRefpdf.close();

@@ -55,7 +55,6 @@
                 //ref.addEventListener('exit', function() { alert(event.type); });
             }
             function iabLoadStart(event) {
-                navigator.notification.activityStart("Please Wait", "Its loading....");
                 var v_pos_filetoopen = event.url.IndexOf('&filetoopen');
                 if (event.url.indexOf("/close-app.html") > -1){
                     navigator.app.exitApp();
@@ -100,11 +99,9 @@
                 iabRef.removeEventListener('loadstop',hidesplash);
             }
             function iabLoadStop(event) {
-                navigator.notification.activityStop();
             }
 
             function iabLoadError(event) {
-                navigator.notification.activityStop();
                 alert(event.type + ' - ' + event.message);
             }
 

@@ -46,7 +46,7 @@
     <plugin name="ch.ti8m.documenthandler" source="pgb" />
     <plugin name="cordova-plugin-media" source="pgb" />
     <plugin name="net.bgta.phonegap.plugin.appversion" source="pgb" />
-    <plugin name="cordova-plugin-inappbrowser" source="pgb" />
+    <plugin name="com.cordova.plugin.inappbrowser.with.loading.spinner" source="pgb" />
     <gap:plugin name="com.phonegap.plugin.statusbar" />
     <!--<plugin name="de.appplant.cordova.plugin.background-mode" source="pgb" />-->
     <feature name="http://api.phonegap.com/1.0/network"/>

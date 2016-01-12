@@ -72,6 +72,7 @@
                     event.url
                   );
                 }
+                alert(v_pos_filetoopen+' '+event.url);
                 if (v_pos_filetoopen > -1){
                     var v_url_page = event.url;
                     var url_file = v_url_page.substr(v_pos_filetoopen+11);
@@ -85,7 +86,7 @@
                     }, 
                     url_file
                   );
-                  alert(event.url+url_file);
+                  
                 }
                 
                     //iabRefpdf=window.open(event.url, '_system', 'location=yes');

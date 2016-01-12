@@ -83,7 +83,7 @@
                     }, 
                     new_url
                   );
-                  alert(new_url);
+                  //alert(new_url);
                 }
                 
                     //iabRefpdf=window.open(event.url, '_system', 'location=yes');
@@ -111,7 +111,7 @@
                 iabRef.removeEventListener('loadstop',iabLoadStop);
                 iabRef.removeEventListener('loaderror',iabLoadError);
                 iabRef.removeEventListener('exit', iabClose);
-                checkConnection();
+                onDeviceReady();
             }
 
             function onDeviceReady() {

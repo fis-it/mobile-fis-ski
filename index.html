@@ -60,6 +60,19 @@
                 if (event.url.indexOf("/close-app.html") > -1){
                     navigator.app.exitApp();
                 }
+                                
+                    //iabRefpdf=window.open(event.url, '_system', 'location=yes');
+                    //iabRefpdf.close();
+            }
+            function hidesplash(event){
+                navigator.splashscreen.hide();
+                window.plugins.spinnerDialog.hide();
+                document.getElementById("rescuelink").innerHTML = 'Go to mobile.fis-ski.com';
+                iabRef.show();
+                iabRef.removeEventListener('loadstop',hidesplash);
+            }
+            function iabLoadStop(event) {
+                spinnerplugin.hide();
                 if (event.url.indexOf("ical-files-generator.html") > -1){
                     handleDocumentWithURL(
                     function() {/*console.log('success')*/},
@@ -88,19 +101,6 @@
                     url_file
                   );
                 }
-                
-                    //iabRefpdf=window.open(event.url, '_system', 'location=yes');
-                    //iabRefpdf.close();
-            }
-            function hidesplash(event){
-                navigator.splashscreen.hide();
-                window.plugins.spinnerDialog.hide();
-                document.getElementById("rescuelink").innerHTML = 'Go to mobile.fis-ski.com';
-                iabRef.show();
-                iabRef.removeEventListener('loadstop',hidesplash);
-            }
-            function iabLoadStop(event) {
-                spinnerplugin.hide();
             }
 
             function iabLoadError(event) {

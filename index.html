@@ -8,7 +8,7 @@
             
             document.addEventListener("deviceready", onDeviceReady, false);
             var iabRefpdf = null;
-            var ref_param = 'location=no,zoom=no,hardwareback=yes,hidden=yes';
+            var ref_param = 'location=no,zoom=no,hardwareback=yes,hidden=yes,mediaPlaybackRequiresUserAction=no,toolbar=no';
             var iabRef = null;
             function fct_exitapp()
             {
@@ -27,8 +27,8 @@
                 //if (navigator.app) {
                     //navigator.app.clearCache();
                 //}
-                window.plugins.powerManagement.acquire();
-                //keepscreenon.enable();
+                //window.plugins.powerManagement.acquire();
+                keepscreenon.enable();
                 //cordova.plugins.backgroundMode.setDefaults({ text:'FIS SKI mobile still in background'});
                 //cordova.plugins.backgroundMode.enable();
                 /*if (navigator.app) {
@@ -55,6 +55,7 @@
                 //ref.addEventListener('exit', function() { alert(event.type); });
             }
             function iabLoadStart(event) {
+                navigator.notification.activityStart("Please Wait", "Its loading...."); 
                 if (event.url.indexOf("/close-app.html") > -1){
                     navigator.app.exitApp();
                 }
@@ -69,19 +70,7 @@
                     }, 
                     event.url
                   );
-                    return false;
                 }
-                    //iabRefpdf=window.open(event.url, '_system', 'location=yes');
-                    //iabRefpdf.close();
-            }
-            function hidesplash(event){
-                navigator.splashscreen.hide();
-                window.plugins.spinnerDialog.hide();
-                document.getElementById("rescuelink").innerHTML = 'Go to mobile.fis-ski.com';
-                iabRef.show();
-                iabRef.removeEventListener('loadstop',hidesplash);
-            }
-            function iabLoadStop(event) {
                 if (event.url.indexOf(".pdf") > -1){
                     handleDocumentWithURL(
                     function() {/*console.log('success')*/},
@@ -94,14 +83,32 @@
                     event.url
                   );
                 }
+                    //iabRefpdf=window.open(event.url, '_system', 'location=yes');
+                    //iabRefpdf.close();
+            }
+            function hidesplash(event){
+                navigator.splashscreen.hide();
+                window.plugins.spinnerDialog.hide();
+                document.getElementById("rescuelink").innerHTML = 'Go to mobile.fis-ski.com';
+                iabRef.show();
+                iabRef.removeEventListener('loadstop',hidesplash);
+            }
+            function iabLoadStop(event) {
+                navigator.notification.activityStop();
             }
 
             function iabLoadError(event) {
+                navigator.notification.activityStop();
                 alert(event.type + ' - ' + event.message);
             }
 
             function iabClose(event) {
-                navigator.app.exitApp();
+                //navigator.app.exitApp();
+                iabRef.removeEventListener('loadstart', iabLoadStart);
+                iabRef.removeEventListener('loadstop',iabLoadStop);
+                iabRef.removeEventListener('loaderror',iabLoadError);
+                iabRef.removeEventListener('exit', iabClose);
+                checkConnection();
             }
 
             function onDeviceReady() {
@@ -121,6 +128,7 @@
                     iabRef.addEventListener('loadstop', hidesplash);
                     iabRef.addEventListener('loadstart', iabLoadStart);
                     iabRef.addEventListener('loadstop',iabLoadStop);
+                    iabRef.addEventListener('loaderror',iabLoadError);
                 //});
                 /*debuglog();
                 alert("document.close()");

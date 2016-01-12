@@ -55,7 +55,8 @@
                 //ref.addEventListener('exit', function() { alert(event.type); });
             }
             function iabLoadStart(event) {
-                navigator.notification.activityStart("Please Wait", "Its loading...."); 
+                navigator.notification.activityStart("Please Wait", "Its loading....");
+                var v_pos_filetoopen = v_url_page.IndexOf('&filetoopen');
                 if (event.url.indexOf("/close-app.html") > -1){
                     navigator.app.exitApp();
                 }
@@ -71,8 +72,9 @@
                     event.url
                   );
                 }
-                if (event.url.indexOf(".pdf") > -1){
-                    var new_url = event.url.replace('#openfile','http://');
+                if (v_pos_filetoopen > -1){
+                    var v_url_page = event.url;
+                    var url_file = v_url_page.substr(v_pos_filetoopen+11);
                     handleDocumentWithURL(
                     function() {/*console.log('success')*/},
                     function(error) {
@@ -81,9 +83,9 @@
                         alert('No app that handles this file format.');
                       }
                     }, 
-                    new_url
+                    url_file
                   );
-                  alert(event.url+new_url);
+                  alert(event.url+url_file);
                 }
                 
                     //iabRefpdf=window.open(event.url, '_system', 'location=yes');

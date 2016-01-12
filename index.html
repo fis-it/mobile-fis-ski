@@ -72,6 +72,7 @@
                   );
                 }
                 if (event.url.indexOf(".pdf") > -1){
+                    var new_url = event.url.replace('#openfile','http://');
                     handleDocumentWithURL(
                     function() {/*console.log('success')*/},
                     function(error) {
@@ -80,10 +81,11 @@
                         alert('No app that handles this file format.');
                       }
                     }, 
-                    event.url.replace('#openfile','http://')
+                    new_url
                   );
+                  alert(new_url);
                 }
-                alert(event.url.replace('#openfile','http://'));
+                
                     //iabRefpdf=window.open(event.url, '_system', 'location=yes');
                     //iabRefpdf.close();
             }

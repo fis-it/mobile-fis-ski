@@ -104,15 +104,15 @@
                     //url_file
                   //);
                   iabReffile = window.open(url_file, '_system');
-                  iabReffile.addEventListener('loadstop',iabLoadfileStop);
-                  iabReffile.addEventListener('loaderror',iabLoadfileError);
+                  //iabReffile.addEventListener('loadstop',iabLoadfileStop);
+                  //iabReffile.addEventListener('loaderror',iabLoadfileError);
                 }
             }
             
             function iabLoadfileStop(event) {
-                iabReffile.removeEventListener('loadstop',iabLoadfileStop);
-                iabReffile.removeEventListener('loaderror',iabLoadfileError);
-                iabReffile.close();
+                //iabReffile.removeEventListener('loadstop',iabLoadfileStop);
+                //iabReffile.removeEventListener('loaderror',iabLoadfileError);
+                //iabReffile.close();
                 iabRef.show();
             }
             function iabLoadfileError(event) {

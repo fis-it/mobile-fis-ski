@@ -73,6 +73,7 @@
             }
             function iabLoadStop(event) {
                 //spinnerplugin.hide();
+                spinnerplugin.hide();
                 var v_pos_filetoopen = event.url.indexOf('&filetoopen');
                 if (event.url.indexOf("ical-files-generator.html") > -1){
                     handleDocumentWithURL(
@@ -106,8 +107,9 @@
             }
 
             function iabLoadError(event) {
-                navigator.notification.activityStop();
+                //navigator.notification.activityStop();
                 alert(event.type + ' - ' + event.message);
+                 onDeviceReady();
             }
 
             function iabClose(event) {

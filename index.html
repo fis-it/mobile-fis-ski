@@ -113,11 +113,13 @@
                 iabReffile.removeEventListener('loadstop',iabLoadfileStop);
                 iabReffile.removeEventListener('loaderror',iabLoadfileStop);
                 iabReffile.close();
+                iabRef.show();
             }
             function iabLoadfileError(event) {
                 //navigator.notification.activityStop();
                 alert(event.type + ' - ' + event.message);
                 iabReffile.close();
+                iabRef.show();
             }
             function iabLoadError(event) {
                 //navigator.notification.activityStop();

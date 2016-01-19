@@ -105,19 +105,20 @@
                   //);
                   iabReffile = window.open(url_file, '_system');
                   //iabReffile.addEventListener('loadstop',iabLoadfileStop);
-                  //iabReffile.addEventListener('loaderror',iabLoadfileError);
+                  iabReffile.addEventListener('loaderror',iabLoadfileError);
+                  iabReffile.removeEventListener('exit', iabLoadfileStop);
                 }
             }
             
             function iabLoadfileStop(event) {
-                //iabReffile.removeEventListener('loadstop',iabLoadfileStop);
-                //iabReffile.removeEventListener('loaderror',iabLoadfileError);
-                //iabReffile.close();
+                alert('ôk');
+                iabReffile.removeEventListener('exit',iabLoadfileStop);
+                iabReffile.removeEventListener('loaderror',iabLoadfileError);
                 iabRef.show();
             }
             function iabLoadfileError(event) {
                 //navigator.notification.activityStop();
-                alert(event.type + ' - ' + event.message);
+                alert(event.type + ' file - ' + event.message);
                 iabReffile.close();
                 onDeviceReady();
             }

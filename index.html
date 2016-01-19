@@ -7,7 +7,7 @@
         <script>
             
             document.addEventListener("deviceready", onDeviceReady, false);
-            var iabRefpdf = null;
+            var iabReffile = null;
             var ref_param = 'location=no,zoom=no,hardwareback=yes,hidden=yes,mediaPlaybackRequiresUserAction=no,toolbar=no';
             var iabRef = null;
             function fct_exitapp()
@@ -27,7 +27,7 @@
                 //if (navigator.app) {
                     //navigator.app.clearCache();
                 //}
-                //window.plugins.powerManagement.acquire();
+                window.plugins.powerManagement.acquire();
                 keepscreenon.enable();
                 //cordova.plugins.backgroundMode.setDefaults({ text:'FIS SKI mobile still in background'});
                 //cordova.plugins.backgroundMode.enable();
@@ -59,6 +59,7 @@
                 
                 if (event.url.indexOf("/close-app.html") > -1){
                     navigator.app.exitApp();
+                    iabRef.close(); //For IOs
                 }
                                 
                     //iabRefpdf=window.open(event.url, '_system', 'location=yes');
@@ -75,18 +76,18 @@
                 //spinnerplugin.hide();
                 spinnerplugin.hide();
                 var v_pos_filetoopen = event.url.indexOf('&filetoopen');
-                if (event.url.indexOf("ical-files-generator.html") > -1){
-                    handleDocumentWithURL(
-                    function() {/*console.log('success')*/},
-                    function(error) {
+                //if (event.url.indexOf("ical-files-generator.html") > -1){
+                //    handleDocumentWithURL(
+                //    function() {/*console.log('success')*/},
+                //    function(error) {
                       //console.log('failure');
-                      if(error == 53) {
-                        alert('No app that handles this file format.');
-                      }
-                    }, 
-                    event.url
-                  );
-                }
+                //      if(error == 53) {
+                //        alert('No app that handles this file format.');
+                //      }
+                //    }, 
+                //    event.url
+                //  );
+                //}
                 
                 if (v_pos_filetoopen > -1){
                     var v_url_page = event.url;
@@ -102,10 +103,22 @@
                     //}, 
                     //url_file
                   //);
-                  iabRefpdf = window.open(url_file, '_system');
+                  iabReffile = window.open(url_file, '_system');
+                  iabReffile.addEventListener('loadstop',iabLoadfileStop);
+                  iabReffile.addEventListener('loaderror',iabLoadfileError);
                 }
             }
-
+            
+            function iabLoadfileStop(event) {
+                iabReffile.removeEventListener('loadstop',iabLoadfileStop);
+                iabReffile.removeEventListener('loaderror',iabLoadfileStop);
+                iabReffile.close();
+            }
+            function iabLoadfileError(event) {
+                //navigator.notification.activityStop();
+                alert(event.type + ' - ' + event.message);
+                iabReffile.close();
+            }
             function iabLoadError(event) {
                 //navigator.notification.activityStop();
                 alert(event.type + ' - ' + event.message);
@@ -127,7 +140,7 @@
                     checkConnection();
                     // Register the event listener for backbutton
                     //window.open = cordova.InAppBrowser.open;
-                    window.plugins.spinnerDialog.show('Loading','Please wait...',true);
+                    //window.plugins.spinnerDialog.show('Loading','Please wait...',true);
                     iabRef = window.open('http://mobile.fis-ski.com?inapp=true', '_blank', ref_param);
                     /*ref.addEventListener("backbutton", function(){     
                     	cordova.exec(null, null, "InAppBrowser", "injectScriptCode", ["history.back()"]);

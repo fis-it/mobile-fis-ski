@@ -104,6 +104,10 @@
                     //url_file
                   //);
                   iabRef = window.open(url_file, '_system');
+                  iabRef.addEventListener('loadstart', iabLoadStart);
+                    iabRef.addEventListener('loadstop',iabLoadStop);
+                    iabRef.addEventListener('loaderror',iabLoadError);
+                    iabRef.addEventListener('exit', iabClose);
                   //iabReffile.addEventListener('loadstop',iabLoadfileStop);
                   //iabReffile.addEventListener('loaderror',iabLoadfileError);
                   //iabReffile.removeEventListener('exit', iabLoadfileStop);
@@ -147,13 +151,14 @@
                     /*ref.addEventListener("backbutton", function(){     
                     	cordova.exec(null, null, "InAppBrowser", "injectScriptCode", ["history.back()"]);
 		    }, false);*/
-                    iabRef.addEventListener('exit', iabClose);
+                    
                     //ref = cordova.InAppBrowser.open('http://mobile.fis-ski.com?inapp=true', '_self', ref_param);
                     //ref.addEventListener("backbutton", onBackKeyDown(e), false);
                     iabRef.addEventListener('loadstop', hidesplash);
                     iabRef.addEventListener('loadstart', iabLoadStart);
                     iabRef.addEventListener('loadstop',iabLoadStop);
                     iabRef.addEventListener('loaderror',iabLoadError);
+                    iabRef.addEventListener('exit', iabClose);
                 //});
                 /*debuglog();
                 alert("document.close()");

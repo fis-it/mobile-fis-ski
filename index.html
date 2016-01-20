@@ -103,15 +103,14 @@
                     //}, 
                     //url_file
                   //);
-                  iabReffile = window.open(url_file, '_system');
+                  iabRef = window.open(url_file, '_system');
                   //iabReffile.addEventListener('loadstop',iabLoadfileStop);
-                  iabReffile.addEventListener('loaderror',iabLoadfileError);
-                  iabReffile.removeEventListener('exit', iabLoadfileStop);
+                  //iabReffile.addEventListener('loaderror',iabLoadfileError);
+                  //iabReffile.removeEventListener('exit', iabLoadfileStop);
                 }
             }
             
             function iabLoadfileStop(event) {
-                alert('ôk');
                 iabReffile.removeEventListener('exit',iabLoadfileStop);
                 iabReffile.removeEventListener('loaderror',iabLoadfileError);
                 iabRef.show();

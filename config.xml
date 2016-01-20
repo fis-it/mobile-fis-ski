@@ -73,5 +73,8 @@
     <gap:config-file platform="ios" parent="UIViewControllerBasedStatusBarAppearance">
         <false/>
     </gap:config-file>
-    <access origin="*" />
+    <plugin name="com.indigoway.cordova.whitelist.whitelistplugin" source="pgb" />
+    <access origin="*" browserOnly="true"/>
+    <allow-navigation href="*" />
+    <allow-intent href="*" />
 </widget>

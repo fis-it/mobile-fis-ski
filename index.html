@@ -92,25 +92,22 @@
                 if (v_pos_filetoopen > -1){
                     var v_url_page = event.url;
                     var url_file = v_url_page.substring(v_pos_filetoopen+12);
-                    //alert('The File will be open in a other application, tap OK and please wait.');
-                    //handleDocumentWithURL(
-                    //function() {/*console.log('success')*/},
-                    //function(error) {
+                    alert('The File will be open in a other application, tap OK and please wait.');
+                    handleDocumentWithURL(
+                    function() {/*console.log('success')*/},
+                    function(error) {
                       //console.log('failure');
-                    //  if(error == 53) {
-                    //    alert('No app that handles this file format.');
-                    //  }
-                    //}, 
-                    //url_file
-                  //);
-                  iabRef = window.open(url_file, '_system');
-                  iabRef.addEventListener('loadstart', iabLoadStart);
-                    iabRef.addEventListener('loadstop',iabLoadStop);
-                    iabRef.addEventListener('loaderror',iabLoadError);
-                    iabRef.addEventListener('exit', iabClose);
-                  //iabReffile.addEventListener('loadstop',iabLoadfileStop);
-                  //iabReffile.addEventListener('loaderror',iabLoadfileError);
-                  //iabReffile.removeEventListener('exit', iabLoadfileStop);
+                      if(error == 53) {
+                        alert('No app that handles this file format.');
+                      }
+                    }, 
+                    url_file
+                  );
+                  //iabRef = window.open(url_file, '_system');
+                  //iabRef.addEventListener('loadstart', iabLoadStart);
+                  //  iabRef.addEventListener('loadstop',iabLoadStop);
+                  //  iabRef.addEventListener('loaderror',iabLoadError);
+                  //  iabRef.addEventListener('exit', iabClose);
                 }
             }
             

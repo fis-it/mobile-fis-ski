@@ -76,18 +76,10 @@
                 //spinnerplugin.hide();
                 spinnerplugin.hide();
                 var v_pos_filetoopen = event.url.indexOf('&filetoopen');
-                //if (event.url.indexOf("ical-files-generator.html") > -1){
-                //    handleDocumentWithURL(
-                //    function() {/*console.log('success')*/},
-                //    function(error) {
-                      //console.log('failure');
-                //      if(error == 53) {
-                //        alert('No app that handles this file format.');
-                //      }
-                //    }, 
-                //    event.url
-                //  );
-                //}
+                
+                if (event.url.indexOf("?clearappcache=true") > -1){
+                    navigator.app.clearCache();
+                }
                 
                 if (v_pos_filetoopen > -1){
                     var v_url_page = event.url;

@@ -58,6 +58,7 @@
                 spinnerplugin.show();
                 
                 if (event.url.indexOf("/close-app.html") > -1){
+                    spinnerplugin.hide();
                     navigator.app.exitApp();
                     iabRef.close(); //For IOs
                 }

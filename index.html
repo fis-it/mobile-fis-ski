@@ -60,8 +60,8 @@
                 if (event.url.indexOf("/close-app.html") > -1){
                     spinnerplugin.hide();
                     if(navigator.app){
-                            //navigator.app.exitApp();
-                            App.exitApp();
+                            navigator.app.exitApp();
+                            //App.exitApp();
                     } else {
                         iabRef.close(); //For IOs
                     }

@@ -59,8 +59,12 @@
                 
                 if (event.url.indexOf("/close-app.html") > -1){
                     spinnerplugin.hide();
-                    navigator.app.exitApp();
-                    iabRef.close(); //For IOs
+                    if(navigator.app){
+                            //navigator.app.exitApp();
+                            App.exitApp();
+                    } else {
+                        iabRef.close(); //For IOs
+                    }
                 }
                                 
                     //iabRefpdf=window.open(event.url, '_system', 'location=yes');

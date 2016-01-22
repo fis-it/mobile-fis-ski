@@ -10,6 +10,7 @@
             var iabReffile = null;
             var ref_param = 'location=no,zoom=no,hardwareback=yes,hidden=yes,mediaPlaybackRequiresUserAction=no,toolbar=no';
             var iabRef = null;
+            var device_platform = null;
             function fct_exitapp()
             {
                 if (navigator.app) {
@@ -55,18 +56,19 @@
                 //ref.addEventListener('exit', function() { alert(event.type); });
             }
             function iabLoadStart(event) {
-                spinnerplugin.show();
-                
                 if (event.url.indexOf("/close-app.html") > -1){
                     spinnerplugin.hide();
                     if(navigator.app){
-                            navigator.app.exitApp();
-                            //App.exitApp();
+                        window.powerManagement.release();
+                        keepscreenon.disable();
+                        navigator.app.exitApp();
+                        //App.exitApp();
                     } else {
                         iabRef.close(); //For IOs
                     }
+                    return;
                 }
-                                
+                spinnerplugin.show();                
                     //iabRefpdf=window.open(event.url, '_system', 'location=yes');
                     //iabRefpdf.close();
             }
@@ -90,21 +92,24 @@
                     var v_url_page = event.url;
                     var url_file = v_url_page.substring(v_pos_filetoopen+12);
                     alert('The File will be open in a other application, tap OK and please wait.');
-                    handleDocumentWithURL(
-                    function() {/*console.log('success')*/},
-                    function(error) {
-                      //console.log('failure');
-                      if(error == 53) {
-                        alert('No app that handles this file format.');
-                      }
-                    }, 
-                    url_file
-                  );
-                  //iabRef = window.open(url_file, '_system');
-                  //iabRef.addEventListener('loadstart', iabLoadStart);
-                  //  iabRef.addEventListener('loadstop',iabLoadStop);
-                  //  iabRef.addEventListener('loaderror',iabLoadError);
-                  //  iabRef.addEventListener('exit', iabClose);
+                    if (device_platform != 'iOS'){
+                        handleDocumentWithURL(
+                            function() {/*console.log('success')*/},
+                            function(error) {
+                              //console.log('failure');
+                              if(error == 53) {
+                                alert('No app that handles this file format.');
+                              }
+                            }, 
+                            url_file
+                          );
+                    } else {
+                        iabRef = window.open(url_file, '_system');
+                        iabRef.addEventListener('loadstart', iabLoadStart);
+                        iabRef.addEventListener('loadstop',iabLoadStop);
+                        iabRef.addEventListener('loaderror',iabLoadError);
+                        iabRef.addEventListener('exit', iabClose);
+                    }
                 }
             }
             
@@ -138,6 +143,7 @@
                 //document.addEventListener("backbutton", onBackbuttonPress, false);
                 //$(document).ready(function(){
                     checkConnection();
+                    device_platform = device.platform;
                     // Register the event listener for backbutton
                     //window.open = cordova.InAppBrowser.open;
                     //window.plugins.spinnerDialog.show('Loading','Please wait...',true);

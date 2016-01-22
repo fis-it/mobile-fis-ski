@@ -48,6 +48,7 @@
     <plugin name="net.bgta.phonegap.plugin.appversion" source="pgb" />
     <plugin name="com.cordova.plugin.inappbrowser.with.loading.spinner" source="pgb" />
     <plugin name="it.mobimentum.phonegapspinnerplugin" source="pgb" />
+    <plugin name="org.apache.cordova.device" source="pgb" />
     <gap:plugin name="com.phonegap.plugin.statusbar" />
     <!--<plugin name="de.appplant.cordova.plugin.background-mode" source="pgb" />-->
     <feature name="http://api.phonegap.com/1.0/network"/>

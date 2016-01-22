@@ -59,7 +59,7 @@
                     spinnerplugin.hide();
                     if(navigator.app){
                         window.powerManagement.release();
-                        keepscreenon.disable();
+                        //keepscreenon.disable();
                         navigator.app.exitApp();
                         //App.exitApp();
                     } else {
@@ -90,7 +90,7 @@
                     window.plugins.powerManagement.acquire();
                     keepscreenon.enable();
                 } else {
-                    window.powerManagement.release();
+                    //window.powerManagement.release();
                     keepscreenon.disable();
                 }
                 if (v_pos_filetoopen > -1){

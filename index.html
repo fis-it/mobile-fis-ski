@@ -58,10 +58,10 @@
                 if (event.url.indexOf("/close-app.html") > -1){
                     spinnerplugin.hide();
                     if(navigator.app){
-                        window.powerManagement.release(function() {
-                            console.log('Wakelock released');
+                        window.powerManagement.dim(function() {
+                            console.log('Wakelock acquired');
                         }, function() {
-                            console.log('Failed to release wakelock');
+                            console.log('Failed to acquire wakelock');
                         });
                         keepscreenon.disable();
                         navigator.app.exitApp();

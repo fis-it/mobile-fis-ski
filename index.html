@@ -28,8 +28,7 @@
                 //if (navigator.app) {
                     //navigator.app.clearCache();
                 //}
-                window.plugins.powerManagement.acquire();
-                keepscreenon.enable();
+                
                 //cordova.plugins.backgroundMode.setDefaults({ text:'FIS SKI mobile still in background'});
                 //cordova.plugins.backgroundMode.enable();
                 /*if (navigator.app) {
@@ -87,7 +86,13 @@
                 if (event.url.indexOf("?clearappcache=true") > -1){
                     navigator.app.clearCache();
                 }
-                
+                if (event.url.indexOf("live.fis") > -1){
+                    window.plugins.powerManagement.acquire();
+                    keepscreenon.enable();
+                } else {
+                    window.powerManagement.release();
+                    keepscreenon.disable();
+                }
                 if (v_pos_filetoopen > -1){
                     var v_url_page = event.url;
                     var url_file = v_url_page.substring(v_pos_filetoopen+12);

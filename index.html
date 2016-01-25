@@ -92,10 +92,19 @@
                     //window.powerManagement.release();
                     keepscreenon.disable();
                 }
+                 function alertDismissed() {
+                    // do something
+                }
                 if (v_pos_filetoopen > -1){
                     var v_url_page = event.url;
                     var url_file = v_url_page.substring(v_pos_filetoopen+12);
-                    alert('The File will be open in a other application, tap OK and please wait.');
+                    //alert('The File will be open in a other application, tap OK and please wait.');
+                    navigator.notification.alert(
+                                                    'The File will be open in a other application, tap OK and please wait.',  // message
+                                                    alertDismissed,         // callback
+                                                    'FIS mobile',            // title
+                                                    'OK'                  // buttonName
+                                                );
                     if (device_platform != 'iOS'){
                         handleDocumentWithURL(
                             function() {/*console.log('success')*/},

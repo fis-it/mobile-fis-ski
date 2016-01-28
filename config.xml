@@ -50,7 +50,7 @@
     <plugin name="it.mobimentum.phonegapspinnerplugin" source="pgb" />
     <plugin name="org.apache.cordova.device" source="pgb" />
     <plugin name="cordova-plugin-dialogs" source="pgb" />
-    <gap:plugin name="com.phonegap.plugin.statusbar" />
+    <plugin name="com.phonegap.plugin.statusbar" source="pgb" />
     <!--<plugin name="de.appplant.cordova.plugin.background-mode" source="pgb" />-->
     <feature name="http://api.phonegap.com/1.0/network"/>
     <feature name="NetworkStatus">
@@ -75,6 +75,8 @@
     <gap:config-file platform="ios" parent="UIViewControllerBasedStatusBarAppearance">
         <false/>
     </gap:config-file>
+    <preference name="StatusBarOverlaysWebView" value="true" />
+    <preference name="StatusBarBackgroundColor" value="#ff0000" />
     <plugin name="com.indigoway.cordova.whitelist.whitelistplugin" source="pgb" />
     <access origin="*" browserOnly="true"/>
     <allow-navigation href="*" />

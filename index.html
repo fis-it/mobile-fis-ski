@@ -54,6 +54,13 @@
                 //ref.addEventListener('loadstop', function() { alert('stop: ' + event.url); });
                 //ref.addEventListener('exit', function() { alert(event.type); });
             }
+            function spinnershow(){
+                spinnerplugin.show({
+                    overlay: false,    // defaults to true
+                    timeout: 20,       // defaults to 0 (no timeout)
+                    fullscreen: false,  // defaults to false
+                });
+            }
             function iabLoadStart(event) {
                 if (event.url.indexOf("/close-app.html") > -1){
                     spinnerplugin.hide();
@@ -66,7 +73,7 @@
                     }
                     return;
                 }
-                spinnerplugin.show();                
+                spinnershow;                
                     //iabRefpdf=window.open(event.url, '_system', 'location=yes');
                     //iabRefpdf.close();
             }
@@ -93,7 +100,7 @@
                     keepscreenon.disable();
                 }
                  function alertDismissed() {
-                    // do something
+                    onDeviceReady();
                 }
                 if (v_pos_filetoopen > -1){
                     var v_url_page = event.url;
@@ -127,19 +134,32 @@
             }
             
             function iabLoadfileStop(event) {
+                spinnerplugin.hide();
                 iabReffile.removeEventListener('exit',iabLoadfileStop);
                 iabReffile.removeEventListener('loaderror',iabLoadfileError);
                 iabRef.show();
             }
             function iabLoadfileError(event) {
+                spinnerplugin.hide();
                 //navigator.notification.activityStop();
-                alert(event.type + ' file - ' + event.message);
+                navigator.notification.alert(
+                                                   event.type + ' file - ' + event.message,  // message
+                                                   alertDismissed,         // callback
+                                                   'FIS mobile',            // title
+                                                   'OK'                  // buttonName
+                                               );
                 iabReffile.close();
                 onDeviceReady();
             }
             function iabLoadError(event) {
+                spinnerplugin.hide();
                 //navigator.notification.activityStop();
-                alert(event.type + ' - ' + event.message);
+                navigator.notification.alert(
+                                                   event.type + ' - ' + event.message,  // message
+                                                   alertDismissed,         // callback
+                                                   'FIS mobile',            // title
+                                                   'OK'                  // buttonName
+                                               );
                  onDeviceReady();
             }
 

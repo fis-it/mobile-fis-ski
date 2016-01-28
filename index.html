@@ -56,9 +56,9 @@
             }
             function spinnershow(){
                 spinnerplugin.show({
-                    overlay: false,    // defaults to true
+                    overlay: true,    // defaults to true
                     timeout: 20,       // defaults to 0 (no timeout)
-                    fullscreen: false,  // defaults to false
+                    fullscreen: true,  // defaults to false
                 });
             }
             function iabLoadStart(event) {
@@ -73,7 +73,7 @@
                     }
                     return;
                 }
-                spinnershow;                
+                spinnershow();                
                     //iabRefpdf=window.open(event.url, '_system', 'location=yes');
                     //iabRefpdf.close();
             }

@@ -76,7 +76,7 @@
         <false/>
     </gap:config-file>
     <preference name="StatusBarOverlaysWebView" value="true" />
-    <preference name="StatusBarBackgroundColor" value="#ff0000" />
+   <!-- <preference name="StatusBarBackgroundColor" value="#ff0000" />-->
     <plugin name="com.indigoway.cordova.whitelist.whitelistplugin" source="pgb" />
     <access origin="*" browserOnly="true"/>
     <allow-navigation href="*" />

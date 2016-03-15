@@ -4,7 +4,7 @@
         id="com.fis-ski.mobile-fis-ski" 
         version="1.5.0" 
         versioncode="34">
-    <name>mobile.fis-ski.com</name>
+    <name>FIS Ski App</name>
     <description>Official web app of the FIS (International Ski Federation). Everything about the ski and snowboard World: Worldcup, Continental cup, every race level results, Live timing and live scoring, Calendar, News, Athletes Biographies, Cup standings.</description>
     <author href="http://www.fis-ski.com">
         FIS IT department
